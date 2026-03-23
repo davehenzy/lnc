@@ -396,6 +396,19 @@ function init3DStarfield() {
     animate();
 }
 
+// Audition Cards Convergence
+function initDistrictCards() {
+    gsap.to('.district-card', {
+        y: 0,
+        scrollTrigger: {
+            trigger: '.districts-grid',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: 1.5
+        }
+    });
+}
+
 // FAQ Accordion Interaction
 function initFAQ() {
     document.querySelectorAll('.faq-header').forEach(header => {

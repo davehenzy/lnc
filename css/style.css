@@ -585,6 +585,69 @@ nav {
 .contact-val { font-weight: 800; font-size: 1.1rem; margin-bottom: 15px; }
 .contact-email { opacity: 0.6; font-size: 0.9rem; margin-bottom: 6px; }
 
+/* Audition District Cards Grid */
+.districts-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.district-card {
+    position: relative;
+    height: 480px;
+    border-radius: 40px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease;
+    will-change: transform;
+}
+
+/* Physics-based stagger (Initial State for Convergence) */
+.district-card:nth-child(1) { transform: translateY(80px); }
+.district-card:nth-child(2) { transform: translateY(-50px); }
+.district-card:nth-child(3) { transform: translateY(120px); } /* Ikorodu stagger */
+.district-card:nth-child(4) { transform: translateY(-90px); }
+.district-card:nth-child(5) { transform: translateY(60px); }
+
+.district-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(11,17,16,0.9), transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s;
+}
+
+.district-overlay span {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Luminous Brand Shadows on Hover */
+.district-card:nth-child(1):hover { box-shadow: 0 40px 80px rgba(247, 148, 29, 0.3); transform: scale(1.02); }
+.district-card:nth-child(2):hover { box-shadow: 0 40px 80px rgba(236, 201, 75, 0.3); transform: scale(1.02); }
+.district-card:nth-child(3):hover { box-shadow: 0 40px 80px rgba(196, 244, 212, 0.4); transform: scale(1.02); } /* Ikorodu Glow */
+.district-card:nth-child(4):hover { box-shadow: 0 40px 80px rgba(41, 217, 213, 0.3); transform: scale(1.02); }
+.district-card:nth-child(5):hover { box-shadow: 0 40px 80px rgba(188, 119, 255, 0.3); transform: scale(1.02); }
+
+@media (max-width: 1024px) {
+    .districts-grid { grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .district-card { height: 350px; }
+    .district-card:nth-child(n) { transform: translateY(0); } /* Neutralize stagger on mobile */
+}
+
+@media (max-width: 768px) {
+    .districts-grid { grid-template-columns: 1fr; }
+}
+
 /* FAQ Accordion */
 .faq-container {
     display: flex;
