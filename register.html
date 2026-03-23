@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Lagos New Colossus - Season 11</title>
+    
+    <!-- Design System & Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/lnc-favicon.png" type="image/png">
+    
+    <!-- Smooth Scroll: Lenis -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script> 
+    <!-- Animation Engine: GSAP Premium (Local) -->
+    <script src="gsap-public/minified/gsap.min.js"></script>
+    <script src="gsap-public/minified/ScrollTrigger.min.js"></script>
+    <script src="gsap-public/minified/CustomEase.min.js"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --font-main: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-dark);
+            color: #fff;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .registration-page {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            min-height: 100vh;
+        }
+
+        /* Cinema Visual Side */
+        .reg-visual {
+            position: relative;
+            background-image: url('assets/images/hero_registration.png');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            border-right: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .reg-visual::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(11, 17, 16, 0.95) 90%);
+        }
+
+        .reg-visual-content {
+            position: absolute;
+            bottom: 100px;
+            left: 10%;
+            right: 10%;
+            z-index: 10;
+        }
+
+        /* Form Side */
+        .reg-form-container {
+            padding: 120px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .reg-form-glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 60px;
+            border-radius: 40px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            opacity: 0.5;
+            font-weight: 700;
+        }
+
+        .custom-input {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 18px 24px;
+            border-radius: 12px;
+            color: #fff;
+            font-family: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .custom-input:focus {
+            outline: none;
+            border-color: var(--betano-orange);
+            background: rgba(255,255,255,0.06);
+            box-shadow: 0 0 20px rgba(247, 148, 29, 0.2);
+        }
+
+        /* Dropdown Option Legibility Fix */
+        .custom-input option {
+            background-color: #111;
+            color: #fff;
+            padding: 10px;
+        }
+
+
+        .btn-submit {
+            width: 100%;
+            padding: 24px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--betano-orange), #ffc07a);
+            color: #fff;
+            border: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 20px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(247, 148, 29, 0.3);
+        }
+
+        @media (max-width: 1100px) {
+            .registration-page { grid-template-columns: 1fr; }
+            .reg-visual { height: 400px; }
+            .reg-visual::after { background: linear-gradient(to top, transparent, rgba(11, 17, 16, 0.9) 90%); }
+            .reg-form-container { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Simple Persistent Nav -->
+    <nav style="background: rgba(11,17,16,0.8); backdrop-filter: blur(10px); height: 80px; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+        <a href="index.html" style="text-decoration: none; font-family: 'Oswald', sans-serif; font-size: 1.4rem; color: #fff; letter-spacing: 2px;">LAGOS <span style="color: var(--mint);">COLOSSUS</span></a>
+        <a href="index.html" class="btn-apply" style="padding: 10px 25px; font-size: 0.8rem;">BACK TO ARENA</a>
+    </nav>
+
+    <div class="registration-page">
+        <!-- Visual Storyboard Side -->
+        <div class="reg-visual">
+            <div class="reg-visual-content">
+                <span class="slide-meta" style="color: var(--betano-orange);">MAY 23, 2026 DEADLINE</span>
+                <h1 style="font-size: clamp(3rem, 5vw, 5rem); line-height: 1; margin-bottom: 2rem;">THE CRUCIBLE <br>OF <span class="text-gradient">TITANS.</span></h1>
+                <p style="font-size: 1.25rem; opacity: 0.8; max-width: 500px;">Your journey to the N50,000,000 War Chest starts here. One application between you and history. Do you have the steel?</p>
+            </div>
+        </div>
+
+        <!-- High-Fidelity Form Side -->
+        <div class="reg-form-container">
+            <div class="reg-form-glass">
+                <form id="colossus-registration">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            <input type="text" class="custom-input" placeholder="Enter Legal Name" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Professional Email</label>
+                            <input type="email" class="custom-input" placeholder="name@company.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Primary Phone</label>
+                            <input type="tel" class="custom-input" placeholder="+234..." required>
+                        </div>
+                        <div class="input-group">
+                            <label>Age Readiness</label>
+                            <input type="number" class="custom-input" placeholder="18-40" min="18" max="40" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Business / Startup Vision</label>
+                        <input type="text" class="custom-input" placeholder="What value are you bringing to the Lagos sector?" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Location</label>
+                        <select class="custom-input">
+                            <option value="">Select a District</option>
+                            <option value="Ikeja">Ikeja</option>
+                            <option value="Badagry">Badagry</option>
+                            <option value="Ikorodu">Ikorodu</option>
+                            <option value="Lagos Island">Lagos Island</option>
+                            <option value="Epe">Epe</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Executive Video Pitch / Pitch Deck (Link)</label>
+                        <input type="url" class="custom-input" placeholder="YouTube, Drive, or WeTransfer Link">
+                    </div>
+
+                    <p style="font-size: 0.75rem; opacity: 0.4; line-height: 1.6; margin-bottom: 30px;">By submitting this application, you agree to the Terms of Selection and the Council of Titans' final decision. All information provided is strictly confidential.</p>
+
+                    <button type="submit" class="btn-submit">FORGE MY APPLICATION</button>
+                    
+                    <p style="text-align: center; margin-top: 30px; font-size: 0.8rem; opacity: 0.3; letter-spacing: 2px;">TRUSTED BY THE MINISTRY OF WEALTH CREATION</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smooth Transitions JS -->
+    <script>
+        const lenis = new Lenis();
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        // Submit Animation
+        document.getElementById('colossus-registration').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('.btn-submit');
+            btn.innerHTML = 'VALIDATING ENTITY...';
+            btn.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                alert('ENTITY VALIDATED. Your application has entered the Colossus Crucible. Initial screening results will arrive via email.');
+                window.location.href = 'index.html';
+            }, 2000);
+        });
+
+        // Entrance Animation
+        gsap.from('.reg-form-glass', {
+            y: 50,
+            opacity: 0,
+            duration: 1.5,
+            ease: "power4.out",
+            delay: 0.5
+        });
+        gsap.from('.reg-visual-content > *', {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.1,
+            ease: "power3.out"
+        });
+    </script>
+
+</body>
+</html>

@@ -34,6 +34,8 @@ function revealPage() {
         init3DIcons();
         initParallax();
         initMarquee();
+        initDistrictCards();
+        initFAQ();
     }, "-=1");
 }
 
@@ -86,22 +88,37 @@ function animateSlideIn(slide) {
     const meta = slide.querySelector('.slide-meta');
     const btn = slide.querySelector('a');
     
-    const splitTitle = new SplitText(title, { type: 'chars' });
+    // Ensure visibility is reset for the upcoming slide
+    gsap.set(slide, { visibility: 'visible' });
     
     const tl = gsap.timeline();
-    tl.fromTo(slide, { scale: 1.15 }, { scale: 1, duration: 8, ease: "power1.out" });
-    tl.fromTo(meta, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "<0.5");
-    tl.fromTo(splitTitle.chars, 
-        { y: 50, opacity: 0 }, 
-        { y: 0, opacity: 1, duration: 1, stagger: 0.03, ease: "power4.out" }, 
-        "-=0.8"
-    );
-    tl.fromTo([p, btn], 
-        { y: 30, opacity: 0 }, 
-        { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power3.out" }, 
-        "-=0.5"
-    );
+    // THE FIX: Animate BOTH local scale and global opacity for the slide
+    tl.fromTo(slide, { opacity: 0, scale: 1.15 }, { opacity: 1, scale: 1, duration: 2, ease: "power2.out" });
+    
+    // Background continue to slowly zoom for Ken Burns feel
+    gsap.to(slide, { scale: 0.98, duration: 10, ease: "power1.inOut", delay: 1 });
+    
+    if (meta) tl.fromTo(meta, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "<0.5");
+    
+    if (title) {
+        const splitTitle = new SplitText(title, { type: 'chars' });
+        tl.fromTo(splitTitle.chars, 
+            { y: 50, opacity: 0 }, 
+            { y: 0, opacity: 1, duration: 1, stagger: 0.03, ease: "power4.out" }, 
+            "-=0.8"
+        );
+    }
+    
+    if (p || btn) {
+        tl.fromTo([p, btn], 
+            { y: 30, opacity: 0 }, 
+            { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power3.out" }, 
+            "-=0.5"
+        );
+    }
 }
+
+
 
 function animateSlideOut(slide, callback) {
     gsap.to(slide, { 
@@ -123,7 +140,6 @@ function goToSlide(index) {
     dots.forEach(dot => dot.classList.remove('active'));
     dots[index].classList.add('active');
     animateSlideOut(prevSlide);
-    gsap.set(nextSlide, { visibility: 'visible', opacity: 1 });
     animateSlideIn(nextSlide);
     currentSlide = index;
     startProgress(index);
@@ -378,6 +394,38 @@ function init3DStarfield() {
         starsMesh.rotation.y += 0.0005; renderer.render(scene, camera);
     }
     animate();
+}
+
+// FAQ Accordion Interaction
+function initFAQ() {
+    document.querySelectorAll('.faq-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const item = header.parentElement;
+            const wasActive = item.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            
+            // Toggle clicked item
+            if (!wasActive) item.classList.add('active');
+        });
+    });
+}
+
+// District Cards Convergence Effect
+function initDistrictCards() {
+    gsap.utils.toArray('.district-card').forEach((card, i) => {
+        gsap.to(card, {
+            y: 0,
+            scrollTrigger: {
+                trigger: '#auditions',
+                start: "top 80%",
+                end: "bottom 60%",
+                scrub: 1.5,
+                toggleActions: "play reverse play reverse"
+            }
+        });
+    });
 }
 
 // Parallax Scrolling

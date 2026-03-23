@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eligibility | Lagos New Colossus - Season 11</title>
+    
+    <!-- Design System & Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/lnc-favicon.png" type="image/png">
+    
+    <!-- Smooth Scroll: Lenis -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script> 
+    <!-- Animation Engine: GSAP -->
+    <script src="gsap-public/minified/gsap.min.js"></script>
+    <script src="gsap-public/minified/ScrollTrigger.min.js"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        body {
+            background: var(--bg-dark);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .eligibility-hero {
+            height: 35vh;
+            background: linear-gradient(rgba(11,17,16,0.8), rgba(11,17,16,1)), url('assets/images/hero_colossus_destiny.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-bottom: 2px solid var(--betano-orange);
+        }
+
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+
+
+        .criteria-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 35px 30px;
+            border-radius: 40px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+        .criteria-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--betano-orange);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .criteria-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(247, 148, 29, 0.4);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .criteria-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: var(--betano-orange);
+            opacity: 0.8;
+        }
+
+        .criteria-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .criteria-card p {
+            opacity: 0.6;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .bottom-action {
+            text-align: center;
+            padding: 40px 5%;
+            background: linear-gradient(to top, rgba(247, 148, 29, 0.05), transparent);
+        }
+
+
+
+
+
+        @media (max-width: 768px) {
+            .eligibility-hero { height: 40vh; }
+            .criteria-grid { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Simple Nav -->
+    <nav style="background: rgba(11,17,16,0.8); backdrop-filter: blur(10px); height: 80px; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+        <a href="index.html" style="text-decoration: none; font-family: 'Oswald', sans-serif; font-size: 1.4rem; color: #fff; letter-spacing: 2px;">LAGOS <span style="color: var(--mint);">COLOSSUS</span></a>
+        <a href="register.html" class="btn-apply" style="padding: 10px 25px; font-size: 0.8rem;">READY TO APPLY?</a>
+    </nav>
+
+    <!-- Hero Header -->
+    <section class="eligibility-hero">
+        <div class="container">
+            <span class="slide-meta" style="color: var(--betano-orange);">THE COUNCIL'S DECREE</span>
+            <h1 style="font-size: clamp(3rem, 6vw, 6rem); line-height: 1;">THE CRITERIA <br>FOR <span class="text-mint">TITANS.</span></h1>
+            <p style="font-size: 1.4rem; opacity: 0.8; margin-top: 30px; max-width: 700px; margin-inline: auto;">Before you enter the arena, ensure you possess the steel required to compete at the highest level of industry.</p>
+        </div>
+    </section>
+
+    <!-- Criteria Grid -->
+    <section id="criteria">
+        <div class="criteria-grid">
+            <div class="criteria-card">
+                <i class="fas fa-id-card card-icon"></i>
+                <h3>AGE REQUIREMENT</h3>
+                <p>Applicants must be between the ages of 18 and 40. This reflects our mission to empower the next generation of industry leaders who will sculpt Africa's economic destiny.</p>
+            </div>
+
+            <div class="criteria-card">
+                <i class="fas fa-map-marked-alt card-icon"></i>
+                <h3>NIGERIAN IDENTITY</h3>
+                <p>While the business must be viable within the Lagos ecosystem, we welcome titans from across the federation. You must hold valid identity documents for Nigerian citizenship.</p>
+            </div>
+
+            <div class="criteria-card">
+                <i class="fas fa-lightbulb card-icon"></i>
+                <h3>BUSINESS FEASIBILITY</h3>
+                <p>You must possess a revolutionary business idea or an existing startup ready to scale. Projects are evaluated on Scalability, Audacity, Execution, and Impact.</p>
+            </div>
+
+            <div class="criteria-card">
+                <i class="fas fa-home card-icon"></i>
+                <h3>RESIDENCY</h3>
+                <p>The 12 finalists will be required to reside in the Colossus House for the full 8-week production period. Absence from the crucible is grounds for immediate elimination.</p>
+            </div>
+
+            <div class="criteria-card">
+                <i class="fas fa-video card-icon"></i>
+                <h3>ONLINE AUDITIONS</h3>
+                <p>All candidates must submit a high-impact, 60-second video pitch. Your ability to communicate vision under pressure is the first test of your titanic potential.</p>
+            </div>
+
+            <div class="criteria-card">
+                <i class="fas fa-check-double card-icon"></i>
+                <h3>CLEAN RECORD</h3>
+                <p>Consistency is key. Applicants must have a record free from financial impropriety or ethical violations, as they represent the future pillars of the Lagos economy.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Action -->
+    <section class="bottom-action">
+        <div class="container">
+            <h2 style="font-size: 3rem; margin-bottom: 40px;">DO YOU HAVE <span class="text-gradient">THE STEEL?</span></h2>
+            <a href="register.html" class="btn-cta" style="padding: 30px 100px; font-size: 1.5rem;">START YOUR APPLICATION</a>
+            <p style="margin-top: 40px; opacity: 0.4; letter-spacing: 2px;">REGISTRATION CLOSES MAY 23, 2026</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: 40px 5%; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; opacity: 0.6;">
+        <p style="font-size: 0.8rem; letter-spacing: 1px;">&copy; 2026 LAGOS NEW COLOSSUS. ALL RIGHTS RESERVED. <br>IN PARTNERSHIP WITH THE MINISTRY OF WEALTH CREATION.</p>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script>
+        const lenis = new Lenis();
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        // Entrance Stagger
+        gsap.from('.criteria-card', {
+            y: 50,
+            opacity: 0,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: "power4.out",
+            scrollTrigger: {
+                trigger: '.criteria-grid',
+                start: 'top 80%'
+            }
+        });
+    </script>
+</body>
+</html>
