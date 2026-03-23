@@ -181,9 +181,24 @@ function initMarquee() {
     });
 }
 
+// Mobile Menu Toggle
+const navToggle = document.querySelector('#nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        navToggle.classList.toggle('active');
+    });
+}
+
 // Click Transition Interception
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', (e) => {
+        // Close mobile menu if open
+        navLinks.classList.remove('active');
+        if(navToggle) navToggle.classList.remove('active');
+        
         const href = link.getAttribute('href');
         if (href.startsWith('#')) {
             e.preventDefault();
@@ -372,3 +387,9 @@ function initParallax() {
         gsap.to(el, { scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: true }, y: (i, t) => -150 * speed, ease: "none" });
     });
 }
+
+// Handle ScrollTrigger updates on resize
+window.addEventListener('resize', () => {
+    ScrollTrigger.refresh();
+});
+
