@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagos New Colossus - In a City Where Ambition Never Sleeps</title>
+    
+    <!-- Design System & Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/lnc-favicon.png" type="image/png">
+    
+    <!-- Smooth Scroll: Lenis -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script> 
+    <!-- Animation Engine: GSAP Premium (Local) -->
+    <script src="gsap-public/minified/gsap.min.js"></script>
+    <script src="gsap-public/minified/ScrollTrigger.min.js"></script>
+    <script src="gsap-public/minified/SplitText.min.js"></script>
+    <script src="gsap-public/minified/ScrollToPlugin.min.js"></script>
+    <script src="gsap-public/minified/ScrambleTextPlugin.min.js"></script>
+    <script src="gsap-public/minified/CustomEase.min.js"></script>
+    <!-- 3D Engine: Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Page Transition Curtain -->
+    <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-dark); z-index: 10000; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <div class="loader-content" style="text-align: center;">
+            <div id="loader-logo" style="font-family: var(--font-heading); font-weight: 900; font-size: 2rem; color: #fff; letter-spacing: 10px; opacity: 0;">LAGOS NEW COLOSSUS</div>
+            <div id="loader-progress" style="width: 0%; height: 2px; background: var(--betano-orange); margin-top: 20px;"></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <!-- In a real app, use the high-res SVG/PNG -->
+            <div style="font-family: var(--font-heading); font-weight: 800; font-size: 1.2rem; color: #fff;">
+                LAGOS <span class="text-mint">COLOSSUS</span>
+                <span style="display: block; font-size: 0.6rem; letter-spacing: 2px; opacity: 0.6;">THE HUSTLE. THE HEAT. THE RISE</span>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#mechanics">Format</a>
+            <a href="#structure">Winners</a>
+            <a href="#government">Partners</a>
+            <a href="#house">The House</a>
+            <button class="btn-apply">Apply Now</button>
+        </div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <section id="hero">
+        <div class="hero-slider">
+            <!-- Slide 1: Branding -->
+            <div class="h-slide active" style="background-image: url('https://images.unsplash.com/photo-1594911776711-bc660098f99e?q=80&w=2000');">
+                <div class="slide-overlay"></div>
+                <div class="container">
+                    <div class="content">
+                        <span class="slide-meta">THE ARENA OF AMBITION</span>
+                        <h1 class="text-gradient">BETANO <br>PRESENTS <span class="text-yellow">SEASON 11</span></h1>
+                        <p>Lagos New Colossus: Forge your legacy in the heart of Africa's most electrifying entrepreneurial furnace.</p>
+                        <a href="#about" class="btn-cta">Enter the Crucible</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Grand Prize -->
+            <div class="h-slide" style="background-image: url('assets/fifty_million_stake_1774139176708.png');">
+                <div class="slide-overlay"></div>
+                <div class="container">
+                    <div class="content">
+                        <span class="slide-meta">THE WAR CHEST</span>
+                        <div style="height: 100px;"></div> <!-- Clear space for the image text -->
+                        <p>Fuel your vision with the largest entrepreneurial stake in the history of the continent.</p>
+                        <a href="#" class="btn-apply">Claim the Stake</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Prize Breakdown -->
+            <div class="h-slide" style="background-image: url('assets/titan_trophy_prize_1774139514571.png');">
+                <div class="slide-overlay"></div>
+                <div class="container">
+                    <div class="content">
+                        <span class="slide-meta">TITAN MENTORSHIP</span>
+                        <h1>BEYOND <br><span class="text-yellow">THE CAPITAL</span></h1>
+                        <p>Access the boardroom secrets of Africa's elite moguls through personalized, high-stakes mentorship.</p>
+                        <a href="#mechanics" class="btn-cta">The Blueprint</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Registration -->
+            <div class="h-slide" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2000');">
+                <div class="slide-overlay"></div>
+                <div class="container">
+                    <div class="content">
+                        <span class="slide-meta">OPPORTUNITY</span>
+                        <h1>REGISTRATION <br><span class="text-yellow">IS LIVE</span></h1>
+                        <p>The furnace is heating up. Are you ready to forge your legacy in the heart of Lagos?</p>
+                        <a href="#" class="btn-apply" style="padding: 20px 50px; font-size: 1.1rem;">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Emotional Hook -->
+            <div class="h-slide" style="background-image: url('assets/titan_warrior_silhouette_1774139203855.png');">
+                <div class="slide-overlay"></div>
+                <div class="container">
+                    <div class="content">
+                        <span class="slide-meta">THE CHALLENGE</span>
+                        <h1>DO YOU HAVE <br><span class="text-yellow">WHAT IT TAKES?</span></h1>
+                        <p>Destiny favours the relentless. Join the most elite circle of African entrepreneurs.</p>
+                        <a href="#" class="btn-cta">Watch Teaser</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Dots -->
+            <div class="slider-nav">
+                <div class="dot active"><div class="progress"></div></div>
+                <div class="dot"><div class="progress"></div></div>
+                <div class="dot"><div class="progress"></div></div>
+                <div class="dot"><div class="progress"></div></div>
+                <div class="dot"><div class="progress"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" style="background-color: var(--bg-light); color: var(--text-dark); position: relative; overflow: hidden;">
+        <!-- 3D Canvas Background -->
+        <div id="three-canvas-container" style="position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.3;"></div>
+        
+        <div class="container" style="position: relative; z-index: 10;">
+            <h2 class="section-label" style="opacity: 0.2; font-size: 0.8rem; letter-spacing: 5px; margin-bottom: 2rem;">THE VISION</h2>
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start;">
+                <h2 class="text-gradient" style="margin-top: 0; line-height: 1.2; font-weight: 700;">
+                    LAGOS IS NOT JUST A LOCATION; IT IS A <span style="background: var(--bg-dark); color: #fff; padding: 0 15px;">CRUCIBLE</span> OF WEALTH.
+                </h2>
+                <div>
+                    <p style="margin-bottom: 2rem; font-size: 1.4rem;">In the heart of Africa's most electrifying city, a new age of ambition is rising.</p>
+                    <p style="opacity: 0.8; margin-bottom: 2rem;">Lagos is the epicentre of African entrepreneurs, the headquarters of wealth creation, and the home of Africa's richest entrepreneurs for both men and women.</p>
+                    <p style="opacity: 0.8;">Through high-stakes competition and strategic mentorship, we are creating more than a show; we are building a legacy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Infinite Marquee Slogan -->
+    <div class="marquee-section" style="padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); overflow: hidden; background: #000;">
+        <div class="marquee-inner" style="display: flex; white-space: nowrap; gap: 80px;">
+            <div style="font-family: var(--font-display); font-size: 8vw; opacity: 0.1; display: flex; gap: 80px;">
+                <span>THE HUSTLE. THE HEAT. THE RISE.</span>
+                <span>THE HUSTLE. THE HEAT. THE RISE.</span>
+                <span>THE HUSTLE. THE HEAT. THE RISE.</span>
+                <span>THE HUSTLE. THE HEAT. THE RISE.</span>
+            </div>
+            <div style="font-family: var(--font-display); font-size: 8vw; opacity: 0.1; display: flex; gap: 80px;">
+                <span>THE HUSTLE. THE HEAT. THE RISE.</span>
+                <span>THE HUSTLE. THE HEAT. THE RISE.</span>
+                <span>THE HUSTLE. THE HEAT. THE RISE.</span>
+                <span>THE HUSTLE. THE HEAT. THE RISE.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div style="max-width: 900px;">
+                <h2 class="text-mint">ARCHITECTING THE <br>NEW COLOSSUS</h2>
+                <div class="about-content" style="display: flex; gap: 60px; margin-top: 40px;">
+                    <div style="flex: 1;">
+                        <p style="font-size: 1.6rem; line-height: 1.4; margin-bottom: 2rem;">Lagos New Colossus is an 8-week high-stakes odyssey identifying the most audacious innovators in Africa's Silicon Valley.</p>
+                        <p style="color: var(--text-muted);">We don't just crown winners; we engineer the next vanguard of African industry leaders for a global stage.</p>
+                    </div>
+                    <div style="flex: 1;">
+                        <p style="margin-bottom: 2rem;">Through our immersive platform, we translate raw ambition into market-ready execution, providing direct structural support to over <span class="text-yellow">120 entrepreneurs</span>.</p>
+                        <p style="margin-bottom: 2rem;">This is more than a competition; it is a catalyst for economic gravity, centered in the wealth-creation headquarters of Nigeria.</p>
+                        <p>Guided by <span class="text-mint">The Council</span>: The moguls who redefined the African boardroom.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Show Mechanics -->
+    <section id="mechanics" style="background-color: var(--bg-accent);">
+        <div class="container">
+            <h2 style="margin-bottom: 60px;">THE SHOW <span class="text-mint">FORMAT</span></h2>
+            <div class="mechanics-grid">
+                <!-- Stage 1 -->
+                <div class="stage-card stage-1">
+                    <div class="card-icon-box">
+                        <div class="icon-3d-container" data-shape="octahedron"></div>
+                    </div>
+                    <h3>PRESS CONFERENCE</h3>
+                    <p>Official launching and media unveiling of the season's vision.</p>
+                </div>
+                <!-- Stage 2 -->
+                <div class="stage-card stage-2">
+                    <div class="card-icon-box">
+                        <div class="icon-3d-container" data-shape="box"></div>
+                    </div>
+                    <h3>REGISTRATION</h3>
+                    <p>4-week intensive call for entries across all Lagos districts.</p>
+                </div>
+                <!-- Stage 3 -->
+                <div class="stage-card stage-3">
+                    <div class="card-icon-box">
+                        <div class="icon-3d-container" data-shape="tetrahedron"></div>
+                    </div>
+                    <h3>AUDITIONS</h3>
+                    <p>Regional screenings to identify the most audacious concepts.</p>
+                </div>
+                <!-- Stage 4 -->
+                <div class="stage-card stage-4">
+                    <div class="card-icon-box">
+                        <div class="icon-3d-container" data-shape="icosahedron"></div>
+                    </div>
+                    <h3>BOOTCAMP</h3>
+                    <p>Top 150 candidates undergo rigorous training and selection.</p>
+                </div>
+                <!-- Stage 5 -->
+                <div class="stage-card stage-5">
+                    <div class="card-icon-box">
+                        <div class="icon-3d-container" data-shape="torus"></div>
+                    </div>
+                    <h3>GALA EVENT</h3>
+                    <p>Grand opening ceremony as finalists move into the House.</p>
+                </div>
+                <!-- Stage 6 -->
+                <div class="stage-card stage-6">
+                    <div class="card-icon-box">
+                        <div class="icon-3d-container" data-shape="dodecahedron"></div>
+                    </div>
+                    <h3>MAIN SHOW</h3>
+                    <p>8 weeks of tasks, boardroom battles, and national TV coverage.</p>
+                </div>
+                <!-- Stage 7 -->
+                <div class="stage-card stage-7">
+                    <div class="card-icon-box">
+                        <div class="icon-3d-container" data-shape="torusknot"></div>
+                    </div>
+                    <h3>GRAND FINALE</h3>
+                    <p>The ultimate live show where the New Colossus is crowned.</p>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Composition & Structure -->
+    <section id="structure" style="background: var(--bg-dark);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center;">
+                <div>
+                    <h2 class="text-yellow">120 TOTAL <br>WINNERS</h2>
+                    <p style="margin-bottom: 2rem;">A revolutionary structure designed to maximize entrepreneurial impact across Lagos.</p>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 20px;">
+                        <li style="display: flex; gap: 15px;">
+                            <span style="color: var(--betano-orange); font-weight: 800;">[+]</span>
+                            <div><strong>Bootcamp Stage:</strong> 100 Winners identified during the high-intensity training phase.</div>
+                        </li>
+                        <li style="display: flex; gap: 15px;">
+                            <span style="color: var(--betano-orange); font-weight: 800;">[+]</span>
+                            <div><strong>Main Show Stage:</strong> 20 Finalists battling in the Colossus House.</div>
+                        </li>
+                        <li style="display: flex; gap: 15px;">
+                            <span style="color: var(--betano-orange); font-weight: 800;">[+]</span>
+                            <div><strong>Mentorship:</strong> Post-show program with a 1:5 mentor-to-entrepreneur ratio.</div>
+                        </li>
+                    </ul>
+                </div>
+                <div style="background: var(--bg-accent); padding: 60px; border-radius: var(--border-radius); border: 1px solid rgba(255,255,255,0.05);">
+                    <h3 class="text-white">DEMOGRAPHY</h3>
+                    <div style="margin-top: 30px;">
+                        <h4 style="color: var(--betano-orange); font-size: 0.8rem; letter-spacing: 2px;">PRIMARY TARGET</h4>
+                        <p style="font-size: 1rem; opacity: 0.8;">Young Lagosians (20-45 yrs), Tech-savvy, Aspirational, and Early Adopters.</p>
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <h4 style="color: var(--betano-orange); font-size: 0.8rem; letter-spacing: 2px;">SECONDARY & TERTIARY</h4>
+                        <p style="font-size: 1rem; opacity: 0.8;">Investors, Professionals, Diaspora Africans, Creators, and Start-up Founders.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impacts Section -->
+    <section id="impacts">
+        <div class="container">
+            <h2>THE <span class="text-yellow">IMPACTS</span></h2>
+            <div class="impacts-list">
+                <div class="impact-item">
+                    <span style="font-size: 3rem; font-weight: 800; font-family: var(--font-heading); min-width: 150px;">500</span>
+                    <div>
+                        <h3>Entrepreneurs trained</h3>
+                        <p style="color: var(--text-muted);">Trained at the Pre-show stage across all districts.</p>
+                    </div>
+                </div>
+                <div class="impact-item">
+                    <span style="font-size: 3rem; font-weight: 800; font-family: var(--font-heading); min-width: 150px;">120</span>
+                    <div>
+                        <h3>Direct cash prizes</h3>
+                        <p style="color: var(--text-muted);">Entrepreneurs winning direct financial support.</p>
+                    </div>
+                </div>
+                <div class="impact-item">
+                    <span style="font-size: 3rem; font-weight: 800; font-family: var(--font-heading); min-width: 150px;">30+</span>
+                    <div>
+                        <h3>Industry Titans</h3>
+                        <p style="color: var(--text-muted);">Mentors providing high-level business guidance.</p>
+                    </div>
+                </div>
+                <div class="impact-item">
+                    <span style="font-size: 1.5rem; font-weight: 800; font-family: var(--font-heading); min-width: 150px;">GLOBAL STAGE</span>
+                    <div>
+                        <h3>Top 20 Showcased</h3>
+                        <p style="color: var(--text-muted);">Inspiring other young Lagosians to embrace entrepreneurship.</p>
+                    </div>
+                </div>
+                <div class="impact-item" style="border-bottom: 1px solid var(--yellow);">
+                    <span style="font-size: 1.5rem; font-weight: 800; font-family: var(--font-heading); min-width: 150px;">LEGACY</span>
+                    <div>
+                        <h3>Mindset Shift</h3>
+                        <p style="color: var(--text-muted);">Broadcasting dreams to millions of viewers across major TVs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Government Partnership -->
+    <section id="government" style="background: var(--bg-light); color: var(--text-dark); border-bottom: 2px solid var(--betano-orange);">
+        <div class="container">
+            <div style="display: flex; gap: 60px; align-items: center; text-align: center; flex-direction: column;">
+                <div style="text-align: center; max-width: 800px;">
+                    <h2 class="section-label" style="opacity: 0.2; font-size: 0.8rem; letter-spacing: 5px; margin-bottom: 2rem;">GOVERNMENT BACKED</h2>
+                    <h2 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 30px;">MINISTRY OF <br><span style="background: var(--bg-dark); color: #fff; padding: 0 15px;">WEALTH CREATION</span> <br>AND EMPLOYMENT</h2>
+                    <p style="font-size: 1.2rem; line-height: 1.6; opacity: 0.8;">Lagos State Government supports Lagos New Colossus as a strategic platform to accelerate entrepreneurship, job creation, and innovation across the state.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Collaborate? -->
+    <section id="benefits" style="background: var(--bg-accent); position: relative; overflow: hidden;">
+        <!-- Background Elements -->
+        <img src="assets/titan_warrior_silhouette_1774139203855.png" class="parallax-element" style="position: absolute; bottom: -10%; right: -5%; width: 40%; opacity: 0.1; filter: grayscale(1) brightness(0.5); pointer-events: none;" data-speed="-0.2">
+        <div id="benefits-3d-bg" style="position: absolute; top:0; left:0; width:100%; height:100%; z-index: 0; pointer-events: none; opacity: 0.2;"></div>
+
+        <div class="container">
+            <h2 style="margin-bottom: 60px;">WHY <span class="text-yellow">COLLABORATE?</span></h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div style="background: rgba(255,255,255,0.02); padding: 40px; border-radius: var(--border-radius); border-top: 4px solid var(--betano-orange);">
+                    <h4 style="margin-bottom: 20px;">MARKET ADVANTAGE</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">Early access to Nigeria's most promising young entrepreneurs and SMEs.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.02); padding: 40px; border-radius: var(--border-radius); border-top: 4px solid var(--betano-orange);">
+                    <h4 style="margin-bottom: 20px;">HIGH VISIBILITY</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">Brand placement within a high-impact, government-supported multimedia ecosystem.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.02); padding: 40px; border-radius: var(--border-radius); border-top: 4px solid var(--betano-orange);">
+                    <h4 style="margin-bottom: 20px;">ECONOMIC IMPACT</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">Directly supporting Lagos' vision to become Africa's leading entrepreneurial hub.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.02); padding: 40px; border-radius: var(--border-radius); border-top: 4px solid var(--betano-orange);">
+                    <h4 style="margin-bottom: 20px;">REAL ENGAGEMENT</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">Connect with youth, innovators, and consumers with measurable results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- House Section -->
+    <section id="house" style="background: var(--bg-light); color: var(--text-dark);">
+        <div class="container">
+            <h2 style="margin-bottom: 60px;">LIFE IN <br>THE <span class="text-mint" style="background: var(--bg-dark); color: #fff; padding: 0 10px;">COLOSSUS HOUSE</span></h2>
+            <div class="house-grid">
+                <div class="house-card">
+                    <img src="https://images.unsplash.com/photo-1598928636135-d146006ff4be?q=80&w=1200" alt="The Colossus House">
+                    <div class="house-card-content">
+                        <h3>THE COLOSSUS HOUSE</h3>
+                        <p>Where finalists reside, form alliances, and prepare for the challenges ahead.</p>
+                    </div>
+                </div>
+                <div class="house-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200" alt="The Arena & Tasks">
+                    <div class="house-card-content">
+                        <h3>THE ARENA & TASKS</h3>
+                        <p>Real-world business tasks designed to test resilience and execution.</p>
+                    </div>
+                </div>
+                <div class="house-card">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1200" alt="The Boardroom">
+                    <div class="house-card-content">
+                        <h3>THE BOARDROOM</h3>
+                        <p>Contestants defend their strategic decisions before "The Council".</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Producer Profile -->
+    <section id="producer" style="background: var(--bg-dark); overflow: hidden;">
+        <div class="container">
+            <div style="display: flex; gap: 80px; align-items: center;">
+                <div style="flex: 1;">
+                    <span class="slide-meta" style="color: var(--betano-orange);">THE ARCHITECTS OF AMBITION</span>
+                    <h2 class="text-gradient">ABOUT THE <br><span class="text-mint">PRODUCERS</span></h2>
+                    <p style="font-size: 1.4rem; margin-bottom: 2rem; border-left: 4px solid var(--betano-orange); padding-left: 30px;">Bravopoints International Limited is the premier media engine stimulating the heartbeat of African entrepreneurship.</p>
+                    <p style="opacity: 0.7; margin-bottom: 2rem;">As the creators of <strong>The Next Titan Nigeria</strong> (now in its 11th year of dominance), Bravopoints has bridged the gap between raw potential and industry giants.</p>
+                    <p style="opacity: 0.7;">With global recognition for "The Most Innovative Media Content," we have partnered with titans like MTN, Betano, Ford, and the Lagos State Government to redefine economic storytelling.</p>
+                </div>
+                <div style="flex: 0.8; position: relative;">
+                    <div style="background: var(--betano-orange); width: 100%; height: 500px; border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 4rem; font-weight: 900; color: #fff; letter-spacing: 5px;">BRAVOPOINTS</span>
+                    </div>
+                    <!-- Absolute decorative text -->
+                    <div style="position: absolute; bottom: -40px; right: -40px; font-size: 8rem; font-weight: 900; opacity: 0.05; pointer-events: none; white-space: nowrap;">EXCELLENCE</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" style="min-height: auto; padding: 100px 0; background: #000;">
+        <div class="container">
+            <h2 style="font-size: 1rem; opacity: 0.5; text-align: center; margin-bottom: 60px; letter-spacing: 5px;">OFFICIAL PARTNERS</h2>
+            <div class="partners-grid" style="display: flex; justify-content: center; align-items: center; gap: 80px; flex-wrap: wrap; opacity: 0.6; filter: grayscale(1);">
+                <!-- Placeholder logos -->
+                <div style="font-size: 1.5rem; font-weight: 800;">BETANO</div>
+                <div style="font-size: 1.5rem; font-weight: 800;">LASG</div>
+                <div style="font-size: 1.5rem; font-weight: 800;">LSETF</div>
+                <div style="font-size: 1.5rem; font-weight: 800;">TITAN</div>
+                <div style="font-size: 1.5rem; font-weight: 800;">LNC</div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 100px 0 60px; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;">
+            <div>
+                <h4 style="margin-bottom: 1.5rem; color: var(--betano-orange);">SPONSORSHIP & PARTNERSHIP</h4>
+                <p style="color: var(--text-light); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;">+234 703 801 1182</p>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+                    <li style="color: var(--text-muted); font-size: 0.9rem;">info@lagosnewcolossus.com</li>
+                    <li style="color: var(--text-muted); font-size: 0.9rem;">info.bravopoints@gmail.com</li>
+                    <li style="color: var(--text-muted); font-size: 0.9rem;">www.lagosnewcolossus.com</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1.5rem; color: var(--betano-orange);">GENERAL ENQUIRY</h4>
+                <p style="color: var(--text-light); font-weight: 700; font-size: 0.9rem; margin-bottom: 1rem;">LAGOS STATE GOVERNMENT</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Ministry of Wealth Creation and Employment</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Block 6, The Secretariat, Alausa, Ikeja, Lagos.</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Info@wealthcreation.lagosstate.gov.ng</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1.5rem; color: var(--betano-orange);">NAVIGATION</h4>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+                    <li><a href="#about" style="color: #fff; text-decoration: none; opacity: 0.7;">About</a></li>
+                    <li><a href="#mechanics" style="color: #fff; text-decoration: none; opacity: 0.7;">Mechanics</a></li>
+                    <li><a href="#impacts" style="color: #fff; text-decoration: none; opacity: 0.7;">Impacts</a></li>
+                    <li><a href="#house" style="color: #fff; text-decoration: none; opacity: 0.7;">The House</a></li>
+                </ul>
+            </div>
+        </div>
+        <p style="color: #444; font-size: 0.8rem; text-align: center; margin-top: 80px; letter-spacing: 2px;">THE HUSTLE. THE HEAT. THE RISE. AS AUDACIOUS AS LAGOS.</p>
+        <p style="color: #444; font-size: 0.7rem; text-align: center; margin-top: 10px;">&copy; 2026 LAGOS NEW COLOSSUS. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <!-- Main Animation Logic -->
+    <script src="js/main.js"></script>
+</body>
+</html>
