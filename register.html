@@ -41,7 +41,9 @@
 
         /* Cinema Visual Side */
         .reg-visual {
-            position: relative;
+            position: sticky;
+            top: 0;
+            height: 100vh;
             background-image: url('assets/images/hero_registration.png');
             background-size: cover;
             background-position: center;
@@ -69,7 +71,7 @@
             padding: 120px 10%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             position: relative;
         }
 
@@ -80,6 +82,7 @@
             padding: 60px;
             border-radius: 40px;
             box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            width: 100%;
         }
 
         .form-row {
@@ -128,6 +131,31 @@
             padding: 10px;
         }
 
+        textarea.custom-input {
+            height: 150px;
+            resize: none;
+        }
+
+        /* Support for File inputs */
+        input[type="file"].custom-input {
+            padding: 15px;
+            font-size: 0.8rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            opacity: 0.7;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .checkbox-group input {
+            margin-top: 4px;
+        }
 
         .btn-submit {
             width: 100%;
@@ -151,9 +179,10 @@
 
         @media (max-width: 1100px) {
             .registration-page { grid-template-columns: 1fr; }
-            .reg-visual { height: 400px; }
+            .reg-visual { height: 40vh; position: relative; sticky: unset; }
             .reg-visual::after { background: linear-gradient(to top, transparent, rgba(11, 17, 16, 0.9) 90%); }
             .reg-form-container { padding: 60px 5%; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
         }
     </style>
 </head>
@@ -179,51 +208,117 @@
         <div class="reg-form-container">
             <div class="reg-form-glass">
                 <form id="colossus-registration">
-                    <div class="form-row">
-                        <div class="input-group">
-                            <label>Full Name</label>
-                            <input type="text" class="custom-input" placeholder="Enter Legal Name" required>
-                        </div>
-                        <div class="input-group">
-                            <label>Professional Email</label>
-                            <input type="email" class="custom-input" placeholder="name@company.com" required>
-                        </div>
+                    <h2 style="font-family: 'Oswald', sans-serif; font-size: 2rem; margin-bottom: 40px; letter-spacing: 3px;">REGISTRATION <span class="text-gradient">FORM</span></h2>
+                    
+                    <div class="input-group">
+                        <label>Full Name*</label>
+                        <input type="text" class="custom-input" placeholder="Enter first name, middle name & last name" required>
                     </div>
 
                     <div class="form-row">
                         <div class="input-group">
-                            <label>Primary Phone</label>
-                            <input type="tel" class="custom-input" placeholder="+234..." required>
+                            <label>Email Address*</label>
+                            <input type="email" class="custom-input" placeholder="Enter valid email address" required>
                         </div>
                         <div class="input-group">
-                            <label>Age Readiness</label>
-                            <input type="number" class="custom-input" placeholder="18-40" min="18" max="40" required>
+                            <label>Phone Number*</label>
+                            <input type="tel" class="custom-input" placeholder="Enter valid phone number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Gender*</label>
+                            <select class="custom-input" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Marital Status*</label>
+                            <select class="custom-input" required>
+                                <option value="">Select Status</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Divorced">Divorced</option>
+                                <option value="Widow/Widower">Widow/Widower</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Date of Birth*</label>
+                            <input type="date" class="custom-input" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Highest Professional Qualification*</label>
+                            <input type="text" class="custom-input" placeholder="Enter recent professional qualification" required>
                         </div>
                     </div>
 
                     <div class="input-group">
-                        <label>Business / Startup Vision</label>
-                        <input type="text" class="custom-input" placeholder="What value are you bringing to the Lagos sector?" required>
+                        <label>Address*</label>
+                        <input type="text" class="custom-input" placeholder="Enter resident address" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Instagram Handle*</label>
+                            <input type="text" class="custom-input" placeholder="Enter Instagram Handle" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Preferred Audition Location*</label>
+                            <select class="custom-input" required>
+                                <option value="">Select a District</option>
+                                <option value="Ikeja">Ikeja</option>
+                                <option value="Badagry">Badagry</option>
+                                <option value="Ikorodu">Ikorodu</option>
+                                <option value="Lagos Island">Lagos Island</option>
+                                <option value="Epe">Epe</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="input-group">
-                        <label>Location</label>
-                        <select class="custom-input">
-                            <option value="">Select a District</option>
-                            <option value="Ikeja">Ikeja</option>
-                            <option value="Badagry">Badagry</option>
-                            <option value="Ikorodu">Ikorodu</option>
-                            <option value="Lagos Island">Lagos Island</option>
-                            <option value="Epe">Epe</option>
+                        <label>Describe Your Business Idea*</label>
+                        <textarea class="custom-input" placeholder="Provide a detailed overview of your vision..." required></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label>LASRRA Number</label>
+                        <span style="font-size: 0.7rem; opacity: 0.4; display: block; margin-top: -8px; margin-bottom: 12px;">(If unavailable, upload a recent Utility Bill as proof of residence)</span>
+                        <input type="text" class="custom-input" placeholder="Provide Valid LASRRA Number">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Utility Bill (Please must not exceed 2MB)</label>
+                        <input type="file" class="custom-input" accept="image/*, application/pdf">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Through which media channel did you hear about this show?*</label>
+                        <select class="custom-input" required>
+                            <option value="">Select Channel</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="TV">Television</option>
+                            <option value="Radio">Radio</option>
+                            <option value="Friends/Family">Friends / Family</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
 
                     <div class="input-group">
-                        <label>Executive Video Pitch / Pitch Deck (Link)</label>
-                        <input type="url" class="custom-input" placeholder="YouTube, Drive, or WeTransfer Link">
+                        <label>Profile Picture* (Please must not exceed 2MB)</label>
+                        <input type="file" class="custom-input" accept="image/*" required>
                     </div>
 
-                    <p style="font-size: 0.75rem; opacity: 0.4; line-height: 1.6; margin-bottom: 30px;">By submitting this application, you agree to the Terms of Selection and the Council of Titans' final decision. All information provided is strictly confidential.</p>
+                    <label class="checkbox-group">
+                        <input type="checkbox" required>
+                        <span>I have read and agreed to the <a href="#" style="color: var(--betano-orange);">Terms and Conditions</a> of Lagos New Colossus.</span>
+                    </label>
 
                     <button type="submit" class="btn-submit">FORGE MY APPLICATION</button>
                     
