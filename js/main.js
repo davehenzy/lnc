@@ -121,15 +121,21 @@ function animateSlideIn(slide) {
 
 
 function animateSlideOut(slide, callback) {
-    gsap.to(slide, { 
-        opacity: 0, 
-        duration: 1, 
-        ease: "power2.inOut", 
+    const meta = slide.querySelector('.slide-meta');
+    const title = slide.querySelector('h1');
+    const p = slide.querySelector('p');
+    const btn = slide.querySelector('a');
+    
+    const tl = gsap.timeline({
         onComplete: () => {
             gsap.set(slide, { visibility: 'hidden' });
             if (callback) callback();
         }
     });
+
+    // Fade out elements first for a cleaner exit
+    tl.to([meta, title, p, btn], { opacity: 0, y: -20, duration: 0.5, stagger: 0.05, ease: "power2.in" });
+    tl.to(slide, { opacity: 0, duration: 0.8, ease: "power2.inOut" }, "-=0.3");
 }
 
 function goToSlide(index) {
