@@ -2,17 +2,17 @@
 
 :root {
     /* Primary Colors */
-    --bg-dark: #0B1110;
-    --bg-light: #F8F9F8;
-    --bg-accent: #111D1A;
+    --bg-dark: #052b54; /* Navy Blue Base */
+    --bg-light: #ffffff; /* White */
+    --bg-accent: #0b3d75; /* Lighter Navy accent */
     
     /* Brand Colors */
-    --mint: #C4F4D4;
-    --yellow: #ECC94B;
-    --betano-orange: #F7941D;
+    --mint: #fec214; /* Swapped to Yellow Gold */
+    --yellow: #fec214; /* Yellow Gold */
+    --betano-orange: #fec214; /* Consistent with new gold theme */
     --titan-gold: #D4AF37;
-    --text-light: #FAF9F6;
-    --text-dark: #121212;
+    --text-light: #ffffff;
+    --text-dark: #000000;
     --text-muted: rgba(255, 255, 255, 0.6);
 
     /* Fonts */
@@ -69,13 +69,13 @@ p { font-size: clamp(1rem, 1.2vw, 1.25rem); max-width: 65ch; }
 .text-yellow { color: var(--yellow) !important; -webkit-text-fill-color: var(--yellow); }
 
 .text-gradient {
-    background: linear-gradient(135deg, var(--betano-orange) 0%, #fff 50%, var(--betano-orange) 100%);
+    background: linear-gradient(135deg, var(--betano-orange) 0%, #ffffff 50%, var(--betano-orange) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% auto;
     animation: shine 4s linear infinite;
-    display: inline-block; /* Ensure it wraps correctly */
+    display: inline-block;
 }
 
 /* Ensure SplitText characters inherit the gradient styling */
@@ -189,21 +189,21 @@ nav {
 /* Unified Button System */
 .btn-apply, .btn-cta {
     display: inline-block;
-    background: linear-gradient(135deg, var(--betano-orange) 0%, #ffc07a 50%, var(--betano-orange) 100%);
+    background: linear-gradient(135deg, var(--betano-orange) 0%, #fff 50%, var(--betano-orange) 100%);
     background-size: 200% auto;
-    color: #fff;
+    color: var(--bg-dark); /* Navy text on Gold button looks premium */
     padding: 16px 40px;
-    border-radius: 50px; /* Consistent Pill Shape */
-    font-weight: 800;
+    border-radius: 50px;
+    font-weight: 900;
     text-transform: uppercase;
     font-size: 0.95rem;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-decoration: none;
     transition: var(--transition-smooth);
     border: none;
     cursor: pointer;
     animation: shine 5s linear infinite;
-    box-shadow: 0 10px 20px rgba(247, 148, 29, 0.2);
+    box-shadow: 0 10px 40px rgba(254, 194, 20, 0.3);
 }
 
 .btn-apply:hover, .btn-cta:hover {
@@ -482,6 +482,49 @@ nav {
     opacity: 0.9 !important;
     visibility: visible !important;
     margin: 0 !important;
+}
+
+/* Infinite Partner Scroll */
+.partners-container {
+    overflow: hidden;
+    padding: 60px 0;
+    position: relative;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.partners-marquee {
+    display: inline-flex;
+    align-items: center;
+    gap: 80px;
+    animation: marquee-scroll 30s linear infinite;
+    min-width: 100%;
+}
+
+@keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.partner-logo {
+    flex-shrink: 0;
+    height: 50px;
+    width: auto;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    filter: brightness(0) invert(1);
+}
+
+.partner-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+    opacity: 0.5;
+    letter-spacing: 2px;
+}
+
+.partner-logo:hover, .partner-text:hover {
+    opacity: 1;
 }
 
 /* Audition District Cards */
