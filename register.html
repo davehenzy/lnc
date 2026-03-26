@@ -23,14 +23,16 @@
     <style>
         :root {
             --font-main: 'Inter', sans-serif;
+            --theme-accent: #2B6FFF;
         }
 
         body {
             font-family: var(--font-main);
-            background: var(--bg-dark);
-            color: #fff;
+            background: var(--bg-deep);
+            color: var(--text-light);
             margin: 0;
             overflow-x: hidden;
+            transition: background 0.6s ease;
         }
 
         .registration-page {
@@ -55,20 +57,20 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(6, 6, 8, 0.98) 95%);
+            background: linear-gradient(90deg, transparent, rgba(6, 6, 8, 1) 98%);
         }
 
         .reg-visual-content {
             position: absolute;
-            bottom: 100px;
+            bottom: 15%;
             left: 10%;
-            right: 10%;
+            right: 15%;
             z-index: 10;
         }
 
         /* Form Side */
         .reg-form-container {
-            padding: 120px 10%;
+            padding: 140px 10% 100px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -119,51 +121,21 @@
 
         .custom-input:focus {
             outline: none;
-            border-color: var(--betano-orange);
+            border-color: var(--theme-accent);
             background: rgba(255,255,255,0.06);
-            box-shadow: 0 0 20px rgba(247, 148, 29, 0.2);
+            box-shadow: 0 0 20px rgba(43, 111, 255, 0.2);
         }
 
-        /* Dropdown Option Legibility Fix */
-        .custom-input option {
-            background-color: #111;
-            color: #fff;
-            padding: 10px;
-        }
-
-        textarea.custom-input {
-            height: 150px;
-            resize: none;
-        }
-
-        /* Support for File inputs */
-        input[type="file"].custom-input {
-            padding: 15px;
-            font-size: 0.8rem;
-        }
-
-        .checkbox-group {
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-            margin-top: 20px;
-            margin-bottom: 40px;
-            opacity: 0.7;
-            font-size: 0.85rem;
-            cursor: pointer;
-        }
-
-        .checkbox-group input {
-            margin-top: 4px;
+        .checkbox-group a {
+            color: var(--theme-accent);
         }
 
         .btn-submit {
             width: 100%;
             padding: 24px;
             border-radius: 50px;
-            background: linear-gradient(135deg, #2F6FED 0%, #ffffff 50%, #2F6FED 100%);
-            background-size: 200% auto;
-            color: #060608;
+            background: linear-gradient(135deg, #2B6FFF 0%, #1a4fbb 100%);
+            color: #fff;
             border: none;
             font-weight: 800;
             text-transform: uppercase;
@@ -171,39 +143,52 @@
             cursor: pointer;
             transition: all 0.4s ease;
             margin-top: 20px;
-            animation: shine 5s linear infinite;
         }
 
         .btn-submit:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(254, 194, 20, 0.4);
+            box-shadow: 0 20px 40px rgba(43, 111, 255, 0.4);
+            background: linear-gradient(135deg, #3b7eff 0%, #2B6FFF 100%);
         }
 
         @media (max-width: 1100px) {
             .registration-page { grid-template-columns: 1fr; }
             .reg-visual { height: 40vh; position: relative; }
             .reg-visual::after { background: linear-gradient(to top, transparent, rgba(6, 6, 8, 0.9) 90%); }
-            .reg-form-container { padding: 60px 5%; }
+            .reg-form-container { padding: 120px 5% 60px; }
             .form-row { grid-template-columns: 1fr; gap: 0; }
         }
     </style>
 </head>
-<body>
+<body data-theme="hero">
 
-    <!-- Simple Persistent Nav -->
-    <nav style="background: rgba(6, 6, 8, 0.8); backdrop-filter: blur(10px); height: 80px; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
-        <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
-            <img src="assets/logos/LNC%20Logo%20Light.png" alt="Lagos Colossus Logo" style="height: 60px; width: auto;">
-        </a>
-        <a href="index.html" class="btn-apply" style="padding: 10px 25px; font-size: 0.8rem;">BACK TO ARENA</a>
+    <!-- Standardized Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/logos/LNC%20Logo%20Light.png" alt="Lagos New Colossus Logo" style="height: 60px; width: auto; display: block;">
+            </a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="eligibility.html">Eligibility</a>
+            <a href="index.html#government">Partners</a>
+            <a href="index.html#house">The House</a>
+            <a href="register.html" class="btn-apply active">Register</a>
+        </div>
     </nav>
 
     <div class="registration-page">
         <!-- Visual Storyboard Side -->
         <div class="reg-visual">
             <div class="reg-visual-content">
-                <span class="slide-meta" style="color: var(--betano-orange);">MAY 23, 2026 DEADLINE</span>
-                <h1 style="font-size: clamp(3rem, 5vw, 5rem); line-height: 1; margin-bottom: 2rem;">THE CRUCIBLE <br>OF <span class="text-gradient">TITANS.</span></h1>
+                <span class="slide-meta" style="color: var(--betano-orange);">.</span>
+                <h1 style="font-size: clamp(3rem, 5vw, 5rem); line-height: 1; margin-bottom: 2rem;">THE CRUCIBLE <br>OF <span class="text-gradient">LAGOS NEW COLOSSUS.</span></h1>
                 <p style="font-size: 1.25rem; opacity: 0.8; max-width: 500px;">Your journey to the N50,000,000 War Chest starts here. One application between you and history. Do you have the steel?</p>
             </div>
         </div>
@@ -321,7 +306,7 @@
 
                     <label class="checkbox-group">
                         <input type="checkbox" required>
-                        <span>I have read and agreed to the <a href="#" style="color: var(--betano-orange);">Terms and Conditions</a> of Lagos New Colossus.</span>
+                        <span>I have read and agreed to the <a href="#" style="color: var(--theme-accent);">Terms and Conditions</a> of Lagos New Colossus.</span>
                     </label>
 
                     <button type="submit" class="btn-submit">FORGE MY APPLICATION</button>
@@ -351,21 +336,26 @@
             }, 2000);
         });
 
+        // Mobile Menu Toggle
+        const navToggle = document.querySelector('#nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
+
         // Entrance Animation
-        gsap.from('.reg-form-glass', {
-            y: 50,
-            opacity: 0,
-            duration: 1.5,
-            ease: "power4.out",
-            delay: 0.5
-        });
-        gsap.from('.reg-visual-content > *', {
-            y: 30,
-            opacity: 0,
-            duration: 1,
-            stagger: 0.1,
-            ease: "power3.out"
-        });
+        const tl = gsap.timeline();
+        
+        gsap.set("nav", { y: -100, opacity: 0 });
+        gsap.set(".reg-visual-content > *", { opacity: 0, y: 30 });
+        gsap.set(".reg-form-glass", { opacity: 0, y: 50 });
+
+        tl.to("nav", { y: 0, opacity: 1, duration: 1.2, ease: "expo.out" })
+          .to(".reg-visual-content > *", { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: "power3.out" }, "-=0.6")
+          .to(".reg-form-glass", { opacity: 1, y: 0, duration: 1.5, ease: "expo.out" }, "-=0.8");
     </script>
 
     <footer style="padding: 40px 10%; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; opacity: 0.4;">
