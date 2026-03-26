@@ -599,13 +599,6 @@ nav {
 .districts-grid .district-card:nth-child(4) { transform: translateY(-20px); }
 .districts-grid .district-card:nth-child(5) { transform: translateY(90px); }
 
-.district-card:nth-child(1):hover { box-shadow: 0 40px 80px rgba(47, 111, 237, 0.4); transform: scale(1.02); }
-.district-card:nth-child(2):hover { box-shadow: 0 40px 80px rgba(91, 143, 245, 0.4); transform: scale(1.02); }
-.district-card:nth-child(3):hover { box-shadow: 0 40px 80px rgba(26, 79, 187, 0.4); transform: scale(1.02); }
-.district-card:nth-child(4):hover { box-shadow: 0 40px 80px rgba(79, 70, 229, 0.4); transform: scale(1.02); }
-.district-card:nth-child(5):hover { box-shadow: 0 40px 80px rgba(14, 165, 233, 0.4); transform: scale(1.02); }
-
-
 @media (max-width: 1024px) {
     .districts-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
 }
@@ -757,11 +750,11 @@ nav {
 }
 
 /* Luminous Brand Shadows on Hover */
-.district-card:nth-child(1):hover { box-shadow: 0 40px 80px rgba(47, 111, 237, 0.4); transform: scale(1.02); }
-.district-card:nth-child(2):hover { box-shadow: 0 40px 80px rgba(91, 143, 245, 0.4); transform: scale(1.02); }
-.district-card:nth-child(3):hover { box-shadow: 0 40px 80px rgba(26, 79, 187, 0.4); transform: scale(1.02); }
-.district-card:nth-child(4):hover { box-shadow: 0 40px 80px rgba(79, 70, 229, 0.4); transform: scale(1.02); }
-.district-card:nth-child(5):hover { box-shadow: 0 40px 80px rgba(14, 165, 233, 0.4); transform: scale(1.02); }
+.district-card:hover { 
+    box-shadow: 0 40px 80px var(--accent-muted); 
+    transform: scale(1.02); 
+    border: 1px solid var(--theme-accent);
+}
 
 @media (max-width: 1024px) {
     .districts-grid { grid-template-columns: repeat(3, 1fr); gap: 15px; }

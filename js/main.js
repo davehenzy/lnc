@@ -60,13 +60,20 @@ document.addEventListener('mousemove', (e) => {
     });
 });
 
-// Cursor Interactions
-document.querySelectorAll('a, button, .house-card').forEach(el => {
+// Custom Cursor Interactions
+const hoverTargets = 'a, button, .house-card, .district-card, .stage-card, .faq-header';
+document.querySelectorAll(hoverTargets).forEach(el => {
     el.addEventListener('mouseenter', () => {
         gsap.to(cursor, { scale: 3, backgroundColor: 'rgba(43, 111, 255, 0.4)' });
+        if (el.classList.contains('house-card') || el.classList.contains('district-card') || el.classList.contains('stage-card')) {
+            gsap.to(el, { y: -10, duration: 0.4, ease: "power2.out" });
+        }
     });
     el.addEventListener('mouseleave', () => {
         gsap.to(cursor, { scale: 1, backgroundColor: '#2B6FFF' });
+        if (el.classList.contains('house-card') || el.classList.contains('district-card') || el.classList.contains('stage-card')) {
+            gsap.to(el, { y: 0, duration: 0.4, ease: "power2.out" });
+        }
     });
 });
 
