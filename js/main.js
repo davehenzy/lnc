@@ -63,10 +63,10 @@ document.addEventListener('mousemove', (e) => {
 // Cursor Interactions
 document.querySelectorAll('a, button, .house-card').forEach(el => {
     el.addEventListener('mouseenter', () => {
-        gsap.to(cursor, { scale: 3, backgroundColor: 'rgba(196, 244, 212, 0.4)' });
+        gsap.to(cursor, { scale: 3, backgroundColor: 'rgba(43, 111, 255, 0.4)' });
     });
     el.addEventListener('mouseleave', () => {
-        gsap.to(cursor, { scale: 1, backgroundColor: '#C4F4D4' });
+        gsap.to(cursor, { scale: 1, backgroundColor: '#2B6FFF' });
     });
 });
 
@@ -233,17 +233,41 @@ document.querySelectorAll('nav a').forEach(link => {
     });
 });
 
-// Background Color Morphing
-const lightSections = ['#vision', '#government', '#house'];
-lightSections.forEach(selector => {
-    ScrollTrigger.create({
-        trigger: selector,
-        start: "top center",
-        end: "bottom center",
-        onEnter: () => gsap.to("body", { backgroundColor: "#F8F9F8", color: "#121212", duration: 0.8 }),
-        onLeaveBack: () => gsap.to("body", { backgroundColor: "#0B1110", color: "#F2F2F2", duration: 0.8 }),
-        onLeave: () => gsap.to("body", { backgroundColor: "#0B1110", color: "#F2F2F2", duration: 0.8 }),
-        onEnterBack: () => gsap.to("body", { backgroundColor: "#F8F9F8", color: "#121212", duration: 0.8 }),
+// Dynamic Theme & Side Nav Observer
+const themeSections = ['hero', 'vision', 'structure', 'impacts', 'government', 'faq', 'house', 'about', 'cta-final'];
+const sideDots = document.querySelectorAll('.side-dot');
+
+const themeObserverOptions = {
+    threshold: 0.5
+};
+
+const themeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const theme = entry.target.id === 'cta-final' ? 'cta' : entry.target.id;
+            document.body.dataset.theme = theme;
+            
+            // Update Side Dots
+            sideDots.forEach(dot => {
+                dot.classList.toggle('active', dot.dataset.target === entry.target.id);
+            });
+        }
+    });
+}, themeObserverOptions);
+
+themeSections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) themeObserver.observe(el);
+});
+
+// Side Nav Click Logic
+sideDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+        const targetId = dot.dataset.target;
+        const target = document.getElementById(targetId);
+        if (target) {
+            lenis.scrollTo(target, { offset: -20 }); // Small offset for breathing room
+        }
     });
 });
 
@@ -301,7 +325,7 @@ function init3D() {
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
-    const shard = new THREE.Mesh(new THREE.OctahedronGeometry(2, 0), new THREE.MeshStandardMaterial({ color: 0xF7941D, metalness: 0.9, roughness: 0.2 }));
+    const shard = new THREE.Mesh(new THREE.OctahedronGeometry(2, 0), new THREE.MeshStandardMaterial({ color: 0x2F6FED, metalness: 0.9, roughness: 0.2 }));
     scene.add(shard);
     scene.add(new THREE.AmbientLight(0xffffff, 0.5));
     const pointLight = new THREE.PointLight(0xffffff, 1); pointLight.position.set(5, 5, 5); scene.add(pointLight);
@@ -392,7 +416,7 @@ function init3DStarfield() {
     const posArray = new Float32Array(1000 * 3);
     for(let i=0; i < 3000; i++) { posArray[i] = (Math.random() - 0.5) * 50; }
     starsGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    const starsMesh = new THREE.Points(starsGeometry, new THREE.PointsMaterial({ size: 0.1, color: 0xF7941D }));
+    const starsMesh = new THREE.Points(starsGeometry, new THREE.PointsMaterial({ size: 0.1, color: 0x5B8FF5 }));
     scene.add(starsMesh);
     camera.position.z = 5;
     function animate() {
