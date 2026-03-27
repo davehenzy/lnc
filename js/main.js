@@ -241,7 +241,7 @@ document.querySelectorAll('nav a').forEach(link => {
 });
 
 // Dynamic Theme & Side Nav Observer
-const themeSections = ['hero', 'vision', 'structure', 'impacts', 'government', 'faq', 'house', 'about', 'cta-final'];
+const themeSections = ['hero', 'vision', 'about', 'structure', 'impacts', 'government', 'faq', 'house', 'cta-final'];
 const sideDots = document.querySelectorAll('.side-dot');
 
 const themeObserverOptions = {

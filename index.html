@@ -41,12 +41,12 @@
     <div id="side-nav">
         <div class="side-dot active" data-target="hero" data-label="Hero"></div>
         <div class="side-dot" data-target="vision" data-label="Vision"></div>
+        <div class="side-dot" data-target="about" data-label="About"></div>
         <div class="side-dot" data-target="structure" data-label="Structure"></div>
         <div class="side-dot" data-target="impacts" data-label="Impacts"></div>
         <div class="side-dot" data-target="government" data-label="Government"></div>
         <div class="side-dot" data-target="faq" data-label="FAQ"></div>
         <div class="side-dot" data-target="house" data-label="House"></div>
-        <div class="side-dot" data-target="about" data-label="About"></div>
         <div class="side-dot" data-target="cta-final" data-label="CTA"></div>
     </div>
 
@@ -195,7 +195,7 @@
     </div>
 
     <!-- Architecting Section -->
-    <section id="about-architecting">
+    <section id="about">
         <div class="container">
             <div style="max-width: 900px;">
                 <h2 class="text-mint">ARCHITECTING THE <br>NEW COLOSSUS</h2>
@@ -435,27 +435,7 @@
     </section>
 
 
-    <!-- Producer Profile (About) -->
-    <section id="about" style="overflow: hidden;">
-        <div class="container">
-            <div style="display: flex; gap: 80px; align-items: center;">
-                <div style="flex: 1;">
-                    <span class="slide-meta" style="color: var(--theme-accent);">THE ARCHITECTS OF AMBITION</span>
-                    <h2 class="text-gradient">ABOUT THE <br><span class="text-mint">PRODUCERS</span></h2>
-                    <p style="font-size: 1.4rem; margin-bottom: 2rem; border-left: 4px solid var(--theme-accent); padding-left: 30px;">Bravopoints International Limited is the premier media engine stimulating the heartbeat of African entrepreneurship.</p>
-                    <p style="opacity: 0.7; margin-bottom: 2rem;">As the creators of <strong>The Next Titan Nigeria</strong> (now in its 1st year of dominance), Bravopoints has bridged the gap between raw potential and industry giants.</p>
-                    <p style="opacity: 0.7;">With global recognition for "The Most Innovative Media Content," we have partnered with titans like MTN, Betano, Ford, and the Lagos State Government to redefine economic storytelling.</p>
-                </div>
-                <div style="flex: 0.8; position: relative;">
-                    <div style="background: var(--theme-accent); width: 100%; height: 500px; border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; transition: background 0.3s ease;">
-                        <span style="font-size: 4rem; font-weight: 900; color: #fff; letter-spacing: 5px;">BRAVOPOINTS</span>
-                    </div>
-                    <!-- Absolute decorative text -->
-                    <div style="position: absolute; bottom: -40px; right: -40px; font-size: 8rem; font-weight: 900; opacity: 0.05; pointer-events: none; white-space: nowrap;">EXCELLENCE</div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Partners Section -->
     <section id="partners" style="min-height: auto; padding: 40px 0; background: var(--bg-deep); border-top: 1px solid rgba(255,255,255,0.05);">
@@ -485,18 +465,26 @@
     </section>
 
     <!-- Final CTA Section -->
-    <section id="cta-final" style="background: linear-gradient(to bottom, var(--bg-deep), #000); text-align: center; padding: 80px 5%; overflow: hidden;">
+    <section id="cta-final" style="background: linear-gradient(to bottom, var(--bg-deep), #000); padding: 120px 5%; overflow: hidden;">
         <div class="container" style="position: relative; z-index: 10;">
-            <span class="slide-meta" style="color: var(--theme-accent); margin-bottom: 2rem;">THE FINAL CALL</span>
-            <h2 class="text-gradient" style="font-size: clamp(3rem, 8vw, 6rem); line-height: 1; margin-bottom: 30px;">THE ARENA <br>IS WAITING.</h2>
-            <p style="margin: 0 auto 50px; font-size: 1.4rem; opacity: 0.8; max-width: 800px;">May 23, 2026. The furnace Ignites. Will you be among the 120 Colossus winners, or will you watch from the sidelines?</p>
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="register.html" class="btn-cta" style="padding: 25px 60px; font-size: 1.2rem;">REGISTER</a>
-                <a href="eligibility.html" class="btn-apply" style="padding: 25px 60px; font-size: 1.2rem; background: transparent; border: 1px solid var(--mint); color: var(--mint);">VIEW ELIGIBILITY</a>
+            <div style="display: flex; gap: 80px; align-items: center; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px;">
+                    <span class="slide-meta" style="color: var(--theme-accent);">THE FINAL CALL</span>
+                    <h2 class="text-gradient">THE ARENA <br><span class="text-mint">IS WAITING.</span></h2>
+                    <p style="font-size: 1.4rem; margin-bottom: 2rem; border-left: 4px solid var(--theme-accent); padding-left: 30px;">May 23, 2026. The furnace Ignites. Will you be among the 120 Colossus winners, or will you watch from the sidelines?</p>
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <a href="register.html" class="btn-cta" style="padding: 20px 50px; font-size: 1.1rem;">REGISTER</a>
+                        <a href="eligibility.html" class="btn-apply" style="padding: 20px 50px; font-size: 1.1rem; background: transparent; border: 1px solid var(--mint); color: var(--mint);">VIEW ELIGIBILITY</a>
+                    </div>
+                </div>
+                <div style="flex: 0.8; position: relative; min-width: 300px;">
+                    <div style="background: var(--theme-accent); width: 100%; height: 400px; border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center; transition: background 0.3s ease;">
+                        <span style="font-size: 4rem; font-weight: 900; color: #fff; letter-spacing: 5px; text-align: center; line-height: 1;">JOIN <br>NOW</span>
+                    </div>
+                    <!-- Absolute decorative text -->
+                    <div style="position: absolute; bottom: -40px; right: -40px; font-size: 8rem; font-weight: 900; opacity: 0.05; pointer-events: none; white-space: nowrap;">COLOSSUS</div>
+                </div>
             </div>
-
-
-            <!-- <p style="margin-top: 40px; font-size: 0.8rem; letter-spacing: 2px; opacity: 0.4; text-transform: uppercase;">Registration Closes at Midnight. No Exceptions.</p> -->
         </div>
         <!-- Decorative bg Shards -->
         <div class="cta-shards"></div>
