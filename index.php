@@ -279,7 +279,7 @@
 
   <!-- Hero Section -->
   <section class="relative w-full pt-[112px] md:pt-[130px] overflow-hidden bg-[#0a1628]">
-    <div class="relative w-full aspect-[16/9] md:aspect-[21/9] group shadow-2xl shadow-black/80">
+    <div class="relative w-full aspect-[1920/742] group shadow-2xl shadow-black/80">
       <!-- Premium background slider -->
       <div class="absolute inset-0 z-0 bg-[#0a1628] overflow-hidden">
         <div id="slide-track">
