@@ -34,7 +34,7 @@ function revealPage() {
         init3DIcons();
         initParallax();
         initMarquee();
-        initDistrictCards();
+        initEligibility();
         initFAQ();
     }, "-=1");
 }
@@ -61,17 +61,25 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // Custom Cursor Interactions
-const hoverTargets = 'a, button, .house-card, .district-card, .stage-card, .faq-header';
+const hoverTargets = 'a, button, .house-card, .eligibility-card, .stage-card, .faq-header';
 document.querySelectorAll(hoverTargets).forEach(el => {
     el.addEventListener('mouseenter', () => {
-        gsap.to(cursor, { scale: 3, backgroundColor: 'rgba(43, 111, 255, 0.4)' });
-        if (el.classList.contains('house-card') || el.classList.contains('district-card') || el.classList.contains('stage-card')) {
+        gsap.to(cursor, { 
+            scale: 3, 
+            backgroundColor: 'rgba(234, 179, 8, 0.4)', // Arinzo Gold Alpha
+            duration: 0.3 
+        });
+        if (el.classList.contains('house-card') || el.classList.contains('eligibility-card') || el.classList.contains('stage-card')) {
             gsap.to(el, { y: -10, duration: 0.4, ease: "power2.out" });
         }
     });
     el.addEventListener('mouseleave', () => {
-        gsap.to(cursor, { scale: 1, backgroundColor: '#2B6FFF' });
-        if (el.classList.contains('house-card') || el.classList.contains('district-card') || el.classList.contains('stage-card')) {
+        gsap.to(cursor, { 
+            scale: 1, 
+            backgroundColor: '#EAB308', // Arinzo Gold
+            duration: 0.3 
+        });
+        if (el.classList.contains('house-card') || el.classList.contains('eligibility-card') || el.classList.contains('stage-card')) {
             gsap.to(el, { y: 0, duration: 0.4, ease: "power2.out" });
         }
     });
@@ -108,12 +116,17 @@ function animateSlideIn(slide) {
     if (meta) tl.fromTo(meta, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "<0.5");
     
     if (title) {
-        const splitTitle = new SplitText(title, { type: 'chars' });
-        tl.fromTo(splitTitle.chars, 
-            { y: 50, opacity: 0 }, 
-            { y: 0, opacity: 1, duration: 1, stagger: 0.03, ease: "power4.out" }, 
-            "-=0.8"
-        );
+        tl.to(title, { 
+            scrambleText: { 
+                text: title.innerText, 
+                chars: "0123456789ABCDEF!@#$%^&*", 
+                revealDelay: 0.5, 
+                speed: 0.3 
+            }, 
+            duration: 1.5, 
+            opacity: 1,
+            ease: "power2.out"
+        }, "-=0.5");
     }
     
     if (p || btn) {
@@ -140,9 +153,11 @@ function animateSlideOut(slide, callback) {
         }
     });
 
-    // Fade out elements first for a cleaner exit
+    // Cinematic Glitch Exit
+    tl.to(slide, { filter: "brightness(2) contrast(3) grayscale(1)", duration: 0.1 });
+    tl.to(slide, { x: 2, y: -2, duration: 0.05, repeat: 3, yoyo: true });
     tl.to([meta, title, p, btn], { opacity: 0, y: -20, duration: 0.5, stagger: 0.05, ease: "power2.in" });
-    tl.to(slide, { opacity: 0, duration: 0.8, ease: "power2.inOut" }, "-=0.3");
+    tl.to(slide, { opacity: 0, filter: "brightness(1) contrast(1) grayscale(0)", duration: 0.5, ease: "power2.inOut" }, "-=0.3");
 }
 
 function goToSlide(index) {
@@ -189,6 +204,12 @@ document.querySelectorAll('.btn-apply, .btn-cta').forEach(btn => {
             y: y * 0.3,
             duration: 0.3,
             ease: "power2.out"
+        });
+        gsap.to(cursor, { 
+            scale: 2.5, 
+            backgroundColor: 'rgba(234, 179, 8, 0.4)',
+            duration: 0.3,
+            ease: "power2.out" 
         });
     });
     btn.addEventListener('mouseleave', () => {
@@ -240,9 +261,8 @@ document.querySelectorAll('nav a').forEach(link => {
     });
 });
 
-// Dynamic Theme & Side Nav Observer
-const themeSections = ['hero', 'vision', 'about', 'structure', 'impacts', 'government', 'faq', 'house', 'cta-final'];
-const sideDots = document.querySelectorAll('.side-dot');
+// Dynamic Theme Observer
+const themeSections = ['hero', 'vision', 'eligibility', 'about', 'structure', 'impacts', 'government', 'faq', 'house', 'cta-final'];
 
 const themeObserverOptions = {
     threshold: 0.5
@@ -253,11 +273,6 @@ const themeObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const theme = entry.target.id === 'cta-final' ? 'cta' : entry.target.id;
             document.body.dataset.theme = theme;
-            
-            // Update Side Dots
-            sideDots.forEach(dot => {
-                dot.classList.toggle('active', dot.dataset.target === entry.target.id);
-            });
         }
     });
 }, themeObserverOptions);
@@ -265,17 +280,6 @@ const themeObserver = new IntersectionObserver((entries) => {
 themeSections.forEach(id => {
     const el = document.getElementById(id);
     if (el) themeObserver.observe(el);
-});
-
-// Side Nav Click Logic
-sideDots.forEach(dot => {
-    dot.addEventListener('click', () => {
-        const targetId = dot.dataset.target;
-        const target = document.getElementById(targetId);
-        if (target) {
-            lenis.scrollTo(target, { offset: -20 }); // Small offset for breathing room
-        }
-    });
 });
 
 // Section Title Reveals
@@ -332,7 +336,7 @@ function init3D() {
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
-    const shard = new THREE.Mesh(new THREE.OctahedronGeometry(2, 0), new THREE.MeshStandardMaterial({ color: 0x2F6FED, metalness: 0.9, roughness: 0.2 }));
+    const shard = new THREE.Mesh(new THREE.OctahedronGeometry(2, 0), new THREE.MeshStandardMaterial({ color: 0x022c22, metalness: 0.9, roughness: 0.2 }));
     scene.add(shard);
     scene.add(new THREE.AmbientLight(0xffffff, 0.5));
     const pointLight = new THREE.PointLight(0xffffff, 1); pointLight.position.set(5, 5, 5); scene.add(pointLight);
@@ -375,10 +379,13 @@ function init3DIcons() {
             default: geometry = new THREE.SphereGeometry(2, 32, 32);
         }
 
-        const material = new THREE.MeshStandardMaterial({ 
-            color: 0x121212, 
-            metalness: 0.8, 
-            roughness: 0.2 
+        const material = new THREE.MeshPhongMaterial({
+            color: 0x022c22, // Arinzo Green
+            shininess: 100,
+            transparent: true,
+            opacity: 0.8,
+            flatShading: true,
+            side: THREE.BackSide
         });
         const mesh = new THREE.Mesh(geometry, material);
         scene.add(mesh);
@@ -423,7 +430,7 @@ function init3DStarfield() {
     const posArray = new Float32Array(1000 * 3);
     for(let i=0; i < 3000; i++) { posArray[i] = (Math.random() - 0.5) * 50; }
     starsGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    const starsMesh = new THREE.Points(starsGeometry, new THREE.PointsMaterial({ size: 0.1, color: 0x5B8FF5 }));
+    const starsMesh = new THREE.Points(starsGeometry, new THREE.PointsMaterial({ size: 0.1, color: 0xEAB308 }));
     scene.add(starsMesh);
     camera.position.z = 5;
     function animate() {
@@ -433,16 +440,19 @@ function init3DStarfield() {
     animate();
 }
 
-// Audition Cards Convergence
-function initDistrictCards() {
-    gsap.to('.district-card', {
-        y: 0,
+// Eligibility Section Entrance
+function initEligibility() {
+    gsap.from('.eligibility-card', {
         scrollTrigger: {
-            trigger: '.districts-grid',
-            start: 'top 80%',
-            end: 'bottom 20%',
-            scrub: 1.5
-        }
+            trigger: '.eligibility-grid',
+            start: 'top 75%',
+            toggleActions: 'play none none reverse'
+        },
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: 'power3.out'
     });
 }
 
@@ -462,21 +472,7 @@ function initFAQ() {
     });
 }
 
-// District Cards Convergence Effect
-function initDistrictCards() {
-    gsap.utils.toArray('.district-card').forEach((card, i) => {
-        gsap.to(card, {
-            y: 0,
-            scrollTrigger: {
-                trigger: '#auditions',
-                start: "top 80%",
-                end: "bottom 60%",
-                scrub: 1.5,
-                toggleActions: "play reverse play reverse"
-            }
-        });
-    });
-}
+
 
 // Parallax Scrolling
 function initParallax() {

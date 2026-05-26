@@ -1,31 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800;900&family=Oswald:wght@700&display=swap');
 
 :root {
-    /* Primary Canvas: Deep Obsidian & Midnight Variants */
-    --bg-deep: #060608;    /* Deep Obsidian */
-    --bg-dark: #0b0b10;    /* Background 2 */
-    --bg-accent: #13131a;  /* Background 3 */
-    --bg-surface: #1a1a24; /* Background 4 */
+    /* STRICT TWO-COLOR SYSTEM FROM FLYER */
+    --arinzo-green: #022c22;
+    --arinzo-gold: #EAB308;
 
-    /* Primary Branding: New Colossus Blue */
-    --primary-blue: #2B6FFF;
-    --accent: var(--primary-blue);
-    --theme-accent: var(--primary-blue); /* Dynamic theme accent */
-    --theme-bg: var(--bg-deep); /* Dynamic theme background */
+    /* Global Backgrounds - All Locked to Green */
+    --bg-deep: var(--arinzo-green);
+    --bg-dark: var(--arinzo-green);
+    --bg-accent: var(--arinzo-green);
+    --bg-surface: var(--arinzo-green);
 
-    /* Legacy Palette Aliases */
-    --mint: var(--theme-accent);
-    --yellow: var(--theme-accent);
-    --betano-orange: var(--theme-accent);
-    --titan-gold: var(--theme-accent);
+    /* Primary Branding & Accents */
+    --primary-green: var(--arinzo-green);
+    --primary-yellow: var(--arinzo-gold);
+    --accent: var(--arinzo-gold);
+    --theme-accent: var(--arinzo-gold);
+    --theme-bg: var(--arinzo-green);
 
-    /* Text System: Off White & Variants */
-    --foreground: #eef0f8;
-    --text-light: var(--foreground);
-    --text-dark: #000000;
+    /* Text System */
+    --foreground: #ffffff;
+    --text-light: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.6);
 
     /* Opacity Variants */
-    --accent-muted: rgba(43, 111, 255, 0.10);
+    --accent-muted: rgba(234, 179, 8, 0.10);
     --white-dim: rgba(238, 240, 248, 0.55);
     --white-faint: rgba(238, 240, 248, 0.10);
     --text-muted: var(--white-dim);
@@ -35,23 +34,95 @@
     --font-body: 'Inter', sans-serif;
     --font-display: 'Oswald', sans-serif;
 
+    /* Pure Arinzo Palette */
+    --arinzo-green: #022c22;
+    --arinzo-gold: #EAB308;
+
+    /* Premium Textures & Effects */
+    --scan-line: rgba(255, 255, 255, 0.03);
+    --border-glow: rgba(234, 179, 8, 0.3);
+    
     /* Spacing & Utilities */
-    --section-padding: 100px 5%;
+    --section-padding: 120px 5%;
     --container-width: 1400px;
-    --border-radius: 12px;
-    --transition-smooth: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    --border-radius: 2px; /* Sharper, more professional edges */
+    --transition-smooth: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Theme Definitions */
-body[data-theme="hero"] { --theme-accent: #2B6FFF; --theme-bg: #060608; }
-body[data-theme="vision"] { --theme-accent: #60BDFF; --theme-bg: #080B12; }
-body[data-theme="structure"] { --theme-accent: #FF9F47; --theme-bg: #120D08; }
-body[data-theme="impacts"] { --theme-accent: #B06EFF; --theme-bg: #0E0812; }
-body[data-theme="government"] { --theme-accent: #36D9C0; --theme-bg: #081210; }
-body[data-theme="faq"] { --theme-accent: #FF7B6E; --theme-bg: #120908; }
-body[data-theme="house"] { --theme-accent: #FFD166; --theme-bg: #121108; }
-body[data-theme="about"] { --theme-accent: #7ED99A; --theme-bg: #08120C; }
-body[data-theme="cta"] { --theme-accent: #5E96FF; --theme-bg: #080D12; }
+/* Eligibility Section Styles */
+.section-eligibility {
+    padding: 120px 0;
+    background: var(--bg-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.eligibility-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.eligibility-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.eligibility-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 30px;
+    border-left: 2px solid var(--theme-accent);
+    transition: var(--transition-smooth);
+}
+
+.eligibility-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(10px);
+}
+
+.eligibility-card h3 {
+    font-size: 1rem;
+    color: var(--theme-accent);
+    margin-bottom: 10px;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+}
+
+.eligibility-card p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+    .eligibility-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .eligibility-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* Theme Definitions - Strictly Locked to Arinzo Green foundation */
+body[data-theme="hero"] { --theme-accent: var(--arinzo-gold); --theme-bg: var(--arinzo-green); }
+body[data-theme="vision"] { --theme-accent: var(--arinzo-gold); --theme-bg: var(--arinzo-green); }
+body[data-theme="eligibility"] { --theme-accent: var(--arinzo-gold); --theme-bg: var(--arinzo-green); }
+body[data-theme="about"] { --theme-accent: var(--arinzo-gold); --theme-bg: var(--arinzo-green); }
+body[data-theme="structure"] { --theme-accent: var(--arinzo-gold); --theme-bg: var(--arinzo-green); }
+body[data-theme="impacts"] { --theme-accent: var(--arinzo-gold); --theme-bg: var(--arinzo-green); }
+body[data-theme="government"] { --theme-accent: var(--arinzo-gold); --theme-bg: var(--arinzo-green); }
+body[data-theme="faq"] { --theme-accent: var(--arinzo-gold); --theme-bg: var(--arinzo-green); }
+body[data-theme="house"] { --theme-accent: var(--arinzo-gold); --theme-bg: var(--arinzo-green); }
+body[data-theme="cta-final"] { --theme-accent: var(--arinzo-gold); --theme-bg: var(--arinzo-green); }
+body[data-theme="footer"] { --theme-accent: var(--arinzo-gold); --theme-bg: var(--arinzo-green); }
 
 * {
     margin: 0;
@@ -86,24 +157,35 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
 }
 
-h1 { font-size: clamp(3rem, 10vw, 8rem); margin-bottom: 1rem; }
-h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1.5rem; }
+h1 { 
+    font-size: clamp(3.5rem, 12vw, 9rem); 
+    margin-bottom: 1rem; 
+    letter-spacing: -2px;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+h2 { 
+    font-size: clamp(2.5rem, 7vw, 4.5rem); 
+    margin-bottom: 2rem; 
+    letter-spacing: 4px;
+    font-weight: 900;
+}
 h3 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1rem; }
 
 p { font-size: clamp(1rem, 1.2vw, 1.25rem); max-width: 65ch; }
 
-.text-mint { color: var(--theme-accent); transition: color 0.3s ease; }
+
 .text-yellow { color: var(--theme-accent) !important; -webkit-text-fill-color: var(--theme-accent); transition: color 0.3s ease; }
 
 .text-gradient {
-    background: linear-gradient(135deg, var(--theme-accent) 0%, #fff 50%, var(--theme-accent) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, var(--theme-accent) 0%, #fff 45%, var(--theme-accent) 55%, #fff 100%);
     background-size: 200% auto;
-    animation: shine 4s linear infinite;
-    display: inline-block;
-    transition: background 0.3s ease;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
 }
 
 /* Ensure SplitText characters inherit the gradient styling */
@@ -209,7 +291,7 @@ nav {
 .nav-toggle span {
     width: 30px;
     height: 2px;
-    background: #fff;
+    background: var(--arinzo-gold);
     transition: var(--transition-smooth);
 }
 
@@ -222,7 +304,7 @@ nav .nav-links a.btn-apply {
     background: var(--theme-accent);
     color: #fff;
     padding: 10px 25px;
-    border-radius: 50px;
+    border-radius: 0;
     font-size: 0.8rem;
     font-weight: 700;
     transition: all 0.3s ease;
@@ -230,22 +312,70 @@ nav .nav-links a.btn-apply {
     text-transform: uppercase;
 }
 
-/* Unified Button System */
+/* Live Indicator - Strictly Gold */
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--arinzo-gold);
+    margin-right: 20px;
+    padding: 5px 12px;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+    border-radius: 4px;
+}
+
+.live-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--arinzo-gold);
+    border-radius: 50%;
+    animation: blink 1s infinite;
+    box-shadow: 0 0 10px var(--arinzo-gold);
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
 .btn-apply, .btn-cta {
     display: inline-block;
-    background: linear-gradient(135deg, var(--theme-accent) 0%, #fff 50%, var(--theme-accent) 100%);
-    background-size: 200% auto;
-    color: #fff;
-    padding: 16px 40px;
-    border-radius: 50px;
+    background: var(--theme-accent);
+    color: #000;
+    padding: 20px 50px;
+    border-radius: 0; 
     font-weight: 900;
     text-transform: uppercase;
-    font-size: 0.95rem;
-    letter-spacing: 2px;
+    font-size: 1rem;
+    letter-spacing: 4px;
     text-decoration: none;
     transition: var(--transition-smooth);
     border: none;
     cursor: pointer;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-apply::before, .btn-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 200%; height: 200%;
+    background: rgba(255,255,255,0.2);
+    transform: translate(-50%, -50%) rotate(45deg) translateY(100%);
+    transition: 0.6s;
+}
+
+.btn-apply:hover::before, .btn-cta:hover::before {
+    transform: translate(-50%, -50%) rotate(45deg) translateY(-100%);
+}
+
+.btn-apply:hover, .btn-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--theme-accent);
+}
     animation: shine 5s linear infinite;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
@@ -270,7 +400,7 @@ nav .nav-links a.btn-apply {
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background-color: #000;
+    background: var(--arinzo-green);
 }
 
 .h-slide {
@@ -338,7 +468,7 @@ nav .nav-links a.btn-apply {
 /* Slider Pagination */
 .slider-nav {
     position: absolute;
-    bottom: 50px;
+    bottom: 0;
     left: 5%;
     z-index: 100;
     display: flex;
@@ -459,7 +589,7 @@ nav .nav-links a.btn-apply {
 
 /* Impacts Section */
 .impacts-list {
-    margin-top: 40px;
+    margin-top: 0;
 }
 
 .impact-item {
@@ -510,7 +640,7 @@ nav .nav-links a.btn-apply {
 }
 
 .house-card-content h3 {
-    color: var(--betano-orange) !important;
+    color: var(--arinzo-gold) !important;
     margin-bottom: 12px !important;
     font-size: 1.6rem !important;
     font-weight: 900 !important;
@@ -579,15 +709,18 @@ nav .nav-links a.btn-apply {
 }
 
 .district-card {
-    height: 480px;
+    height: 550px;
     background-size: cover;
     background-position: center;
     position: relative;
     overflow: hidden;
-    border-radius: 40px; /* Tesoro Roundness */
+    border-radius: 0; /* Industrial sharp edges */
     cursor: pointer;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: var(--transition-smooth);
 }
+
+
 
 .district-overlay {
     position: absolute;
@@ -595,17 +728,23 @@ nav .nav-links a.btn-apply {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(6, 6, 8, 0.4);
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 60%);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 30px;
     color: #fff;
-    font-family: 'Times New Roman', serif;
-    font-size: 1.8rem;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
     transition: var(--transition-smooth);
-    border: 2px solid transparent;
-    border-radius: 40px;
+    border: none;
+}
+
+.district-card:hover .district-overlay {
+    background: linear-gradient(to top, var(--bg-deep) 0%, rgba(21, 128, 61, 0.4) 100%);
 }
 
 /* Individual Card Glows and Initial Staggers */
@@ -632,18 +771,7 @@ nav .nav-links a.btn-apply {
     border-top: 1px solid var(--white-faint);
 }
 
-.footer-background-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 25vw;
-    font-weight: 900;
-    color: rgba(255,255,255,0.02);
-    pointer-events: none;
-    line-height: 1;
-    z-index: 0;
-}
+
 
 .footer-grid {
     display: grid;
@@ -661,7 +789,7 @@ nav .nav-links a.btn-apply {
     margin-bottom: 25px;
 }
 
-.footer-logo span { color: var(--mint); }
+.footer-logo span { color: var(--arinzo-gold); }
 
 .brand-bio {
     opacity: 0.6;
@@ -689,14 +817,14 @@ nav .nav-links a.btn-apply {
 }
 
 .social-links a:hover {
-    background: var(--betano-orange);
+    background: var(--arinzo-gold);
     transform: translateY(-5px);
 }
 
 .footer-grid h4 {
     font-size: 0.8rem;
     letter-spacing: 2px;
-    color: var(--betano-orange);
+    color: var(--arinzo-gold);
     margin-bottom: 30px;
 }
 
@@ -709,10 +837,10 @@ nav .nav-links a.btn-apply {
     transition: var(--transition-smooth);
 }
 
-.footer-links a:hover { opacity: 1; color: var(--mint); }
+.footer-links a:hover { opacity: 1; color: var(--arinzo-gold); }
 
 .gov-title { font-weight: 800; font-size: 1rem; margin-bottom: 3px; }
-.gov-dept { color: var(--mint); font-size: 0.9rem; margin-bottom: 10px; }
+.gov-dept { color: var(--arinzo-gold); font-size: 0.9rem; margin-bottom: 10px; }
 .gov-address, .gov-email { opacity: 0.6; font-size: 0.85rem; margin-bottom: 8px; }
 
 .contact-label { font-size: 0.7rem; letter-spacing: 1px; opacity: 0.4; margin-bottom: 3px; }
@@ -731,7 +859,7 @@ nav .nav-links a.btn-apply {
 .district-card {
     position: relative;
     height: 480px;
-    border-radius: 40px;
+    border-radius: 0;
     overflow: hidden;
     background-size: cover;
     background-position: center;
@@ -812,65 +940,7 @@ nav .nav-links a.btn-apply {
     color: #fff;
 }
 
-/* Side Navigation Dots */
-#side-nav {
-    position: fixed;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
 
-.side-dot {
-    width: 10px;
-    height: 10px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: var(--transition-smooth);
-    position: relative;
-}
-
-.side-dot::after {
-    content: attr(data-label);
-    position: absolute;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #fff;
-    font-size: 0.7rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    opacity: 0;
-    transition: var(--transition-smooth);
-    pointer-events: none;
-}
-
-.side-dot:hover::after {
-    opacity: 1;
-    right: 30px;
-}
-
-.side-dot.active {
-    background: var(--theme-accent);
-    border-color: var(--theme-accent);
-    transform: scale(1.5);
-    box-shadow: 0 0 20px var(--theme-accent);
-}
-
-.side-dot.active::after {
-    opacity: 1;
-    color: var(--theme-accent);
-}
-
-@media (max-width: 1024px) {
-    #side-nav { display: none; }
-}
 
 .faq-header i {
     transition: transform 0.3s;
@@ -885,7 +955,7 @@ nav .nav-links a.btn-apply {
 }
 
 .faq-body p {
-    padding: 0 30px 40px;
+    padding: 0 30px 0;
     font-size: 0.95rem;
     opacity: 0.7;
     margin: 0;
@@ -1011,3 +1081,40 @@ nav .nav-links a.btn-apply {
     .btn-cta, .btn-apply { width: 100%; text-align: center; }
 }
 
+@keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Cinematic Dossier Headers */
+.section-label {
+    position: relative;
+    padding-left: 40px;
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    opacity: 0.3;
+}
+
+.section-label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 1px;
+    background: var(--theme-accent);
+}
+
+/* Glass Detail Cards */
+.info-card, .vision-text-block {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+}
+
+.info-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--theme-accent);
+}
