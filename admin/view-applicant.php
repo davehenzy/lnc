@@ -145,12 +145,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
 <body>
     <div class="sidebar">
         <div class="sidebar-logo">
-            <img src="../assets/logos/LNC%20Logo%20Light.png" alt="Logo">
+            <img src="../assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo">
             <span style="font-family: 'Outfit'; font-weight: 800; font-size: 1.2rem;">COMMAND</span>
         </div>
         <ul class="nav-menu">
             <li class="nav-item"><a href="index.php" class="nav-link"><i class="fas fa-th-large"></i> <span>Dashboard</span></a></li>
             <li class="nav-item"><a href="applicants.php" class="nav-link active"><i class="fas fa-user-friends"></i> <span>Applicants</span></a></li>
+            <li class="nav-item"><a href="enquiries.php" class="nav-link"><i class="fas fa-envelope"></i> <span>Enquiries</span></a></li>
+            <li class="nav-item"><a href="announcements.php" class="nav-link"><i class="fas fa-bullhorn"></i> <span>Announcements</span></a></li>
             <li class="nav-item"><a href="logout.php" class="nav-link"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
         </ul>
     </div>
@@ -279,8 +281,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
         <!-- Header -->
         <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #d4af37; padding-bottom: 15px; margin-bottom: 30px;">
             <div style="width: 180px;">
-                <!-- We use the LNC Dark Logo since the background is white -->
-                <img src="../assets/logos/LNC_Logo_dark.png" alt="Logo" style="width: 100%; height: auto;">
+                <img src="../assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo" style="width: 100%; height: auto;">
             </div>
             <div style="text-align: right;">
                 <h1 style="margin: 0; font-size: 28px; letter-spacing: 2px; font-weight: normal; font-family: 'Times New Roman', serif;">PARTICIPANT PROFILE</h1>
@@ -357,7 +358,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
 
         <!-- Footer -->
         <div style="text-align: center; border-top: 1px solid #e0e0e0; padding-top: 20px; color: #888; font-size: 10px; margin-top: 50px;">
-            &copy; <?php echo date('Y'); ?> Lagos New Colossus. Generated on <?php echo date('M d, Y H:i'); ?>
+            &copy; <?php echo date('Y'); ?> Colossus of Lagos. Generated on <?php echo date('M d, Y H:i'); ?>
         </div>
     </div>
 

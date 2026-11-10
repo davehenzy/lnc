@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="login-container">
         <div class="login-card">
             <div style="text-align: center; margin-bottom: 40px;">
-                <img src="../assets/logos/LNC_Logo_Light.png" alt="Logo" style="height: 60px;">
+                <img src="../assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo" style="height: 60px; object-fit: contain;">
                 <p style="color: var(--text-muted); font-size: 0.7rem; letter-spacing: 3px; margin-top: 15px;">ADMINISTRATIVE GATEWAY</p>
             </div>
             

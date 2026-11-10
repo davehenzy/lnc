@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQ | Lagos New Colossus</title>
+  <title>FAQ | Colossus of Lagos</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap"
@@ -236,16 +236,15 @@
   <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 bg-[#0a1628] border-b border-white/5">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
       <a href="index.php" class="flex items-center">
-        <img src="assets/slider/LASG-LNC.svg" alt="Lagos New Colossus Logo"
+        <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo"
           class="h-10 md:h-16 w-auto object-contain" />
       </a>
 
-      <div class="hidden md:flex items-center gap-12">
+      <div class="hidden md:flex items-center gap-8">
         <a href="index.php" class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors">Home</a>
         <a href="about.php" class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors">About</a>
-        <a href="eligibility.php"
-          class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors">Eligibility</a>
-        <a href="faq.php" class="text-sm font-medium text-[#d4af37] transition-colors">FAQ</a>
+        <a href="eligibility.php" class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors">Eligibility</a>
+        <a href="faq.php" class="text-sm font-semibold text-[#d4af37] transition-colors border-b-2 border-[#d4af37] pb-1">FAQ</a>
       </div>
 
       <div class="flex items-center gap-4">
@@ -264,7 +263,7 @@
     class="fixed inset-0 z-[60] bg-[#0a1628]/95 backdrop-blur-xl translate-x-full transition-transform duration-500 md:hidden">
     <div class="flex flex-col h-full p-8">
       <div class="flex items-center justify-between mb-12">
-        <img src="assets/slider/LASG-LNC.svg" alt="Logo" class="h-8 w-auto" />
+        <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo" class="h-8 w-auto" />
         <button id="close-menu" class="text-gray-400 hover:text-white">
           <i data-lucide="x" class="w-8 h-8"></i>
         </button>
@@ -312,7 +311,7 @@
       </h1>
 
       <p class="max-w-2xl mx-auto text-lg text-gray-400 mb-10">
-        Everything you need to know about Lagos New Colossus. Can't find what
+        Everything you need to know about Colossus of Lagos. Can't find what
         you're looking for? Contact us directly.
       </p>
 
@@ -367,8 +366,8 @@
             <div class="pb-5 text-gray-400 leading-relaxed border-t border-[#d4af37]/10 pt-4">
               Participation is open to graduates and undergraduates who are
               residents of Lagos, between the ages of 20 and 40. You must have
-              a commercially viable business idea and be willing to reside in
-              the Colossus House for 8 weeks. Neither you nor immediate family
+              a commercially viable business idea and commit to the full 8-week
+              duration of the competition. Neither you nor immediate family
               members should be employees of Bravopoints International Ltd or
               show sponsors.
             </div>
@@ -425,8 +424,8 @@
               confirm eligibility rules and requirements.<br /><br />
               <strong class="text-white">Stage 2:</strong> Review and accept
               the Acknowledgement of Terms and Conditions.<br /><br />
-              <strong class="text-white">Stage 3:</strong> Complete the Lagos
-              New Colossus Registration Form with accurate information,
+              <strong class="text-white">Stage 3:</strong> Complete the Colossus
+              of Lagos Registration Form with accurate information,
               stating your business ideas and uploading a full picture.
             </div>
           </div>
@@ -434,7 +433,7 @@
 
         <div class="faq-item rounded-2xl section-reveal" data-category="process">
           <button class="w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
-            <span class="faq-question font-semibold text-lg pr-4">How do I audition for Lagos New Colossus?</span>
+            <span class="faq-question font-semibold text-lg pr-4">How do I audition for Colossus of Lagos?</span>
             <div class="w-8 h-8 rounded-full bg-[#d4af37]/10 flex items-center justify-center flex-shrink-0">
               <i data-lucide="plus" class="w-4 h-4 text-[#d4af37] faq-icon"></i>
             </div>
@@ -502,8 +501,8 @@
               <strong class="text-white">Bootcamp Stage:</strong> Successful
               candidates undergo 3-day training, evaluation, and testing.<br /><br />
               <strong class="text-white">Top 20:</strong> At the end of
-              bootcamp, the top 20 are unveiled at a Premiere Evening and
-              advance to the Colossus House.
+              bootcamp, the top 20 finalists are unveiled at a Premiere Evening and
+              advance to the 8-week television competition.
             </div>
           </div>
         </div>
@@ -546,18 +545,17 @@
 
         <div class="faq-item rounded-2xl section-reveal" data-category="show">
           <button class="w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
-            <span class="faq-question font-semibold text-lg pr-4">Can I leave the Colossus House during the 8
-              weeks?</span>
+            <span class="faq-question font-semibold text-lg pr-4">What is the commitment required during the 8-week show?</span>
             <div class="w-8 h-8 rounded-full bg-[#d4af37]/10 flex items-center justify-center flex-shrink-0">
               <i data-lucide="plus" class="w-4 h-4 text-[#d4af37] faq-icon"></i>
             </div>
           </button>
           <div class="faq-answer px-6">
             <div class="pb-5 text-gray-400 leading-relaxed border-t border-[#d4af37]/10 pt-4">
-              Contestants must reside in the Colossus House for the full
-              8-week duration. Travel outside is only permitted for
-              show-related tasks and with producer approval. You must cover
-              your own travel expenses to and from the house.
+              Selected finalists must be available full-time for the 8-week competition
+              to execute practical business tasks, masterclasses, and boardroom defenses.
+              Contestants are responsible for their personal transportation and logistics
+              to designated filming venues across Lagos.
             </div>
           </div>
         </div>
@@ -574,7 +572,7 @@
           <div class="faq-answer px-6">
             <div class="pb-5 text-gray-400 leading-relaxed border-t border-[#d4af37]/10 pt-4">
               <strong class="text-[#d4af37]">No.</strong> The producers of
-              Lagos New Colossus will not take ownership, shares, or
+              Colossus of Lagos will not take ownership, shares, or
               management control of any winning business. The entrepreneur
               retains full ownership and responsibility of his/her business
               after the show. Our goal is to empower, not to extract.
@@ -648,7 +646,7 @@
       <div class="grid md:grid-cols-4 gap-12 mb-12">
         <div class="md:col-span-2">
           <div class="flex items-center gap-3 mb-6">
-            <img src="assets/slider/LASG-LNC.svg" alt="Lagos New Colossus" class="h-12 w-auto">
+            <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos" class="h-12 w-auto">
           </div>
           <p class="text-gray-500 text-sm max-w-sm leading-relaxed mb-6">
             An entrepreneurial reality and competition show developed in
@@ -706,7 +704,7 @@
       <div
         class="border-t border-[#d4af37]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
         <p class="text-sm text-gray-600">
-          © 2026 Lagos New Colossus. All rights reserved.
+          © 2026 Colossus of Lagos. All rights reserved.
         </p>
         <p class="text-sm text-gray-600">
           Produced by Bravopoints International Limited <span class="hidden md:inline mx-2">|</span> Design by <a
@@ -842,6 +840,11 @@
       if (e.key === 'Escape') toggleMenu(false);
     });
   </script>
+  <!-- Floating WhatsApp Widget (TechieXtract Scope) -->
+  <a href="https://wa.me/2348123456789?text=Hello%20Colossus%20of%20Lagos%20team,%20I%20have%20an%20enquiry" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform" title="Chat on WhatsApp">
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+    <span class="text-xs font-bold hidden sm:inline">WhatsApp Help Desk</span>
+  </a>
 </body>
 
 </html>

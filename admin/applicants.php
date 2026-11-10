@@ -120,12 +120,14 @@ $locations = ['Ikeja', 'Badagry', 'Ikorodu', 'Lagos Island', 'Epe'];
 <body>
     <div class="sidebar">
         <div class="sidebar-logo">
-            <img src="../assets/logos/LNC%20Logo%20Light.png" alt="Logo">
+            <img src="../assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo">
             <span style="font-family: 'Outfit'; font-weight: 800; font-size: 1.2rem;">COMMAND</span>
         </div>
         <ul class="nav-menu">
             <li class="nav-item"><a href="index.php" class="nav-link"><i class="fas fa-th-large"></i> <span>Dashboard</span></a></li>
             <li class="nav-item"><a href="applicants.php" class="nav-link active"><i class="fas fa-user-friends"></i> <span>Applicants</span></a></li>
+            <li class="nav-item"><a href="enquiries.php" class="nav-link"><i class="fas fa-envelope"></i> <span>Enquiries</span></a></li>
+            <li class="nav-item"><a href="announcements.php" class="nav-link"><i class="fas fa-bullhorn"></i> <span>Announcements</span></a></li>
             <li class="nav-item"><a href="logout.php" class="nav-link"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
         </ul>
     </div>
@@ -201,6 +203,7 @@ $locations = ['Ikeja', 'Badagry', 'Ikorodu', 'Lagos Island', 'Epe'];
                                         </div>
                                         <div>
                                             <div style="font-weight: 700;"><?php echo htmlspecialchars($applicant['full_name']); ?></div>
+                                            <div style="font-size: 0.72rem; color: #ffc107; font-weight: 600;"><?php echo htmlspecialchars($applicant['reference_number'] ?? ('LNCC-2026-'.$applicant['id'])); ?></div>
                                             <div style="font-size: 0.75rem; color: var(--text-muted);"><?php echo htmlspecialchars($applicant['email']); ?></div>
                                         </div>
                                     </div>

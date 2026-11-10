@@ -11,6 +11,7 @@ if (!isset($_SESSION['admin_logged_in'])) {
 $total_applicants = $pdo->query("SELECT COUNT(*) FROM applicants")->fetchColumn();
 $pending_applicants = $pdo->query("SELECT COUNT(*) FROM applicants WHERE status = 'pending'")->fetchColumn();
 $shortlisted_applicants = $pdo->query("SELECT COUNT(*) FROM applicants WHERE status = 'shortlisted'")->fetchColumn();
+$unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = 'unread'")->fetchColumn();
 
 // Recent Applicants
 $recent_applicants = $pdo->query("SELECT * FROM applicants ORDER BY created_at DESC LIMIT 5")->fetchAll();
@@ -21,19 +22,21 @@ $recent_applicants = $pdo->query("SELECT * FROM applicants ORDER BY created_at D
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lagos New Colossus | Dashboard   </title>
+    <title>Colossus of Lagos | Dashboard</title>
     <link rel="stylesheet" href="css/admin-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="sidebar">
         <div class="sidebar-logo">
-            <img src="../assets/slider/LASG-LNC.png" alt="Logo">
+            <img src="../assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo">
 
         </div>
         <ul class="nav-menu">
             <li class="nav-item"><a href="index.php" class="nav-link active"><i class="fas fa-th-large"></i> <span>Dashboard</span></a></li>
             <li class="nav-item"><a href="applicants.php" class="nav-link"><i class="fas fa-user-friends"></i> <span>Applicants</span></a></li>
+            <li class="nav-item"><a href="enquiries.php" class="nav-link"><i class="fas fa-envelope"></i> <span>Enquiries</span></a></li>
+            <li class="nav-item"><a href="announcements.php" class="nav-link"><i class="fas fa-bullhorn"></i> <span>Announcements</span></a></li>
             <li class="nav-item"><a href="logout.php" class="nav-link"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
         </ul>
     </div>
@@ -57,10 +60,12 @@ $recent_applicants = $pdo->query("SELECT * FROM applicants ORDER BY created_at D
                 <div class="stat-label">Shortlisted</div>
                 <div class="stat-value" style="color: #28a745;"><?php echo $shortlisted_applicants; ?></div>
             </div>
-            <div class="stat-card">
-                <div class="stat-label">Lagos Presence</div>
-                <div class="stat-value">100%</div>
-            </div>
+            <a href="enquiries.php" style="text-decoration: none; color: inherit;">
+                <div class="stat-card" style="border: 1px solid rgba(23, 162, 184, 0.4);">
+                    <div class="stat-label">New Enquiries</div>
+                    <div class="stat-value" style="color: #17a2b8;"><?php echo $unread_enquiries; ?></div>
+                </div>
+            </a>
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">

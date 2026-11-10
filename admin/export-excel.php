@@ -45,6 +45,7 @@ $output = fopen('php://output', 'w');
 // Set CSV headers
 fputcsv($output, [
     'ID', 
+    'Reference Number',
     'Full Name', 
     'Email', 
     'Phone', 
@@ -66,6 +67,7 @@ fputcsv($output, [
 foreach ($applicants as $row) {
     fputcsv($output, [
         $row['id'],
+        $row['reference_number'] ?? ('LNCC-2026-' . $row['id']),
         $row['full_name'],
         $row['email'],
         $row['phone'],

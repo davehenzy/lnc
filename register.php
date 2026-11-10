@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register | Lagos New Colossus</title>
+    <title>Register | Colossus of Lagos</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap"
@@ -386,10 +386,10 @@
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 bg-[#0a1628] border-b border-white/5">
       <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <a href="index.php" class="flex items-center">
-          <img src="assets/logos/LNC_Logo_Light.png" alt="Lagos New Colossus Logo" class="h-10 md:h-16 w-auto object-contain" />
+          <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo" class="h-10 md:h-16 w-auto object-contain" />
         </a>
 
-        <div class="hidden md:flex items-center gap-12">
+        <div class="hidden md:flex items-center gap-8">
           <a
             href="index.php"
             class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors"
@@ -429,7 +429,7 @@
     class="fixed inset-0 z-[60] bg-[#0a1628]/95 backdrop-blur-xl translate-x-full transition-transform duration-500 md:hidden">
     <div class="flex flex-col h-full p-8">
       <div class="flex items-center justify-between mb-12">
-        <img src="assets/slider/LASG-LNC.svg" alt="Logo" class="h-8 w-auto" />
+        <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo" class="h-8 w-auto" />
         <button id="close-menu" class="text-gray-400 hover:text-white">
           <i data-lucide="x" class="w-8 h-8"></i>
         </button>
@@ -1153,7 +1153,7 @@
                       <a href="#" class="text-[#d4af37] hover:underline"
                         >Privacy Policy</a
                       >
-                      of Lagos New Colossus.
+                      of Colossus of Lagos.
                     </p>
                     <div class="error-message" id="termsError">
                       You must accept the terms to proceed
@@ -1191,7 +1191,7 @@
                 Application Submitted!
               </h2>
               <p class="text-gray-400 mb-2 max-w-md mx-auto">
-                Thank you for registering for Lagos New Colossus. Your
+                Thank you for registering for Colossus of Lagos. Your
                 application has been received and is under review.
               </p>
               <p class="text-[#d4af37] font-medium mb-8">
@@ -1267,7 +1267,7 @@
         <div class="grid md:grid-cols-4 gap-12 mb-12">
           <div class="md:col-span-2">
             <div class="flex items-center gap-3 mb-6">
-              <img src="assets/logos/LNC_Logo_Light.png" alt="Lagos New Colossus" class="h-12 w-auto">
+              <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos" class="h-12 w-auto">
             </div>
             <p class="text-gray-500 text-sm max-w-sm leading-relaxed mb-6">
               An entrepreneurial reality and competition show developed in
@@ -1335,7 +1335,7 @@
           class="border-t border-[#d4af37]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left"
         >
           <p class="text-sm text-gray-600">
-            © 2026 Lagos New Colossus. All rights reserved.
+            © 2026 Colossus of Lagos. All rights reserved.
           </p>
           <p class="text-sm text-gray-600">
             Produced by Bravopoints International Limited <span class="hidden md:inline mx-2">|</span> Design by <a href="https://linktr.ee/techiextract" target="_blank" class="hover:text-white transition-colors">techieXtract</a>
@@ -1890,8 +1890,8 @@
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                // Generate application ID
-                const appId = "LNC-2026-" + Math.floor(1000 + Math.random() * 9000);
+                // Display official registration reference number from server
+                const appId = data.reference_number || ("LNCC-2026-" + Math.floor(10000 + Math.random() * 90000));
                 document.getElementById("appId").textContent = appId;
 
                 // Hide step 4, show success
@@ -1951,5 +1951,10 @@
       if (e.key === 'Escape') toggleMenu(false);
     });
     </script>
+    <!-- Floating WhatsApp Widget (TechieXtract Scope) -->
+    <a href="https://wa.me/2348123456789?text=Hello%20Colossus%20of%20Lagos%20team,%20I%20have%20an%20enquiry" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform" title="Chat on WhatsApp">
+      <i data-lucide="message-circle" class="w-6 h-6"></i>
+      <span class="text-xs font-bold hidden sm:inline">WhatsApp Help Desk</span>
+    </a>
   </body>
 </html>

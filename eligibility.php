@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eligibility | Lagos New Colossus</title>
+  <title>Eligibility | Colossus of Lagos</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap"
@@ -321,15 +321,14 @@
   <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 bg-[#0a1628] border-b border-white/5">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
       <a href="index.php" class="flex items-center">
-        <img src="assets/slider/LASG-LNC.svg" alt="Lagos New Colossus Logo"
+        <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo"
           class="h-10 md:h-16 w-auto object-contain" />
       </a>
 
-      <div class="hidden md:flex items-center gap-12">
+      <div class="hidden md:flex items-center gap-8">
         <a href="index.php" class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors">Home</a>
         <a href="about.php" class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors">About</a>
-
-        <a href="eligibility.php" class="text-sm font-medium text-[#d4af37] transition-colors">Eligibility</a>
+        <a href="eligibility.php" class="text-sm font-semibold text-[#d4af37] transition-colors border-b-2 border-[#d4af37] pb-1">Eligibility</a>
         <a href="faq.php" class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors">FAQ</a>
       </div>
 
@@ -351,7 +350,7 @@
     class="fixed inset-0 z-[60] bg-[#0a1628]/95 backdrop-blur-xl translate-x-full transition-transform duration-500 md:hidden">
     <div class="flex flex-col h-full p-8">
       <div class="flex items-center justify-between mb-12">
-        <img src="assets/slider/LASG-LNC.svg" alt="Logo" class="h-8 w-auto" />
+        <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo" class="h-8 w-auto" />
         <button id="close-menu" class="text-gray-400 hover:text-white">
           <i data-lucide="x" class="w-8 h-8"></i>
         </button>
@@ -362,7 +361,6 @@
         <a href="about.php" class="text-2xl font-bold text-gray-300 hover:text-[#d4af37]">About</a>
         <a href="eligibility.php" class="text-2xl font-bold text-[#d4af37]">Eligibility</a>
         <a href="faq.php" class="text-2xl font-bold text-gray-300 hover:text-[#d4af37]">FAQ</a>
-
       </nav>
 
       <div class="mt-auto pt-8 border-t border-white/10">
@@ -374,7 +372,7 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-[112px] md:pt-[130px]">
+  <section class="relative min-h-[75vh] flex items-center justify-center overflow-hidden pt-[112px] md:pt-[130px] pb-16">
     <div class="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0f1d32] to-[#0a1628]"></div>
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
       <div class="absolute top-20 left-10 w-96 h-96 bg-[#d4af37]/5 rounded-full blur-[100px] animate-float"></div>
@@ -386,34 +384,76 @@
       class="absolute inset-0 bg-[linear-gradient(rgba(212,175,55,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.03)_1px,transparent_1px)] bg-[size:60px_60px]">
     </div>
 
-    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+    <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
 
+      <!-- Official Major Partner Badge -->
+      <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-panel border border-[#d4af37]/30 mb-6">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#d4af37] animate-ping"></span>
+        <span class="text-xs font-semibold tracking-wider uppercase text-[#f4d03f]">
+          Official Major Partner — Lagos State Government
+        </span>
+      </div>
 
-      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-8">
-        <span class="block text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400">Are You</span>
-        <span class="block text-gold-gradient mt-2 italic">Eligible?</span>
+      <h1 class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
+        <span class="block text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400">ARE YOU</span>
+        <span class="block text-gold-gradient mt-2 italic">ELIGIBLE?</span>
       </h1>
 
-      <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-400 mb-12 leading-relaxed font-light">
-        We're searching for Lagos-based entrepreneurs aged 20-40 who have what
-        it takes to build the next great African company out of Lagos.
+      <p class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-300 mb-8 leading-relaxed font-light">
+        We're searching for ambitious Lagos-based entrepreneurs aged 20–40 ready to compete, scale, and rise to become Africa's next business titans.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-14">
         <a href="#requirements"
-          class="btn-gold px-8 py-4 rounded-full text-base uppercase tracking-widest flex items-center gap-3">
+          class="btn-gold px-8 py-3.5 rounded-full text-xs md:text-sm uppercase tracking-widest flex items-center gap-3">
           <span>Check Requirements</span>
-          <i data-lucide="arrow-down" class="w-5 h-5"></i>
+          <i data-lucide="arrow-down" class="w-4 h-4"></i>
         </a>
-        <a href="#register"
-          class="btn-outline-gold px-8 py-4 rounded-full text-base uppercase tracking-widest flex items-center gap-3">
+        <a href="register.php"
+          class="btn-outline-gold px-8 py-3.5 rounded-full text-xs md:text-sm uppercase tracking-widest flex items-center gap-3">
           <span>Register Now</span>
-          <i data-lucide="edit-3" class="w-5 h-5"></i>
+          <i data-lucide="edit-3" class="w-4 h-4"></i>
         </a>
       </div>
+
+      <!-- 4 Golden Metrics Ribbon -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 text-left">
+        <div class="glass-panel p-4 sm:p-5 lg:p-4 xl:p-5 rounded-2xl border-l-4 border-yellow-400 hover-lift flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Grand Finale Champion</div>
+            <div class="font-display text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl font-extrabold text-yellow-400 mb-1 tracking-tight whitespace-nowrap">₦30,000,000</div>
+          </div>
+          <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">Awarded to the ultimate champion of the Grand Finale</p>
+        </div>
+
+        <div class="glass-panel p-4 sm:p-5 lg:p-4 xl:p-5 rounded-2xl border-l-4 border-yellow-400 hover-lift flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Bootcamp Seed Grants</div>
+            <div class="font-display text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl font-extrabold text-white mb-1 tracking-tight whitespace-nowrap">40 × ₦1M</div>
+          </div>
+          <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">40 standout entrepreneurs win ₦1,000,000 each</p>
+        </div>
+
+        <div class="glass-panel p-4 sm:p-5 lg:p-4 xl:p-5 rounded-2xl border-l-4 border-yellow-400 hover-lift flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Summit Delegates</div>
+            <div class="font-display text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl font-extrabold text-yellow-400 mb-1 tracking-tight whitespace-nowrap">1,000+</div>
+          </div>
+          <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">Delegates attending the Entrepreneurship Convention</p>
+        </div>
+
+        <div class="glass-panel p-4 sm:p-5 lg:p-4 xl:p-5 rounded-2xl border-l-4 border-yellow-400 hover-lift flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Total TV Viewership</div>
+            <div class="font-display text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl font-extrabold text-white mb-1 tracking-tight whitespace-nowrap">53M+</div>
+          </div>
+          <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">Channels TV, TVC, Hip TV & Africa Magic nationwide</p>
+        </div>
+      </div>
+
     </div>
 
-    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0a1628] to-transparent"></div>
+    <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0a1628] to-transparent"></div>
   </section>
 
   <!-- Requirements Section -->
@@ -429,7 +469,7 @@
           Eligibility Requirements
         </h2>
         <p class="max-w-2xl mx-auto text-gray-400 text-lg">
-          To participate in the Lagos New Colossus, applicants must meet the
+          To participate in the Colossus of Lagos, applicants must meet the
           following criteria:
         </p>
       </div>
@@ -492,8 +532,7 @@
                 Excellent Physical & Mental Health
               </h3>
               <p class="text-gray-400 leading-relaxed">
-                Must be in excellent physical and mental health to withstand
-                the demands of the 8-week competition and residency.
+                Must be in excellent physical and mental health to actively withstand and excel in the accelerator bootcamp and pitch presentations.
               </p>
             </div>
           </div>
@@ -503,20 +542,19 @@
         <div class="requirement-card rounded-2xl p-8 section-reveal" style="transition-delay: 0.3s">
           <div class="flex items-start gap-5">
             <div class="w-14 h-14 rounded-2xl bg-[#d4af37]/10 flex items-center justify-center flex-shrink-0">
-              <i data-lucide="home" class="w-7 h-7 text-[#d4af37]"></i>
+              <i data-lucide="calendar-check" class="w-7 h-7 text-[#d4af37]"></i>
             </div>
             <div>
               <h3 class="text-xl font-bold mb-2 text-white">
-                Residency in Colossus House
+                Programme Commitment
               </h3>
               <p class="text-gray-400 leading-relaxed mb-3">
-                Must be willing and able to move into and reside in the
-                "Colossus House" for the full duration of the 8-week show.
+                Must be willing and available to commit fully to all scheduled auditions, convention, bootcamp accelerator sessions, and pitch evaluations.
               </p>
               <div
                 class="flex items-center gap-2 text-xs text-[#d4af37] bg-[#d4af37]/10 px-3 py-1.5 rounded-full w-fit">
                 <i data-lucide="clock" class="w-3 h-3"></i>
-                <span>8 weeks full-time commitment</span>
+                <span>Full commitment during key milestones</span>
               </div>
             </div>
           </div>
@@ -530,12 +568,12 @@
             </div>
             <div>
               <h3 class="text-xl font-bold mb-2 text-white">
-                Travel Expenses Coverage
+                Travel & Logistics Coverage
               </h3>
               <p class="text-gray-400 leading-relaxed">
-                Must be willing and able to cover all your travel expenses to
-                and from the location of the "Colossus House" throughout the
-                duration of the show.
+                Must be willing and able to cover your travel and personal
+                logistics to and from official filming venues and production
+                locations across Lagos.
               </p>
             </div>
           </div>
@@ -549,16 +587,15 @@
             </div>
             <div>
               <h3 class="text-xl font-bold mb-2 text-white">
-                Full Participation Commitment
+                Professionalism & Integrity
               </h3>
               <p class="text-gray-400 leading-relaxed mb-3">
-                Must be willing and able to fully participate for the duration
-                of the 8 weeks based on dates set by the Producers.
+                Must demonstrate strong entrepreneurial character, high ethical standards, and readiness to compete constructively.
               </p>
               <div
                 class="flex items-center gap-2 text-xs text-[#d4af37] bg-[#d4af37]/10 px-3 py-1.5 rounded-full w-fit">
-                <i data-lucide="alert-circle" class="w-3 h-3"></i>
-                <span>No external commitments allowed</span>
+                <i data-lucide="award" class="w-3 h-3"></i>
+                <span>Strictly professional conduct</span>
               </div>
             </div>
           </div>
@@ -572,12 +609,10 @@
             </div>
             <div>
               <h3 class="text-xl font-bold mb-2 text-white">
-                Peaceful Co-existence
+                Collaborative Team Spirit
               </h3>
               <p class="text-gray-400 leading-relaxed">
-                Must be willing and able to peacefully co-exist with the other
-                contestants who will be your housemates during the duration of
-                the show.
+                Must be willing and able to network, collaborate, and engage respectfully with fellow entrepreneurs, judges, and mentors throughout the festival.
               </p>
             </div>
           </div>
@@ -667,7 +702,7 @@
           </h2>
 
           <p class="text-gray-400 text-lg leading-relaxed mb-8">
-            Lagos New Colossus is looking for innovative, commercially viable, and scalable
+            Colossus of Lagos is looking for innovative, commercially viable, and scalable
             business ideas that are sustainable and have the potential to
             create real economic and social impact within Lagos.
           </p>
@@ -777,10 +812,10 @@
                     Stage 4
                   </div>
                   <h4 class="font-bold text-white mb-1">
-                    The Colossus House (Top 20)
+                    Main Television Competition (Top 20)
                   </h4>
                   <p class="text-sm text-gray-400">
-                    8-week main show. Grand Prize and national TV exposure.
+                    8-week televised challenge series, pitch battles, and grand finale.
                   </p>
                 </div>
               </div>
@@ -905,7 +940,7 @@
       <div class="grid md:grid-cols-4 gap-12 mb-12">
         <div class="md:col-span-2">
           <div class="flex items-center gap-3 mb-6">
-            <img src="assets/slider/LASG-LNC.svg" alt="Lagos New Colossus" class="h-12 w-auto">
+            <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos" class="h-12 w-auto">
           </div>
           <p class="text-gray-500 text-sm max-w-sm leading-relaxed mb-6">
             An entrepreneurial reality and competition show developed in
@@ -963,7 +998,7 @@
       <div
         class="border-t border-[#d4af37]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
         <p class="text-sm text-gray-600">
-          © 2026 Lagos New Colossus. All rights reserved.
+          © 2026 Colossus of Lagos. All rights reserved.
         </p>
         <p class="text-sm text-gray-600">
           Produced by Bravopoints International Limited <span class="hidden md:inline mx-2">|</span> Design by <a
@@ -1031,6 +1066,11 @@
       card.classList.add("active");
     }
   </script>
+  <!-- Floating WhatsApp Widget (TechieXtract Scope) -->
+  <a href="https://wa.me/2348123456789?text=Hello%20Colossus%20of%20Lagos%20team,%20I%20have%20an%20enquiry" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform" title="Chat on WhatsApp">
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+    <span class="text-xs font-bold hidden sm:inline">WhatsApp Help Desk</span>
+  </a>
 </body>
 
 </html>

@@ -15,7 +15,7 @@ function revealPage() {
     
     tl.to('#loader-logo', { 
         scrambleText: { 
-            text: "LAGOS NEW COLOSSUS", 
+            text: "COLOSSUS OF LAGOS", 
             chars: "upperCase", 
             revealDelay: 0.5, 
             speed: 0.3 
