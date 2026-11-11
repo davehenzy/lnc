@@ -316,24 +316,24 @@
 
               <!-- Mini Stats Grid Inside Card -->
               <div class="grid grid-cols-2 gap-3 text-left">
-                <div class="p-3.5 rounded-xl bg-[#070f1f]/70 border border-white/10">
+                <div class="p-3 sm:p-3.5 rounded-xl bg-[#070f1f]/70 border border-white/10 min-w-0">
                   <div class="text-xs text-slate-400">Grand Prize</div>
-                  <div class="text-xl font-extrabold text-[#f6e07a] tracking-tight whitespace-nowrap">₦30,000,000</div>
+                  <div class="text-sm sm:text-base md:text-lg font-bold text-[#f6e07a] tracking-tight whitespace-nowrap tabular-nums">₦30,000,000</div>
                   <div class="text-[10px] text-slate-400">Grand Finale Champion</div>
                 </div>
-                <div class="p-3.5 rounded-xl bg-[#070f1f]/70 border border-white/10">
+                <div class="p-3 sm:p-3.5 rounded-xl bg-[#070f1f]/70 border border-white/10 min-w-0">
                   <div class="text-xs text-slate-400">Bootcamp Fund</div>
-                  <div class="text-xl font-extrabold text-white tracking-tight whitespace-nowrap">40 × ₦1M</div>
+                  <div class="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight whitespace-nowrap tabular-nums"><span class="text-[#f6e07a]">40 ×</span> ₦1M</div>
                   <div class="text-[10px] text-slate-400">Direct Cash Support</div>
                 </div>
-                <div class="p-3.5 rounded-xl bg-[#070f1f]/70 border border-white/10">
+                <div class="p-3 sm:p-3.5 rounded-xl bg-[#070f1f]/70 border border-white/10 min-w-0">
                   <div class="text-xs text-slate-400">Investors Eve</div>
-                  <div class="text-xl font-extrabold text-white tracking-tight">Top 20</div>
+                  <div class="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight">Top 20</div>
                   <div class="text-[10px] text-slate-400">Exclusive Boardroom</div>
                 </div>
-                <div class="p-3.5 rounded-xl bg-[#070f1f]/70 border border-white/10">
+                <div class="p-3 sm:p-3.5 rounded-xl bg-[#070f1f]/70 border border-white/10 min-w-0">
                   <div class="text-xs text-slate-400">Broadcast Reach</div>
-                  <div class="text-xl font-extrabold text-[#f6e07a] tracking-tight">53M+</div>
+                  <div class="text-sm sm:text-base md:text-lg font-bold text-[#f6e07a] tracking-tight">53M+</div>
                   <div class="text-[10px] text-slate-400">Channels, TVC & DStv</div>
                 </div>
               </div>
@@ -355,22 +355,22 @@
 
   <!-- Quick Highlight Metrics Strip -->
   <section class="relative -mt-10 z-20 max-w-7xl mx-auto px-6">
-    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-[#d4af37]/30 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-center divide-y lg:divide-y-0 lg:divide-x divide-white/10">
-      <div class="pt-2 lg:pt-0 px-2">
-        <div class="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-extrabold text-[#f6e07a] mb-1 font-display tracking-tight whitespace-nowrap">₦30,000,000</div>
-        <div class="text-xs uppercase tracking-wider text-slate-300 font-medium">Grand Finale Winner Prize</div>
+    <div class="glass-card rounded-2xl p-5 sm:p-6 border border-[#d4af37]/40 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-center divide-y lg:divide-y-0 lg:divide-x divide-white/10 shadow-2xl">
+      <div class="pt-2 lg:pt-0 px-2 min-w-0">
+        <div class="text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl 2xl:text-2xl font-bold text-[#f6e07a] mb-1 tracking-tight leading-tight whitespace-nowrap">₦30,000,000</div>
+        <div class="text-[11px] sm:text-xs uppercase tracking-wider text-slate-300 font-medium">Grand Finale Winner Prize</div>
       </div>
-      <div class="pt-4 lg:pt-0 px-2">
-        <div class="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-extrabold text-white mb-1 font-display tracking-tight whitespace-nowrap">40 × ₦1M</div>
-        <div class="text-xs uppercase tracking-wider text-slate-300 font-medium">40 Winners at ₦1M Each</div>
+      <div class="pt-4 lg:pt-0 px-2 min-w-0">
+        <div class="text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl 2xl:text-2xl font-bold text-white mb-1 tracking-tight leading-tight whitespace-nowrap"><span class="text-[#f6e07a]">40 ×</span> ₦1M</div>
+        <div class="text-[11px] sm:text-xs uppercase tracking-wider text-slate-300 font-medium">40 Winners at ₦1M Each</div>
       </div>
-      <div class="pt-4 lg:pt-0 px-2">
-        <div class="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-extrabold text-[#f6e07a] mb-1 font-display tracking-tight whitespace-nowrap">1,000+</div>
-        <div class="text-xs uppercase tracking-wider text-slate-300 font-medium">Summit Participants</div>
+      <div class="pt-4 lg:pt-0 px-2 min-w-0">
+        <div class="text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl 2xl:text-2xl font-bold text-[#f6e07a] mb-1 tracking-tight leading-tight whitespace-nowrap">1,000+</div>
+        <div class="text-[11px] sm:text-xs uppercase tracking-wider text-slate-300 font-medium">Summit Participants</div>
       </div>
-      <div class="pt-4 lg:pt-0 px-2">
-        <div class="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-extrabold text-white mb-1 font-display tracking-tight whitespace-nowrap">53M+</div>
-        <div class="text-xs uppercase tracking-wider text-slate-300 font-medium">Total TV Viewership</div>
+      <div class="pt-4 lg:pt-0 px-2 min-w-0">
+        <div class="text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl 2xl:text-2xl font-bold text-white mb-1 tracking-tight leading-tight whitespace-nowrap">53M+</div>
+        <div class="text-[11px] sm:text-xs uppercase tracking-wider text-slate-300 font-medium">Total TV Viewership</div>
       </div>
     </div>
   </section>

@@ -1,11 +1,5 @@
 <?php
 require_once 'config.php';
-$announcements = [];
-try {
-    $announcements = $pdo->query("SELECT * FROM announcements ORDER BY published_at DESC LIMIT 3")->fetchAll();
-} catch (Exception $e) {
-    // Database fallback if table not yet populated
-}
 ?>
 <!doctype html>
 <html lang="en">
@@ -297,17 +291,17 @@ try {
   </div>
 
   <!-- Hero Section with Interactive Slider & Visual Experience -->
-  <section class="relative w-full pt-[90px] md:pt-[110px] overflow-hidden bg-[#0a1628]">
-    <!-- Top Interactive Slider -->
-    <div class="relative w-full aspect-[1920/680] md:aspect-[1920/600] group shadow-2xl shadow-black/80">
+  <section class="relative w-full pt-[85px] md:pt-[105px] overflow-hidden bg-[#0a1628]">
+    <!-- Top Interactive Slider (Expanded Height for Cinematic Impact) -->
+    <div class="relative w-full h-[55vh] min-h-[440px] sm:h-[65vh] sm:min-h-[500px] md:h-[75vh] md:min-h-[620px] lg:h-[82vh] lg:min-h-[720px] xl:h-[86vh] xl:min-h-[780px] max-h-[920px] group shadow-2xl shadow-black/80">
       <div class="absolute inset-0 z-0 bg-[#0a1628] overflow-hidden">
         <div id="slide-track">
-          <div class="slide-item" style="background-image: url('assets/slider/Artboard 1.png');"></div>
-          <div class="slide-item" style="background-image: url('assets/slider/Artboard 2.png');"></div>
-          <div class="slide-item" style="background-image: url('assets/slider/Artboard 3.png');"></div>
-          <div class="slide-item" style="background-image: url('assets/slider/Artboard 4.png');"></div>
-          <div class="slide-item" style="background-image: url('assets/slider/Artboard 5.png');"></div>
-          <div class="slide-item" style="background-image: url('assets/slider/Artboard 6.png');"></div>
+          <div class="slide-item" style="background-image: url('assets/slider/slider-1.jpg?v=3');"></div>
+          <div class="slide-item" style="background-image: url('assets/slider/slider-2.jpg');"></div>
+          <div class="slide-item" style="background-image: url('assets/slider/slider-3.jpg');"></div>
+          <div class="slide-item" style="background-image: url('assets/slider/slider-4.jpg');"></div>
+          <div class="slide-item" style="background-image: url('assets/slider/slider-5.jpg');"></div>
+          <div class="slide-item" style="background-image: url('assets/slider/slider-6.jpg?v=3');"></div>
         </div>
       </div>
 
@@ -373,42 +367,41 @@ try {
             <span>Watch Show Trailer</span>
           </button>
         </div>
+      </div>
 
-        <!-- 4 Golden Metrics Ribbon -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 text-left">
-          <div class="glass-panel p-4 sm:p-5 lg:p-4 xl:p-5 rounded-2xl border-l-4 border-yellow-400 hover-lift flex flex-col justify-between overflow-hidden">
-            <div>
-              <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Grand Finale Champion</div>
-              <div class="font-display text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl font-extrabold text-yellow-400 mb-1 tracking-tight whitespace-nowrap">₦30,000,000</div>
-            </div>
-            <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">Awarded to the ultimate champion of the Grand Finale</p>
+      <!-- 4 Golden Metrics Ribbon (Spans full max-w-7xl for optimal breathing room & overflow safety) -->
+      <div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 text-left">
+        <div class="rounded-2xl border border-yellow-400/50 bg-[#070f1f]/90 backdrop-blur-md p-4 sm:p-5 lg:px-4 lg:py-5 xl:px-5 hover:border-yellow-400 hover-lift flex flex-col justify-between min-w-0 shadow-lg shadow-black/40 transition-all">
+          <div class="min-w-0 mb-2">
+            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Grand Finale Champion</div>
+            <div class="text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl font-bold text-yellow-400 tracking-tight leading-tight whitespace-nowrap tabular-nums">₦30,000,000</div>
           </div>
-
-          <div class="glass-panel p-4 sm:p-5 lg:p-4 xl:p-5 rounded-2xl border-l-4 border-yellow-400 hover-lift flex flex-col justify-between overflow-hidden">
-            <div>
-              <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Bootcamp Seed Grants</div>
-              <div class="font-display text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl font-extrabold text-white mb-1 tracking-tight whitespace-nowrap">40 × ₦1M</div>
-            </div>
-            <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">40 standout entrepreneurs win ₦1,000,000 each</p>
-          </div>
-
-          <div class="glass-panel p-4 sm:p-5 lg:p-4 xl:p-5 rounded-2xl border-l-4 border-yellow-400 hover-lift flex flex-col justify-between overflow-hidden">
-            <div>
-              <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Summit Delegates</div>
-              <div class="font-display text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl font-extrabold text-yellow-400 mb-1 tracking-tight whitespace-nowrap">1,000+</div>
-            </div>
-            <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">Delegates attending the Entrepreneurship Convention</p>
-          </div>
-
-          <div class="glass-panel p-4 sm:p-5 lg:p-4 xl:p-5 rounded-2xl border-l-4 border-yellow-400 hover-lift flex flex-col justify-between overflow-hidden">
-            <div>
-              <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Total TV Viewership</div>
-              <div class="font-display text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl font-extrabold text-white mb-1 tracking-tight whitespace-nowrap">53M+</div>
-            </div>
-            <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">Channels TV, TVC, Hip TV & Africa Magic nationwide</p>
-          </div>
+          <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">Awarded to the ultimate champion of the Grand Finale</p>
         </div>
 
+        <div class="rounded-2xl border border-yellow-400/50 bg-[#070f1f]/90 backdrop-blur-md p-4 sm:p-5 lg:px-4 lg:py-5 xl:px-5 hover:border-yellow-400 hover-lift flex flex-col justify-between min-w-0 shadow-lg shadow-black/40 transition-all">
+          <div class="min-w-0 mb-2">
+            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Bootcamp Seed Grants</div>
+            <div class="text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl font-bold text-white tracking-tight leading-tight whitespace-nowrap tabular-nums"><span class="text-yellow-400">40 ×</span> ₦1M</div>
+          </div>
+          <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">40 standout entrepreneurs win ₦1,000,000 each</p>
+        </div>
+
+        <div class="rounded-2xl border border-yellow-400/50 bg-[#070f1f]/90 backdrop-blur-md p-4 sm:p-5 lg:px-4 lg:py-5 xl:px-5 hover:border-yellow-400 hover-lift flex flex-col justify-between min-w-0 shadow-lg shadow-black/40 transition-all">
+          <div class="min-w-0 mb-2">
+            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Summit Delegates</div>
+            <div class="text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl font-bold text-yellow-400 tracking-tight leading-tight whitespace-nowrap tabular-nums">1,000+</div>
+          </div>
+          <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">Delegates attending the Entrepreneurship Convention</p>
+        </div>
+
+        <div class="rounded-2xl border border-yellow-400/50 bg-[#070f1f]/90 backdrop-blur-md p-4 sm:p-5 lg:px-4 lg:py-5 xl:px-5 hover:border-yellow-400 hover-lift flex flex-col justify-between min-w-0 shadow-lg shadow-black/40 transition-all">
+          <div class="min-w-0 mb-2">
+            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Total TV Viewership</div>
+            <div class="text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl font-bold text-white tracking-tight leading-tight whitespace-nowrap tabular-nums">53M+</div>
+          </div>
+          <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">Channels TV, TVC, Hip TV & Africa Magic nationwide</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1070,69 +1063,6 @@ try {
     </div>
   </section>
 
-  <!-- News & Announcements (Dynamic Database Integration) -->
-  <section id="news" class="py-24 md:py-32 bg-[#070f1f] border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-        <div>
-          <div class="inline-flex items-center gap-2 mb-3">
-            <div class="h-px w-10 bg-yellow-400"></div>
-            <span class="text-yellow-400 text-xs font-semibold tracking-widest uppercase">Official Bulletins</span>
-          </div>
-          <h2 class="font-display text-3xl sm:text-5xl font-bold">News & Announcements</h2>
-          <p class="text-gray-400 text-xs sm:text-sm mt-2 max-w-xl font-light">
-            Stay informed on audition calls, convention scheduling, state partnership bulletins, and bootcamp updates.
-          </p>
-        </div>
-        <a href="about.php#stages" class="btn-gold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider font-bold inline-flex items-center gap-2 self-start md:self-auto">
-          <span>Explore All Stages</span>
-          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-        </a>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <?php if (!empty($announcements)): ?>
-          <?php foreach ($announcements as $item): ?>
-            <div class="glass-panel rounded-2xl overflow-hidden hover-lift border border-white/5 hover:border-yellow-400/40 flex flex-col justify-between">
-              <div class="relative h-48 overflow-hidden">
-                <img src="<?php echo htmlspecialchars($item['image'] ?: 'assets/slider/Artboard 1.png'); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
-                <div class="absolute top-3 left-3 bg-[#0a1628]/90 text-yellow-400 text-[10px] font-bold px-3 py-1 rounded-full border border-yellow-400/30 uppercase tracking-wider">
-                  <?php echo htmlspecialchars($item['category']); ?>
-                </div>
-              </div>
-              <div class="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <div class="text-[11px] text-gray-500 mb-2 flex items-center gap-1.5">
-                    <i data-lucide="calendar" class="w-3.5 h-3.5 text-yellow-400"></i>
-                    <span><?php echo date('M j, Y', strtotime($item['published_at'] ?: $item['created_at'])); ?></span>
-                  </div>
-                  <h3 class="font-bold text-base text-white mb-2 leading-snug">
-                    <?php echo htmlspecialchars($item['title']); ?>
-                  </h3>
-                  <p class="text-xs text-gray-400 font-light leading-relaxed mb-4">
-                    <?php echo htmlspecialchars(substr($item['content'], 0, 140)) . '...'; ?>
-                  </p>
-                </div>
-                <a href="about.php#stages" class="text-xs font-bold text-yellow-400 flex items-center gap-1 hover:underline pt-2 border-t border-white/5">
-                  <span>Read Full Notice</span>
-                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
-                </a>
-              </div>
-            </div>
-          <?php endforeach; ?>
-        <?php else: ?>
-          <div class="glass-panel rounded-2xl p-6 border border-white/5 hover-lift">
-            <span class="text-[10px] font-bold text-yellow-400 bg-yellow-400/10 px-2.5 py-1 rounded-full uppercase">Auditions</span>
-            <div class="text-xs text-gray-400 mt-3 mb-1">November 2026</div>
-            <h3 class="font-bold text-white text-base mb-2">Audition Dates Confirmed Across Lagos Mainland & Island</h3>
-            <p class="text-xs text-gray-400 font-light leading-relaxed">
-              Dual-hub live pitches open to all registered candidates across Ikeja, Surulere, Victoria Island, and surrounding zones.
-            </p>
-          </div>
-        <?php endif; ?>
-      </div>
-    </div>
-  </section>
 
   <!-- FAQ Section -->
   <section id="faq" class="py-24 md:py-32 bg-[#0a1628] relative">

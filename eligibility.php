@@ -318,11 +318,11 @@
 
 <body class="antialiased text-white bg-[#0a1628] overflow-x-hidden">
   <!-- Navigation -->
-  <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 bg-[#0a1628] border-b border-white/5">
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-4 bg-[#070f1f]/90 backdrop-blur-md border-b border-white/10">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
       <a href="index.php" class="flex items-center">
         <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo"
-          class="h-10 md:h-16 w-auto object-contain" />
+          class="h-10 md:h-14 w-auto object-contain" />
       </a>
 
       <div class="hidden md:flex items-center gap-8">
@@ -334,8 +334,9 @@
 
       <div class="flex items-center gap-4">
         <a href="register.php"
-          class="hidden sm:block btn-gold px-6 py-2.5 rounded-full text-xs md:text-sm uppercase tracking-wider">
-          Register Now
+          class="hidden sm:inline-flex btn-gold px-6 py-2.5 rounded-full text-xs md:text-sm uppercase tracking-wider items-center gap-2">
+          <span>Register Now</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
         <button id="menu-btn"
           class="md:hidden w-10 h-10 flex items-center justify-center text-gray-300 hover:text-[#d4af37] transition-colors">
@@ -347,42 +348,38 @@
 
   <!-- Mobile Menu -->
   <div id="mobile-menu"
-    class="fixed inset-0 z-[60] bg-[#0a1628]/95 backdrop-blur-xl translate-x-full transition-transform duration-500 md:hidden">
+    class="fixed inset-0 z-[60] bg-[#070f1f]/98 backdrop-blur-2xl translate-x-full transition-transform duration-500 md:hidden">
     <div class="flex flex-col h-full p-8">
       <div class="flex items-center justify-between mb-12">
-        <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo" class="h-8 w-auto" />
+        <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo" class="h-9 w-auto" />
         <button id="close-menu" class="text-gray-400 hover:text-white">
           <i data-lucide="x" class="w-8 h-8"></i>
         </button>
       </div>
 
-      <nav class="flex flex-col gap-6">
-        <a href="index.php" class="text-2xl font-bold text-gray-300 hover:text-[#d4af37]">Home</a>
-        <a href="about.php" class="text-2xl font-bold text-gray-300 hover:text-[#d4af37]">About</a>
-        <a href="eligibility.php" class="text-2xl font-bold text-[#d4af37]">Eligibility</a>
-        <a href="faq.php" class="text-2xl font-bold text-gray-300 hover:text-[#d4af37]">FAQ</a>
+      <nav class="flex flex-col gap-6 text-xl font-bold">
+        <a href="index.php" class="text-gray-300 hover:text-[#d4af37]">Home</a>
+        <a href="about.php" class="text-gray-300 hover:text-[#d4af37]">About</a>
+        <a href="eligibility.php" class="text-[#d4af37]">Eligibility</a>
+        <a href="faq.php" class="text-gray-300 hover:text-[#d4af37]">FAQ</a>
       </nav>
 
       <div class="mt-auto pt-8 border-t border-white/10">
-        <a href="register.php" class="btn-gold w-full py-4 rounded-full text-center uppercase tracking-widest block">
+        <a href="register.php" class="btn-gold w-full py-4 rounded-full text-center uppercase tracking-widest block font-bold">
           Register Now
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Hero Section -->
-  <section class="relative min-h-[75vh] flex items-center justify-center overflow-hidden pt-[112px] md:pt-[130px] pb-16">
-    <div class="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0f1d32] to-[#0a1628]"></div>
-    <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
-      <div class="absolute top-20 left-10 w-96 h-96 bg-[#d4af37]/5 rounded-full blur-[100px] animate-float"></div>
-      <div
-        class="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#d4af37]/5 rounded-full blur-[120px] animate-float"
-        style="animation-delay: 3s"></div>
+  <!-- Hero Section with Duration & Audition Callouts -->
+  <section class="relative min-h-[82vh] flex items-center justify-center overflow-hidden pt-[116px] md:pt-[136px] pb-16">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#070f1f] via-[#0a1628] to-[#070f1f]"></div>
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+      <div class="absolute top-16 left-10 w-96 h-96 bg-[#d4af37]/10 rounded-full blur-[110px] animate-float"></div>
+      <div class="absolute bottom-16 right-10 w-[500px] h-[500px] bg-[#083B74]/25 rounded-full blur-[130px] animate-float" style="animation-delay: 3s"></div>
     </div>
-    <div
-      class="absolute inset-0 bg-[linear-gradient(rgba(212,175,55,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.03)_1px,transparent_1px)] bg-[size:60px_60px]">
-    </div>
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(212,175,55,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.03)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none"></div>
 
     <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
 
@@ -394,58 +391,94 @@
         </span>
       </div>
 
-      <h1 class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
-        <span class="block text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400">ARE YOU</span>
-        <span class="block text-gold-gradient mt-2 italic">ELIGIBLE?</span>
+      <h1 class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight mb-4">
+        <span class="block text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-300">ARE YOU</span>
+        <span class="block text-gold-gradient italic mt-1">ELIGIBLE?</span>
       </h1>
 
-      <p class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-300 mb-8 leading-relaxed font-light">
-        We're searching for ambitious Lagos-based entrepreneurs aged 20–40 ready to compete, scale, and rise to become Africa's next business titans.
+      <p class="font-display italic text-lg sm:text-xl text-yellow-400/90 mb-4 font-normal">
+        "The Hustle. The Heat. The Rise."
       </p>
 
+      <p class="max-w-3xl mx-auto text-base sm:text-lg text-gray-300 mb-8 leading-relaxed font-light">
+        A major <strong class="text-white font-semibold">1-Month Entrepreneurship Competition & Festival</strong> developed in partnership with the <strong class="text-yellow-400">Lagos State Government</strong> to discover, fund, celebrate, and empower ambitious founders across Lagos Mainland and Lagos Island.
+      </p>
+
+      <!-- Key Parameters Strip: Duration, Registration, Audition Zones -->
+      <div class="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 text-left">
+        <div class="glass-panel p-3.5 rounded-xl border border-yellow-400/20">
+          <div class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold">Programme Duration</div>
+          <div class="text-base sm:text-lg font-bold text-yellow-400 mt-0.5">1-Month Festival</div>
+          <div class="text-[11px] text-gray-400">Fast-paced & impactful</div>
+        </div>
+
+        <div class="glass-panel p-3.5 rounded-xl border border-yellow-400/20">
+          <div class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold">Application Window</div>
+          <div class="text-base sm:text-lg font-bold text-white mt-0.5">2 Weeks Only</div>
+          <div class="text-[11px] text-gray-400">Statewide registration</div>
+        </div>
+
+        <div class="glass-panel p-3.5 rounded-xl border border-yellow-400/20">
+          <div class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold">Auditions & Pitches</div>
+          <div class="text-base sm:text-lg font-bold text-yellow-400 mt-0.5">5 Major Zones</div>
+          <div class="text-[11px] text-gray-400">Mainland & Island</div>
+        </div>
+
+        <div class="glass-panel p-3.5 rounded-xl border border-yellow-400/20">
+          <div class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold">Grand Prize Pool</div>
+          <div class="text-base sm:text-lg font-bold text-white mt-0.5">₦70M+ Total</div>
+          <div class="text-[11px] text-gray-400">₦30M + 40 × ₦1M</div>
+        </div>
+      </div>
+
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-14">
-        <a href="#requirements"
-          class="btn-gold px-8 py-3.5 rounded-full text-xs md:text-sm uppercase tracking-widest flex items-center gap-3">
-          <span>Check Requirements</span>
+        <a href="#auditions"
+          class="btn-gold px-8 py-3.5 rounded-full text-xs md:text-sm uppercase tracking-widest flex items-center gap-2">
+          <span>Explore Auditions Guide</span>
           <i data-lucide="arrow-down" class="w-4 h-4"></i>
         </a>
+        <a href="#duration"
+          class="btn-outline-gold px-8 py-3.5 rounded-full text-xs md:text-sm uppercase tracking-widest flex items-center gap-2">
+          <i data-lucide="clock" class="w-4 h-4 text-yellow-400"></i>
+          <span>1-Month Timeline</span>
+        </a>
         <a href="register.php"
-          class="btn-outline-gold px-8 py-3.5 rounded-full text-xs md:text-sm uppercase tracking-widest flex items-center gap-3">
-          <span>Register Now</span>
-          <i data-lucide="edit-3" class="w-4 h-4"></i>
+          class="btn-gold px-8 py-3.5 rounded-full text-xs md:text-sm uppercase tracking-widest flex items-center gap-2">
+          <span>Apply in 2-Week Window</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
       </div>
 
-      <!-- 4 Golden Metrics Ribbon -->
+      <!-- 4 Golden Metrics Ribbon (Overflow-Proof & Balanced) -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 text-left">
-        <div class="glass-panel p-4 sm:p-5 lg:p-4 xl:p-5 rounded-2xl border-l-4 border-yellow-400 hover-lift flex flex-col justify-between overflow-hidden">
-          <div>
+        <div class="rounded-2xl border border-yellow-400/50 bg-[#070f1f]/90 backdrop-blur-md p-4 sm:p-5 lg:px-4 lg:py-5 xl:px-5 hover:border-yellow-400 hover-lift flex flex-col justify-between min-w-0 shadow-lg shadow-black/40 transition-all">
+          <div class="min-w-0 mb-2">
             <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Grand Finale Champion</div>
-            <div class="font-display text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl font-extrabold text-yellow-400 mb-1 tracking-tight whitespace-nowrap">₦30,000,000</div>
+            <div class="text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl font-bold text-yellow-400 tracking-tight leading-tight whitespace-nowrap tabular-nums">₦30,000,000</div>
           </div>
           <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">Awarded to the ultimate champion of the Grand Finale</p>
         </div>
 
-        <div class="glass-panel p-4 sm:p-5 lg:p-4 xl:p-5 rounded-2xl border-l-4 border-yellow-400 hover-lift flex flex-col justify-between overflow-hidden">
-          <div>
+        <div class="rounded-2xl border border-yellow-400/50 bg-[#070f1f]/90 backdrop-blur-md p-4 sm:p-5 lg:px-4 lg:py-5 xl:px-5 hover:border-yellow-400 hover-lift flex flex-col justify-between min-w-0 shadow-lg shadow-black/40 transition-all">
+          <div class="min-w-0 mb-2">
             <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Bootcamp Seed Grants</div>
-            <div class="font-display text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl font-extrabold text-white mb-1 tracking-tight whitespace-nowrap">40 × ₦1M</div>
+            <div class="text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl font-bold text-white tracking-tight leading-tight whitespace-nowrap tabular-nums"><span class="text-yellow-400">40 ×</span> ₦1M</div>
           </div>
           <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">40 standout entrepreneurs win ₦1,000,000 each</p>
         </div>
 
-        <div class="glass-panel p-4 sm:p-5 lg:p-4 xl:p-5 rounded-2xl border-l-4 border-yellow-400 hover-lift flex flex-col justify-between overflow-hidden">
-          <div>
+        <div class="rounded-2xl border border-yellow-400/50 bg-[#070f1f]/90 backdrop-blur-md p-4 sm:p-5 lg:px-4 lg:py-5 xl:px-5 hover:border-yellow-400 hover-lift flex flex-col justify-between min-w-0 shadow-lg shadow-black/40 transition-all">
+          <div class="min-w-0 mb-2">
             <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Summit Delegates</div>
-            <div class="font-display text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl font-extrabold text-yellow-400 mb-1 tracking-tight whitespace-nowrap">1,000+</div>
+            <div class="text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl font-bold text-yellow-400 tracking-tight leading-tight whitespace-nowrap tabular-nums">1,000+</div>
           </div>
           <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">Delegates attending the Entrepreneurship Convention</p>
         </div>
 
-        <div class="glass-panel p-4 sm:p-5 lg:p-4 xl:p-5 rounded-2xl border-l-4 border-yellow-400 hover-lift flex flex-col justify-between overflow-hidden">
-          <div>
+        <div class="rounded-2xl border border-yellow-400/50 bg-[#070f1f]/90 backdrop-blur-md p-4 sm:p-5 lg:px-4 lg:py-5 xl:px-5 hover:border-yellow-400 hover-lift flex flex-col justify-between min-w-0 shadow-lg shadow-black/40 transition-all">
+          <div class="min-w-0 mb-2">
             <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Total TV Viewership</div>
-            <div class="font-display text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl font-extrabold text-white mb-1 tracking-tight whitespace-nowrap">53M+</div>
+            <div class="text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl font-bold text-white tracking-tight leading-tight whitespace-nowrap tabular-nums">53M+</div>
           </div>
           <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">Channels TV, TVC, Hip TV & Africa Magic nationwide</p>
         </div>
@@ -453,7 +486,430 @@
 
     </div>
 
-    <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0a1628] to-transparent"></div>
+    <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#070f1f] to-transparent pointer-events-none"></div>
+  </section>
+
+  <!-- Section 1: Programme Duration & Timeline Focus -->
+  <section id="duration" class="relative py-24 md:py-32 bg-[#070f1f] border-t border-yellow-400/10">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 section-reveal">
+        <div class="inline-flex items-center gap-3 mb-4">
+          <div class="h-px w-12 bg-yellow-400"></div>
+          <span class="text-yellow-400 text-xs font-semibold tracking-[0.25em] uppercase">Programme Duration & Schedule</span>
+          <div class="h-px w-12 bg-yellow-400"></div>
+        </div>
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-white tracking-tight mb-5">
+          1-Month Festival: <span class="text-gold-gradient italic">Fast-Paced & Business-First</span>
+        </h2>
+        <p class="text-gray-300 text-base md:text-lg font-light leading-relaxed">
+          Unlike traditional reality shows that sequester founders for months in an isolated house, Colossus of Lagos is an intensive <strong class="text-white">one-month entrepreneurial platform</strong> structured so active founders can accelerate their ventures without shutting down daily business operations.
+        </p>
+      </div>
+
+      <!-- Duration Differentiator Banner -->
+      <div class="grid md:grid-cols-3 gap-6 mb-16 section-reveal">
+        <div class="rounded-2xl border border-yellow-400/30 bg-[#0a1628]/80 p-6 flex items-start gap-4 hover-lift">
+          <div class="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/30 text-yellow-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="timer" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-base mb-1">Strict 2-Week Registration</h4>
+            <p class="text-xs text-gray-400 font-light leading-relaxed">The call for applications is open for exactly 2 weeks. Late entries cannot be entertained due to rapid broadcast screening.</p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-yellow-400/30 bg-[#0a1628]/80 p-6 flex items-start gap-4 hover-lift">
+          <div class="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/30 text-yellow-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="briefcase" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-base mb-1">Zero Business Disruption</h4>
+            <p class="text-xs text-gray-400 font-light leading-relaxed">Stage attendance is milestone-based. Founders maintain direct control and operational leadership of their existing companies.</p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-yellow-400/30 bg-[#0a1628]/80 p-6 flex items-start gap-4 hover-lift">
+          <div class="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/30 text-yellow-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="zap" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-base mb-1">High-Impact Velocity</h4>
+            <p class="text-xs text-gray-400 font-light leading-relaxed">30 days packed with masterclasses, live televised pitches, corporate networking, and ₦70M+ distributed in catalytic prizes.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage-by-Stage Timeline Progression -->
+      <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-yellow-400/20 section-reveal">
+        <h3 class="font-display text-2xl font-bold text-white mb-8 text-center sm:text-left flex items-center gap-3">
+          <i data-lucide="calendar-days" class="w-6 h-6 text-yellow-400"></i>
+          <span>Official 6-Stage Programme Roadmap</span>
+        </h3>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Stage 1 -->
+          <div class="rounded-2xl bg-[#0a1628] border border-white/5 p-6 relative hover:border-yellow-400/40 transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-yellow-400 text-[#070f1f]">Stage 1</span>
+              <span class="text-xs text-yellow-400 font-semibold">2-Week Window</span>
+            </div>
+            <h4 class="font-bold text-white text-base mb-2">Call for Registrations</h4>
+            <p class="text-xs text-gray-400 leading-relaxed font-light">Online application intake across Lagos State. Business verification, concept review, and shortlisting for regional pitch rounds.</p>
+            <div class="mt-4 pt-3 border-t border-white/5 text-[11px] text-gray-400 flex items-center gap-1.5">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-yellow-400"></i>
+              <span>Portal open to Lagos founders (Age 20–40)</span>
+            </div>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="rounded-2xl bg-[#0a1628] border border-white/5 p-6 relative hover:border-yellow-400/40 transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-yellow-400 text-[#070f1f]">Stage 2</span>
+              <span class="text-xs text-yellow-400 font-semibold">Week 3</span>
+            </div>
+            <h4 class="font-bold text-white text-base mb-2">Regional Auditions & Pitches</h4>
+            <p class="text-xs text-gray-400 leading-relaxed font-light">In-person pitch sessions on Lagos Mainland and Lagos Island covering 5 major zones. Filmed for national TV broadcast.</p>
+            <div class="mt-4 pt-3 border-t border-white/5 text-[11px] text-gray-400 flex items-center gap-1.5">
+              <i data-lucide="mic" class="w-3.5 h-3.5 text-yellow-400"></i>
+              <span>Live 3–5 min pitch + 3 min jury Q&A</span>
+            </div>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="rounded-2xl bg-[#0a1628] border border-white/5 p-6 relative hover:border-yellow-400/40 transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-yellow-400 text-[#070f1f]">Stage 3</span>
+              <span class="text-xs text-yellow-400 font-semibold">Week 4</span>
+            </div>
+            <h4 class="font-bold text-white text-base mb-2">Entrepreneurship Convention</h4>
+            <p class="text-xs text-gray-400 leading-relaxed font-light">1,000+ delegates gather for summit keynotes, masterclasses, executive panels, and business exhibition in Lagos.</p>
+            <div class="mt-4 pt-3 border-t border-white/5 text-[11px] text-gray-400 flex items-center gap-1.5">
+              <i data-lucide="users" class="w-3.5 h-3.5 text-yellow-400"></i>
+              <span>High-profile public & corporate leaders</span>
+            </div>
+          </div>
+
+          <!-- Stage 4 -->
+          <div class="rounded-2xl bg-[#0a1628] border border-yellow-400/30 p-6 relative hover:border-yellow-400 transition-all bg-gradient-to-b from-[#0a1628] to-[#0d1e38]">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-yellow-400 text-[#070f1f]">Stage 4</span>
+              <span class="text-xs text-yellow-400 font-bold">₦40M Awarded</span>
+            </div>
+            <h4 class="font-bold text-white text-base mb-2">Top 100 Accelerator Bootcamp</h4>
+            <p class="text-xs text-gray-400 leading-relaxed font-light">Rigorous training academy. <strong>40 standout entrepreneurs each win ₦1,000,000 cash seed grants</strong> to inject directly into their operations.</p>
+            <div class="mt-4 pt-3 border-t border-white/5 text-[11px] text-yellow-400 flex items-center gap-1.5 font-semibold">
+              <i data-lucide="award" class="w-3.5 h-3.5 text-yellow-400"></i>
+              <span>40 × ₦1,000,000 Seed Grants</span>
+            </div>
+          </div>
+
+          <!-- Stage 5 -->
+          <div class="rounded-2xl bg-[#0a1628] border border-white/5 p-6 relative hover:border-yellow-400/40 transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-yellow-400 text-[#070f1f]">Stage 5</span>
+              <span class="text-xs text-yellow-400 font-semibold">Week 6</span>
+            </div>
+            <h4 class="font-bold text-white text-base mb-2">Top 20 Investors Evening</h4>
+            <p class="text-xs text-gray-400 leading-relaxed font-light">Exclusive high-level boardroom gala. Top 20 finalists pitch directly to private equity investors, VCs, and angel syndicates.</p>
+            <div class="mt-4 pt-3 border-t border-white/5 text-[11px] text-gray-400 flex items-center gap-1.5">
+              <i data-lucide="briefcase" class="w-3.5 h-3.5 text-yellow-400"></i>
+              <span>Private syndicates & equity matchmaking</span>
+            </div>
+          </div>
+
+          <!-- Stage 6 -->
+          <div class="rounded-2xl bg-[#0a1628] border border-yellow-400/40 p-6 relative hover:border-yellow-400 transition-all bg-gradient-to-br from-yellow-400/10 via-[#0a1628] to-[#070f1f]">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-yellow-400 text-[#070f1f]">Stage 6</span>
+              <span class="text-xs text-yellow-400 font-bold">₦30M Grand Prize</span>
+            </div>
+            <h4 class="font-bold text-white text-base mb-2">Grand Finale (Live on TV)</h4>
+            <p class="text-xs text-gray-400 leading-relaxed font-light">Nationally televised grand championship. One visionary winner emerges as the Colossus of Lagos, taking home ₦30,000,000.</p>
+            <div class="mt-4 pt-3 border-t border-white/5 text-[11px] text-yellow-400 flex items-center gap-1.5 font-bold">
+              <i data-lucide="crown" class="w-3.5 h-3.5 text-yellow-400"></i>
+              <span>₦30,000,000 Equity-Free Prize</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: Auditions & Business Pitches Guide Focus -->
+  <section id="auditions" class="relative py-24 md:py-32 bg-[#0a1628] border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 section-reveal">
+        <div class="inline-flex items-center gap-3 mb-4">
+          <div class="h-px w-12 bg-yellow-400"></div>
+          <span class="text-yellow-400 text-xs font-semibold tracking-[0.25em] uppercase">Auditions & Business Pitches</span>
+          <div class="h-px w-12 bg-yellow-400"></div>
+        </div>
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-white tracking-tight mb-5">
+          Auditions on <span class="text-gold-gradient italic">Mainland & Island</span>
+        </h2>
+        <p class="text-gray-300 text-base md:text-lg font-light leading-relaxed">
+          Shortlisted applicants will pitch their ventures live in front of our grand jury panel. Sessions are filmed for national television across Nigeria's leading networks.
+        </p>
+      </div>
+
+      <!-- Audition Mechanics Breakdown -->
+      <div class="grid lg:grid-cols-12 gap-8 mb-16 items-center">
+        
+        <!-- Left: Live Pitch Format -->
+        <div class="lg:col-span-6 section-reveal space-y-4">
+          <div class="rounded-2xl bg-[#070f1f] border border-yellow-400/20 p-6 sm:p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-yellow-400/10 text-yellow-400 flex items-center justify-center">
+                <i data-lucide="video" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white">Live Pitch Mechanics</h3>
+                <span class="text-xs text-yellow-400">Filmed for Multi-Network Broadcast</span>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-yellow-400/20 text-yellow-400 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</div>
+                <div>
+                  <h5 class="text-sm font-semibold text-white">3–5 Minute Live Pitch</h5>
+                  <p class="text-xs text-gray-400 font-light">Present your business vision, problem addressed, product/service solution, target customer base, and revenue model without interruption.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-yellow-400/20 text-yellow-400 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</div>
+                <div>
+                  <h5 class="text-sm font-semibold text-white">3 Minute Jury Q&A</h5>
+                  <p class="text-xs text-gray-400 font-light">Field rigorous questions from experienced investors and corporate titans regarding your financials, unit economics, and operational risks.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-yellow-400/20 text-yellow-400 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</div>
+                <div>
+                  <h5 class="text-sm font-semibold text-white">Instant Feedback & Deliberation</h5>
+                  <p class="text-xs text-gray-400 font-light">Receive direct feedback on your business viability. Qualifying entrepreneurs proceed to the Top 100 Bootcamp stage.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 4 Evaluation Pillars -->
+        <div class="lg:col-span-6 section-reveal">
+          <div class="grid sm:grid-cols-2 gap-4">
+            
+            <div class="rounded-2xl bg-[#070f1f] border border-white/5 p-5 hover:border-yellow-400/30 transition-all">
+              <div class="w-10 h-10 rounded-xl bg-yellow-400/10 text-yellow-400 flex items-center justify-center mb-3">
+                <i data-lucide="lightbulb" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">Innovation</h4>
+              <p class="text-xs text-gray-400 font-light leading-relaxed">Originality of approach, proprietary value, or unique disruption in solving daily Lagos challenges.</p>
+            </div>
+
+            <div class="rounded-2xl bg-[#070f1f] border border-white/5 p-5 hover:border-yellow-400/30 transition-all">
+              <div class="w-10 h-10 rounded-xl bg-yellow-400/10 text-yellow-400 flex items-center justify-center mb-3">
+                <i data-lucide="trending-up" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">Commercial Viability</h4>
+              <p class="text-xs text-gray-400 font-light leading-relaxed">Proof of paying customers, clear pricing architecture, and demonstrable path to recurring cash flow.</p>
+            </div>
+
+            <div class="rounded-2xl bg-[#070f1f] border border-white/5 p-5 hover:border-yellow-400/30 transition-all">
+              <div class="w-10 h-10 rounded-xl bg-yellow-400/10 text-yellow-400 flex items-center justify-center mb-3">
+                <i data-lucide="layers" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">Scalability & Jobs</h4>
+              <p class="text-xs text-gray-400 font-light leading-relaxed">Capacity to grow across Lagos LGAs/LCDAs and create tangible direct employment for local youth.</p>
+            </div>
+
+            <div class="rounded-2xl bg-[#070f1f] border border-white/5 p-5 hover:border-yellow-400/30 transition-all">
+              <div class="w-10 h-10 rounded-xl bg-yellow-400/10 text-yellow-400 flex items-center justify-center mb-3">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">Founder Grit</h4>
+              <p class="text-xs text-gray-400 font-light leading-relaxed">Tenacity, deep domain passion, coachability, leadership presence, and poise under TV scrutiny.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- What to Bring Checklist -->
+      <div class="rounded-3xl border border-yellow-400/20 bg-gradient-to-r from-[#070f1f] via-[#0a1628] to-[#070f1f] p-8 md:p-10 section-reveal">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6 pb-6 border-b border-white/10">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-yellow-400">Candidate Preparation</span>
+            <h3 class="text-xl md:text-2xl font-bold text-white mt-1">What to Bring to Your Audition</h3>
+          </div>
+          <span class="text-xs text-gray-400">Strictly inspected at the venue entrance</span>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="flex items-start gap-3">
+            <i data-lucide="id-card" class="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5"></i>
+            <div>
+              <h5 class="text-sm font-semibold text-white">Valid Photo ID</h5>
+              <p class="text-xs text-gray-400 font-light">NIN Slip, Voter's Card, Driver's License, or International Passport.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <i data-lucide="map-pin" class="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5"></i>
+            <div>
+              <h5 class="text-sm font-semibold text-white">Proof of Lagos Base</h5>
+              <p class="text-xs text-gray-400 font-light">LASRRA card, Lagos utility bill, or Lagos business registration proof.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <i data-lucide="package" class="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5"></i>
+            <div>
+              <h5 class="text-sm font-semibold text-white">Product / Deck</h5>
+              <p class="text-xs text-gray-400 font-light">Physical product prototype, samples, or digital deck on a clean USB flash drive.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <i data-lucide="file-check" class="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5"></i>
+            <div>
+              <h5 class="text-sm font-semibold text-white">Registration Slip</h5>
+              <p class="text-xs text-gray-400 font-light">Printed or digital registration confirmation with assigned reference ID.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: 5 Regional Audition Centres (IBILE Divisions) -->
+  <section class="relative py-24 md:py-32 bg-[#070f1f] border-t border-yellow-400/10">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 section-reveal">
+        <div class="inline-flex items-center gap-3 mb-4">
+          <div class="h-px w-12 bg-yellow-400"></div>
+          <span class="text-yellow-400 text-xs font-semibold tracking-[0.25em] uppercase">5 Major Zones Across Lagos</span>
+          <div class="h-px w-12 bg-yellow-400"></div>
+        </div>
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-white tracking-tight mb-5">
+          Regional Audition Centres
+        </h2>
+        <p class="text-gray-300 text-base md:text-lg font-light leading-relaxed">
+          Covering the historic 5 IBILE administrative divisions of Lagos State to ensure founders from every district have direct, equitable access to audition.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+        
+        <!-- 1. Lagos Island -->
+        <div class="rounded-2xl overflow-hidden border border-white/10 bg-[#0a1628] hover:border-yellow-400/50 transition-all hover-lift group flex flex-col justify-between">
+          <div>
+            <div class="relative h-44 overflow-hidden">
+              <img src="assets/locations/lagos-island.webp" alt="Lagos Island Hub" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2 py-1 rounded bg-[#070f1f]/80 backdrop-blur-md text-[10px] font-bold text-yellow-400 uppercase tracking-wider">Zone 1</span>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-white text-base mb-1">Lagos Island</h3>
+              <p class="text-[11px] text-yellow-400 font-semibold mb-2">CBD & Maritime Trade</p>
+              <p class="text-xs text-gray-400 font-light leading-snug">Centred on commerce, financial tech, maritime services, and urban consumer retail.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <span class="inline-block text-[10px] text-gray-400 bg-white/5 px-2.5 py-1 rounded-full">Island Division</span>
+          </div>
+        </div>
+
+        <!-- 2. Ikeja -->
+        <div class="rounded-2xl overflow-hidden border border-white/10 bg-[#0a1628] hover:border-yellow-400/50 transition-all hover-lift group flex flex-col justify-between">
+          <div>
+            <div class="relative h-44 overflow-hidden">
+              <img src="assets/locations/ikeja.jpg" alt="Ikeja Hub" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2 py-1 rounded bg-[#070f1f]/80 backdrop-blur-md text-[10px] font-bold text-yellow-400 uppercase tracking-wider">Zone 2</span>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-white text-base mb-1">Ikeja</h3>
+              <p class="text-[11px] text-yellow-400 font-semibold mb-2">State Capital & Tech</p>
+              <p class="text-xs text-gray-400 font-light leading-snug">Mainland commercial engine, software innovation, electronics, and corporate services.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <span class="inline-block text-[10px] text-gray-400 bg-white/5 px-2.5 py-1 rounded-full">Ikeja Division</span>
+          </div>
+        </div>
+
+        <!-- 3. Ikorodu -->
+        <div class="rounded-2xl overflow-hidden border border-white/10 bg-[#0a1628] hover:border-yellow-400/50 transition-all hover-lift group flex flex-col justify-between">
+          <div>
+            <div class="relative h-44 overflow-hidden">
+              <img src="assets/locations/ikorodu.jpg" alt="Ikorodu Hub" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2 py-1 rounded bg-[#070f1f]/80 backdrop-blur-md text-[10px] font-bold text-yellow-400 uppercase tracking-wider">Zone 3</span>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-white text-base mb-1">Ikorodu</h3>
+              <p class="text-[11px] text-yellow-400 font-semibold mb-2">Industrial & Manufacturing</p>
+              <p class="text-xs text-gray-400 font-light leading-snug">Light manufacturing, logistics corridor, consumer goods, and rapid urban growth.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <span class="inline-block text-[10px] text-gray-400 bg-white/5 px-2.5 py-1 rounded-full">Ikorodu Division</span>
+          </div>
+        </div>
+
+        <!-- 4. Badagry -->
+        <div class="rounded-2xl overflow-hidden border border-white/10 bg-[#0a1628] hover:border-yellow-400/50 transition-all hover-lift group flex flex-col justify-between">
+          <div>
+            <div class="relative h-44 overflow-hidden">
+              <img src="assets/locations/badagry.jpg" alt="Badagry Hub" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2 py-1 rounded bg-[#070f1f]/80 backdrop-blur-md text-[10px] font-bold text-yellow-400 uppercase tracking-wider">Zone 4</span>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-white text-base mb-1">Badagry</h3>
+              <p class="text-[11px] text-yellow-400 font-semibold mb-2">Coastal Economy & Tourism</p>
+              <p class="text-xs text-gray-400 font-light leading-snug">Cross-border trade, eco-tourism, cultural heritage, and blue economy ventures.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <span class="inline-block text-[10px] text-gray-400 bg-white/5 px-2.5 py-1 rounded-full">Badagry Division</span>
+          </div>
+        </div>
+
+        <!-- 5. Epe -->
+        <div class="rounded-2xl overflow-hidden border border-white/10 bg-[#0a1628] hover:border-yellow-400/50 transition-all hover-lift group flex flex-col justify-between">
+          <div>
+            <div class="relative h-44 overflow-hidden">
+              <img src="assets/locations/epe.jpg" alt="Epe Hub" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 px-2 py-1 rounded bg-[#070f1f]/80 backdrop-blur-md text-[10px] font-bold text-yellow-400 uppercase tracking-wider">Zone 5</span>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-white text-base mb-1">Epe</h3>
+              <p class="text-[11px] text-yellow-400 font-semibold mb-2">Agro-Tech & Free Zone</p>
+              <p class="text-xs text-gray-400 font-light leading-snug">Agribusiness processing, aquaculture, green energy, and industrial free trade corridors.</p>
+            </div>
+          </div>
+          <div class="p-4 pt-0">
+            <span class="inline-block text-[10px] text-gray-400 bg-white/5 px-2.5 py-1 rounded-full">Epe Division</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </section>
 
   <!-- Requirements Section -->
@@ -672,7 +1128,7 @@
               </div>
               <div class="flex items-center gap-3 text-sm text-gray-300">
                 <i data-lucide="check-circle-2" class="w-5 h-5 text-[#d4af37] flex-shrink-0"></i>
-                <span>Available for 8 weeks</span>
+                <span>Available for key programme milestones</span>
               </div>
               <div class="flex items-center gap-3 text-sm text-gray-300">
                 <i data-lucide="check-circle-2" class="w-5 h-5 text-[#d4af37] flex-shrink-0"></i>
@@ -763,60 +1219,50 @@
             <div class="absolute inset-0 bg-gradient-to-tr from-[#d4af37]/10 to-transparent rounded-3xl blur-2xl"></div>
             <div class="relative glass-panel-strong rounded-3xl p-8 md:p-10">
               <h3 class="font-display text-2xl font-bold mb-6 text-center">
-                Selection Process
+                Selection Process & Stages
               </h3>
 
-              <div class="space-y-6">
-                <div class="relative pl-8 pb-6 border-l-2 border-[#d4af37]/30 last:border-0 last:pb-0">
+              <div class="space-y-5">
+                <div class="relative pl-8 pb-5 border-l-2 border-[#d4af37]/30">
                   <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-[#d4af37] -translate-x-[9px]"></div>
-                  <div class="text-sm font-semibold text-[#d4af37] mb-1">
-                    Stage 1
-                  </div>
-                  <h4 class="font-bold text-white mb-1">Registration</h4>
-                  <p class="text-sm text-gray-400">
-                    Complete the online form with your business idea and
-                    upload a full picture.
-                  </p>
+                  <div class="text-xs font-semibold text-[#d4af37] mb-0.5">Stage 1</div>
+                  <h4 class="font-bold text-white text-sm mb-0.5">Call for Registrations</h4>
+                  <p class="text-xs text-gray-400">Complete the online registration form with your business profile and growth vision.</p>
                 </div>
 
-                <div class="relative pl-8 pb-6 border-l-2 border-[#d4af37]/30 last:border-0 last:pb-0">
+                <div class="relative pl-8 pb-5 border-l-2 border-[#d4af37]/30">
                   <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-[#d4af37] -translate-x-[9px]"></div>
-                  <div class="text-sm font-semibold text-[#d4af37] mb-1">
-                    Stage 2
-                  </div>
-                  <h4 class="font-bold text-white mb-1">Auditions</h4>
-                  <p class="text-sm text-gray-400">
-                    Pitch your business before a panel of judges at your
-                    chosen centre.
-                  </p>
+                  <div class="text-xs font-semibold text-[#d4af37] mb-0.5">Stage 2</div>
+                  <h4 class="font-bold text-white text-sm mb-0.5">Regional Auditions </h4>
+                  <p class="text-xs text-gray-400">Pitch before expert judges in Lagos Mainland and Island .</p>
                 </div>
 
-                <div class="relative pl-8 pb-6 border-l-2 border-[#d4af37]/30 last:border-0 last:pb-0">
+                <div class="relative pl-8 pb-5 border-l-2 border-[#d4af37]/30">
                   <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-[#d4af37] -translate-x-[9px]"></div>
-                  <div class="text-sm font-semibold text-[#d4af37] mb-1">
-                    Stage 3
-                  </div>
-                  <h4 class="font-bold text-white mb-1">
-                    Bootcamp (Top 150)
-                  </h4>
-                  <p class="text-sm text-gray-400">
-                    3-day intensive training and evaluation. 100 win cash
-                    grants.
-                  </p>
+                  <div class="text-xs font-semibold text-[#d4af37] mb-0.5">Stage 3</div>
+                  <h4 class="font-bold text-white text-sm mb-0.5">Entrepreneurship Convention</h4>
+                  <p class="text-xs text-gray-400">Join 1,000+ delegates and corporate mentors for summit sessions and capacity building.</p>
+                </div>
+
+                <div class="relative pl-8 pb-5 border-l-2 border-[#d4af37]/30">
+                  <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-[#d4af37] -translate-x-[9px]"></div>
+                  <div class="text-xs font-semibold text-[#d4af37] mb-0.5">Stage 4</div>
+                  <h4 class="font-bold text-white text-sm mb-0.5">Top 100 Bootcamp (40 × ₦1M)</h4>
+                  <p class="text-xs text-gray-400">Accelerator programme where 40 standout entrepreneurs win ₦1,000,000 cash grants each (₦40M total).</p>
+                </div>
+
+                <div class="relative pl-8 pb-5 border-l-2 border-[#d4af37]/30">
+                  <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-[#d4af37] -translate-x-[9px]"></div>
+                  <div class="text-xs font-semibold text-[#d4af37] mb-0.5">Stage 5</div>
+                  <h4 class="font-bold text-white text-sm mb-0.5">Top 20 Investors Evening</h4>
+                  <p class="text-xs text-gray-400">Exclusive boardroom gala pitching directly to angel syndicates, VCs, and institutional partners.</p>
                 </div>
 
                 <div class="relative pl-8">
-                  <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-[#d4af37] -translate-x-[9px] check-pulse">
-                  </div>
-                  <div class="text-sm font-semibold text-[#d4af37] mb-1">
-                    Stage 4
-                  </div>
-                  <h4 class="font-bold text-white mb-1">
-                    Main Television Competition (Top 20)
-                  </h4>
-                  <p class="text-sm text-gray-400">
-                    8-week televised challenge series, pitch battles, and grand finale.
-                  </p>
+                  <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-[#d4af37] -translate-x-[9px] check-pulse"></div>
+                  <div class="text-xs font-semibold text-[#d4af37] mb-0.5">Stage 6</div>
+                  <h4 class="font-bold text-white text-sm mb-0.5">Grand Finale (₦30,000,000)</h4>
+                  <p class="text-xs text-gray-400">Televised live nationwide; one visionary founder is crowned with the ₦30M grand equity-free cash prize!</p>
                 </div>
               </div>
             </div>
@@ -826,87 +1272,153 @@
     </div>
   </section>
 
-  <!-- Audition Centers -->
-  <section class="relative py-24 md:py-32">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16 section-reveal">
-        <div class="inline-flex items-center gap-3 mb-6">
-          <div class="h-px w-16 bg-[#d4af37]"></div>
-          <span class="text-[#d4af37] text-sm font-semibold tracking-[0.2em] uppercase">Five Locations</span>
-          <div class="h-px w-16 bg-[#d4af37]"></div>
+  <!-- Official Partner: Lagos State Government Endorsement Section -->
+  <section class="py-24 bg-[#070f1f] relative overflow-hidden border-t border-yellow-400/10">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <!-- Official Seal Card -->
+        <div class="lg:col-span-5 flex justify-center section-reveal">
+          <div class="relative w-full max-w-md">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#d4af37]/20 to-[#083B74]/30 rounded-3xl blur-2xl"></div>
+            <div class="relative glass-panel-strong rounded-3xl p-8 sm:p-10 border border-yellow-400/30 text-center flex flex-col items-center">
+              <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-gradient-to-br from-yellow-400/10 to-[#083B74]/20 border-2 border-yellow-400/40 p-4 mb-6 shadow-2xl flex items-center justify-center">
+                <img src="assets/proposal/lagos_seal.png" alt="Official Seal of Lagos State Government" class="max-w-full max-h-full object-contain filter drop-shadow-[0_10px_20px_rgba(212,175,55,0.4)]" />
+              </div>
+              <span class="text-xs font-bold text-yellow-400 uppercase tracking-widest mb-1">Official Major Partner</span>
+              <h3 class="font-display text-2xl font-bold text-white mb-2">LAGOS STATE GOVERNMENT</h3>
+              <p class="text-xs text-gray-300 uppercase tracking-wider font-semibold">Ministry of Wealth Creation and Employment</p>
+              <div class="mt-6 pt-6 border-t border-white/10 flex items-center justify-center gap-2 text-xs text-yellow-400 font-medium">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                <span>Institutional Endorsement & Enterprise Alignment</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-          Audition Centres Across Lagos
-        </h2>
-        <p class="max-w-2xl mx-auto text-gray-400">
-          Choose your preferred location for the in-person audition. All
-          centres are equipped for your pitch presentation.
+
+        <!-- Endorsement Content -->
+        <div class="lg:col-span-7 section-reveal">
+          <div class="inline-flex items-center gap-2 mb-3">
+            <div class="h-px w-10 bg-yellow-400"></div>
+            <span class="text-yellow-400 text-xs font-semibold tracking-widest uppercase">Strategic State Partnership</span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            An Impactful Initiative Supported By <span class="text-gold-gradient">Lagos State</span>
+          </h2>
+          <p class="text-gray-300 text-base leading-relaxed font-light mb-8">
+            Colossus of Lagos is developed in strategic partnership with the <strong class="text-white">Lagos State Government</strong> through the <strong class="text-yellow-400">Ministry of Wealth Creation and Employment</strong> to identify, support, and scale high-potential entrepreneurs who will drive job creation, innovation, and economic prosperity across the state.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="glass-panel p-5 rounded-2xl border border-white/5 hover:border-yellow-400/30 transition-all">
+              <div class="w-10 h-10 rounded-xl bg-yellow-400/10 flex items-center justify-center text-yellow-400 mb-3">
+                <i data-lucide="trending-up" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-bold text-white text-base mb-1">Economic Expansion</h4>
+              <p class="text-xs text-gray-400 leading-relaxed font-light">Catalyzing enterprise development and accelerating youth self-reliance across Lagos State.</p>
+            </div>
+
+            <div class="glass-panel p-5 rounded-2xl border border-white/5 hover:border-yellow-400/30 transition-all">
+              <div class="w-10 h-10 rounded-xl bg-yellow-400/10 flex items-center justify-center text-yellow-400 mb-3">
+                <i data-lucide="award" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-bold text-white text-base mb-1">Direct State Support</h4>
+              <p class="text-xs text-gray-400 leading-relaxed font-light">Connecting verified emerging business titans with public and private ecosystem resources.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Television Broadcast Reach Section -->
+  <section class="py-24 bg-[#0a1628] relative overflow-hidden border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 section-reveal">
+        <div class="inline-flex items-center gap-2 mb-3">
+          <div class="h-px w-10 bg-[#d4af37]"></div>
+          <span class="text-[#d4af37] text-xs font-semibold tracking-widest uppercase">Broadcast Exposure</span>
+          <div class="h-px w-10 bg-[#d4af37]"></div>
+        </div>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold mb-4">53 Million+ Audience Viewership</h2>
+        <p class="text-gray-300 text-sm md:text-base leading-relaxed font-light">
+          Contestants receive unprecedented nationwide visibility across Nigeria's most influential television networks.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        <div class="location-card glass-panel rounded-2xl overflow-hidden group section-reveal"
-          onclick="selectLocation(this)">
-          <div class="relative h-40 overflow-hidden">
-            <img src="assets/locations/lagos-island.webp" alt="Lagos Island"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] to-transparent opacity-60"></div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
+        <div class="glass-panel p-6 rounded-2xl border border-white/5 hover:border-yellow-400/40 text-center hover-lift section-reveal">
+          <div class="w-12 h-12 mx-auto rounded-xl bg-yellow-400/10 flex items-center justify-center text-yellow-400 mb-4">
+            <i data-lucide="tv" class="w-6 h-6"></i>
           </div>
-          <div class="p-5 text-center">
-            <h3 class="font-bold text-lg mb-1">Lagos Island</h3>
-            <p class="text-xs text-[#d4af37]">Central Business District</p>
+          <div class="font-display text-3xl font-extrabold text-yellow-400 mb-1">20M</div>
+          <h4 class="font-bold text-white text-base mb-1">Channels TV</h4>
+          <p class="text-xs text-gray-400">Saturdays Prime Slot</p>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-white/5 hover:border-yellow-400/40 text-center hover-lift section-reveal" style="transition-delay: 0.1s">
+          <div class="w-12 h-12 mx-auto rounded-xl bg-yellow-400/10 flex items-center justify-center text-yellow-400 mb-4">
+            <i data-lucide="film" class="w-6 h-6"></i>
+          </div>
+          <div class="font-display text-3xl font-extrabold text-white mb-1">15M</div>
+          <h4 class="font-bold text-white text-base mb-1">Africa Magic</h4>
+          <p class="text-xs text-gray-400">DStv Ch. 154 (Sundays)</p>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-white/5 hover:border-yellow-400/40 text-center hover-lift section-reveal" style="transition-delay: 0.2s">
+          <div class="w-12 h-12 mx-auto rounded-xl bg-yellow-400/10 flex items-center justify-center text-yellow-400 mb-4">
+            <i data-lucide="radio" class="w-6 h-6"></i>
+          </div>
+          <div class="font-display text-3xl font-extrabold text-yellow-400 mb-1">10M</div>
+          <h4 class="font-bold text-white text-base mb-1">Hip TV</h4>
+          <p class="text-xs text-gray-400">Youth & Creative Audience</p>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-white/5 hover:border-yellow-400/40 text-center hover-lift section-reveal" style="transition-delay: 0.3s">
+          <div class="w-12 h-12 mx-auto rounded-xl bg-yellow-400/10 flex items-center justify-center text-yellow-400 mb-4">
+            <i data-lucide="play-circle" class="w-6 h-6"></i>
+          </div>
+          <div class="font-display text-3xl font-extrabold text-white mb-1">8M</div>
+          <h4 class="font-bold text-white text-base mb-1">TVC News / Ent.</h4>
+          <p class="text-xs text-gray-400">Saturdays Prime Show</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Executive Producers: Bravopoints International -->
+  <section class="py-24 bg-[#070f1f] relative overflow-hidden border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5 section-reveal">
+          <div class="glass-panel-strong rounded-3xl p-8 sm:p-10 border border-yellow-400/20 text-center">
+            <div class="w-32 h-20 mx-auto mb-6 flex items-center justify-center">
+              <img src="assets/bravo.png" alt="Bravopoints International Logo" class="max-h-full max-w-full object-contain filter drop-shadow" />
+            </div>
+            <h3 class="font-display text-2xl font-bold text-white mb-1">Bravopoints International</h3>
+            <p class="text-xs font-bold text-yellow-400 uppercase tracking-widest mb-4">Executive Producers</p>
+            <p class="text-xs text-gray-300 leading-relaxed font-light">
+              Producers of Africa's most consistent entrepreneurial reality show, <strong class="text-white">The Next Titan Nigeria</strong> (11+ consecutive seasons). Awarded "Global Most Innovative Entrepreneurship Company" by World Quality Day & Chartered Institute of Quality UK.
+            </p>
           </div>
         </div>
 
-        <div class="location-card glass-panel rounded-2xl overflow-hidden group section-reveal"
-          style="transition-delay: 0.1s" onclick="selectLocation(this)">
-          <div class="relative h-40 overflow-hidden">
-            <img src="assets/locations/ikeja.jpg" alt="Ikeja"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] to-transparent opacity-60"></div>
+        <div class="lg:col-span-7 section-reveal space-y-4">
+          <div class="inline-flex items-center gap-2 mb-2">
+            <div class="h-px w-10 bg-yellow-400"></div>
+            <span class="text-yellow-400 text-xs font-semibold tracking-widest uppercase">Proven Track Record</span>
           </div>
-          <div class="p-5 text-center">
-            <h3 class="font-bold text-lg mb-1">Ikeja</h3>
-            <p class="text-xs text-[#d4af37]">State Capital</p>
-          </div>
-        </div>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
+            World-Class Production & <span class="text-gold-gradient">Proven Pedigree</span>
+          </h2>
+          <p class="text-gray-300 text-sm leading-relaxed font-light mb-6">
+            With over a decade of producing tier-1 business competitions across Africa, Bravopoints International brings institutional rigor, national credibility, and corporate trust to the Colossus of Lagos.
+          </p>
 
-        <div class="location-card glass-panel rounded-2xl overflow-hidden group section-reveal"
-          style="transition-delay: 0.2s" onclick="selectLocation(this)">
-          <div class="relative h-40 overflow-hidden">
-            <img src="assets/locations/ikorodu.jpg" alt="Ikorodu"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] to-transparent opacity-60"></div>
-          </div>
-          <div class="p-5 text-center">
-            <h3 class="font-bold text-lg mb-1">Ikorodu</h3>
-            <p class="text-xs text-[#d4af37]">Mainland East</p>
-          </div>
-        </div>
-
-        <div class="location-card glass-panel rounded-2xl overflow-hidden group section-reveal"
-          style="transition-delay: 0.3s" onclick="selectLocation(this)">
-          <div class="relative h-40 overflow-hidden">
-            <img src="assets/locations/badagry.jpg" alt="Badagry"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] to-transparent opacity-60"></div>
-          </div>
-          <div class="p-5 text-center">
-            <h3 class="font-bold text-lg mb-1">Badagry</h3>
-            <p class="text-xs text-[#d4af37]">Western Border</p>
-          </div>
-        </div>
-
-        <div class="location-card glass-panel rounded-2xl overflow-hidden group section-reveal"
-          style="transition-delay: 0.4s" onclick="selectLocation(this)">
-          <div class="relative h-40 overflow-hidden">
-            <img src="assets/locations/epe.jpg" alt="Epe"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] to-transparent opacity-60"></div>
-          </div>
-          <div class="p-5 text-center">
-            <h3 class="font-bold text-lg mb-1">Epe</h3>
-            <p class="text-xs text-[#d4af37]">Eastern Lagos</p>
+          <div class="glass-panel p-4 rounded-xl border border-white/10 flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg bg-yellow-400/10 flex items-center justify-center text-yellow-400 flex-shrink-0">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <p class="text-xs text-gray-300 font-light">Trusted by Central Bank of Nigeria, MTN, First Bank, Zenith Bank, Shell, and leading corporate sponsors.</p>
           </div>
         </div>
       </div>
@@ -972,7 +1484,7 @@
           <h4 class="font-semibold mb-6 text-[#d4af37] text-sm tracking-wider uppercase">
             Navigation
           </h4>
-          <ul class="space-y-3 text-sm text-gray-500">
+          <ul class="space-y-3 text-sm text-gray-400 font-light">
             <li>
               <a href="index.php" class="hover:text-white transition-colors">Home</a>
             </li>
@@ -980,7 +1492,7 @@
               <a href="about.php" class="hover:text-white transition-colors">About</a>
             </li>
             <li>
-              <a href="eligibility.php" class="hover:text-white transition-colors">Eligibility</a>
+              <a href="eligibility.php" class="text-white font-medium">Eligibility</a>
             </li>
             <li>
               <a href="faq.php" class="hover:text-white transition-colors">FAQ</a>
@@ -988,26 +1500,56 @@
             <li>
               <a href="register.php" class="hover:text-white transition-colors">Register</a>
             </li>
-
           </ul>
         </div>
 
+        <div>
+          <h4 class="font-semibold mb-3 text-[#d4af37] text-xs tracking-wider uppercase">Official Partner</h4>
+          <p class="text-xs text-gray-400 leading-relaxed font-light mb-4">
+            Lagos State Government<br>
+            Ministry of Wealth Creation and Employment
+          </p>
+          <h4 class="font-semibold mb-2 text-[#d4af37] text-xs tracking-wider uppercase">Produced By</h4>
+          <p class="text-xs text-gray-400 leading-relaxed font-light mb-6">
+            Bravopoints International Limited
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-3 text-[#d4af37] text-xs tracking-wider uppercase">Stay Updated</h4>
+          <p class="text-xs text-gray-400 font-light leading-relaxed mb-3">
+            Subscribe for official announcements, audition schedules, and broadcast dates.
+          </p>
+          <form id="newsletterForm" class="space-y-3">
+            <div id="newsletterAlert" class="hidden p-2.5 rounded-lg text-xs font-semibold"></div>
+            <div class="flex flex-col sm:flex-row gap-2">
+              <input type="email" name="email" required placeholder="Enter email" class="px-3.5 py-2 rounded-xl bg-[#0a1628] border border-white/10 text-white text-xs flex-1 focus:outline-none focus:border-[#d4af37]" />
+              <button type="submit" class="btn-gold px-3.5 py-2 rounded-xl text-xs uppercase font-bold tracking-wider whitespace-nowrap">
+                Join
+              </button>
+            </div>
+          </form>
+        </div>
 
       </div>
 
       <div
-        class="border-t border-[#d4af37]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-        <p class="text-sm text-gray-600">
-          © 2026 Colossus of Lagos. All rights reserved.
-        </p>
-        <p class="text-sm text-gray-600">
-          Produced by Bravopoints International Limited <span class="hidden md:inline mx-2">|</span> Design by <a
-            href="https://linktr.ee/techiextract" target="_blank"
-            class="hover:text-white transition-colors">techieXtract</a>
+        class="border-t border-[#d4af37]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-xs text-gray-500 font-light">
+        <p>© 2026 Colossus of Lagos. All rights reserved.</p>
+        <p>
+          Produced by Bravopoints International Limited <span class="hidden md:inline mx-2">|</span> Built by <a
+            href="https://techiextract.com" target="_blank" rel="noopener"
+            class="text-[#d4af37] hover:underline font-semibold">TechieXtract Limited</a>
         </p>
       </div>
     </div>
   </footer>
+
+  <!-- Floating WhatsApp Widget -->
+  <a href="https://wa.me/2348123456789?text=Hello%20Colossus%20of%20Lagos%20team,%20I%20have%20an%20enquiry" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform" title="Chat on WhatsApp">
+    <i data-lucide="message-circle" class="w-5 h-5"></i>
+    <span class="text-xs font-bold hidden sm:inline">WhatsApp Help Desk</span>
+  </a>
 
   <script>
     // Mobile Menu Logic
