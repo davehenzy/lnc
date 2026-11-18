@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register | Colossus of Lagos</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="shortcut icon" href="favicon.ico" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap"
@@ -382,73 +387,8 @@
     </style>
   </head>
   <body class="antialiased text-white bg-[#0a1628] overflow-x-hidden">
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 bg-[#0a1628] border-b border-white/5">
-      <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a href="index.php" class="flex items-center">
-          <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo" class="h-10 md:h-16 w-auto object-contain" />
-        </a>
-
-        <div class="hidden md:flex items-center gap-8">
-          <a
-            href="index.php"
-            class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors"
-            >Home</a
-          >
-          <a
-            href="about.php"
-            class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors"
-            >About</a
-          >
-          <a
-            href="eligibility.php"
-            class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors"
-            >Eligibility</a
-          >
-          <a
-            href="faq.php"
-            class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors"
-            >FAQ</a
-          >
-        </div>
-
-        <div class="flex items-center gap-4">
-          <span
-            class="hidden md:inline-flex text-[#d4af37] text-sm font-semibold tracking-wider uppercase"
-            >Registration Open</span
-          >
-          <button id="menu-btn" class="md:hidden text-white hover:text-[#d4af37] transition-colors">
-            <i data-lucide="menu" class="w-8 h-8"></i>
-          </button>
-        </div>
-      </div>
-    </nav>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu"
-    class="fixed inset-0 z-[60] bg-[#0a1628]/95 backdrop-blur-xl translate-x-full transition-transform duration-500 md:hidden">
-    <div class="flex flex-col h-full p-8">
-      <div class="flex items-center justify-between mb-12">
-        <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo" class="h-8 w-auto" />
-        <button id="close-menu" class="text-gray-400 hover:text-white">
-          <i data-lucide="x" class="w-8 h-8"></i>
-        </button>
-      </div>
-
-      <nav class="flex flex-col gap-6">
-        <a href="index.php" class="text-2xl font-bold text-gray-300 hover:text-[#d4af37]">Home</a>
-        <a href="about.php" class="text-2xl font-bold text-gray-300 hover:text-[#d4af37]">About</a>
-        <a href="eligibility.php" class="text-2xl font-bold text-gray-300 hover:text-[#d4af37]">Eligibility</a>
-        <a href="faq.php" class="text-2xl font-bold text-gray-300 hover:text-[#d4af37]">FAQ</a>
-      </nav>
-
-      <div class="mt-auto pt-8 border-t border-white/10">
-        <a href="register.php" class="btn-gold w-full py-4 rounded-full text-center uppercase tracking-widest block">
-          Register Now
-        </a>
-      </div>
-    </div>
-  </div>
+    <!-- Navigation & Mobile Menu -->
+    <?php include 'includes/navbar.php'; ?>
 
     <!-- Hero Section -->
     <section
@@ -993,104 +933,44 @@
                     >Preferred Audition Centre
                     <span class="required">*</span></label
                   >
-                  <div class="grid sm:grid-cols-3 lg:grid-cols-5 gap-4 mt-2">
+                  <div class="grid sm:grid-cols-2 gap-4 md:gap-6 mt-3 max-w-2xl">
                     <label
-                      class="location-option glass-panel rounded-2xl overflow-hidden group border border-[#d4af37]/10 p-0 text-center cursor-pointer transition-all duration-300"
+                      class="location-option glass-panel rounded-2xl overflow-hidden group border border-[#d4af37]/15 p-0 text-center cursor-pointer transition-all duration-300 hover:border-yellow-400/50 hover:shadow-lg hover:shadow-yellow-400/10"
                       onclick="selectLocation(this)"
                     >
-                      <div class="relative h-24 overflow-hidden">
+                      <div class="relative h-32 overflow-hidden">
                         <img src="assets/locations/lagos-island.webp" alt="Lagos Island" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] to-transparent opacity-60"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/40 to-transparent opacity-70"></div>
                         <input
                           type="radio"
                           name="auditionCentre"
                           value="lagos-island"
-                          class="radio-custom absolute top-2 right-2 m-0"
+                          class="radio-custom absolute top-3 right-3 m-0"
                         />
                       </div>
-                      <div class="p-3">
-                        <div class="text-sm font-bold">Lagos Island</div>
-                        <p class="text-[10px] text-[#d4af37]">Central Business District</p>
+                      <div class="p-4">
+                        <div class="text-base font-bold text-white group-hover:text-yellow-400 transition-colors">Lagos Island</div>
+                        <p class="text-xs text-[#d4af37] mt-1 font-medium">Island Audition Hub & Central Business District</p>
                       </div>
                     </label>
 
                     <label
-                      class="location-option glass-panel rounded-2xl overflow-hidden group border border-[#d4af37]/10 p-0 text-center cursor-pointer transition-all duration-300"
+                      class="location-option glass-panel rounded-2xl overflow-hidden group border border-[#d4af37]/15 p-0 text-center cursor-pointer transition-all duration-300 hover:border-yellow-400/50 hover:shadow-lg hover:shadow-yellow-400/10"
                       onclick="selectLocation(this)"
                     >
-                      <div class="relative h-24 overflow-hidden">
-                        <img src="assets/locations/ikeja.jpg" alt="Ikeja" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] to-transparent opacity-60"></div>
+                      <div class="relative h-32 overflow-hidden">
+                        <img src="assets/locations/lagos-mainland.jpg" alt="Lagos Mainland" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/40 to-transparent opacity-70"></div>
                         <input
                           type="radio"
                           name="auditionCentre"
-                          value="ikeja"
-                          class="radio-custom absolute top-2 right-2 m-0"
+                          value="lagos-mainland"
+                          class="radio-custom absolute top-3 right-3 m-0"
                         />
                       </div>
-                      <div class="p-3">
-                        <div class="text-sm font-bold">Ikeja</div>
-                        <p class="text-[10px] text-[#d4af37]">State Capital</p>
-                      </div>
-                    </label>
-
-                    <label
-                      class="location-option glass-panel rounded-2xl overflow-hidden group border border-[#d4af37]/10 p-0 text-center cursor-pointer transition-all duration-300"
-                      onclick="selectLocation(this)"
-                    >
-                      <div class="relative h-24 overflow-hidden">
-                        <img src="assets/locations/ikorodu.jpg" alt="Ikorodu" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] to-transparent opacity-60"></div>
-                        <input
-                          type="radio"
-                          name="auditionCentre"
-                          value="ikorodu"
-                          class="radio-custom absolute top-2 right-2 m-0"
-                        />
-                      </div>
-                      <div class="p-3">
-                        <div class="text-sm font-bold">Ikorodu</div>
-                        <p class="text-[10px] text-[#d4af37]">Mainland East</p>
-                      </div>
-                    </label>
-
-                    <label
-                      class="location-option glass-panel rounded-2xl overflow-hidden group border border-[#d4af37]/10 p-0 text-center cursor-pointer transition-all duration-300"
-                      onclick="selectLocation(this)"
-                    >
-                      <div class="relative h-24 overflow-hidden">
-                        <img src="assets/locations/badagry.jpg" alt="Badagry" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] to-transparent opacity-60"></div>
-                        <input
-                          type="radio"
-                          name="auditionCentre"
-                          value="badagry"
-                          class="radio-custom absolute top-2 right-2 m-0"
-                        />
-                      </div>
-                      <div class="p-3">
-                        <div class="text-sm font-bold">Badagry</div>
-                        <p class="text-[10px] text-[#d4af37]">Western Border</p>
-                      </div>
-                    </label>
-
-                    <label
-                      class="location-option glass-panel rounded-2xl overflow-hidden group border border-[#d4af37]/10 p-0 text-center cursor-pointer transition-all duration-300"
-                      onclick="selectLocation(this)"
-                    >
-                      <div class="relative h-24 overflow-hidden">
-                        <img src="assets/locations/epe.jpg" alt="Epe" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] to-transparent opacity-60"></div>
-                        <input
-                          type="radio"
-                          name="auditionCentre"
-                          value="epe"
-                          class="radio-custom absolute top-2 right-2 m-0"
-                        />
-                      </div>
-                      <div class="p-3">
-                        <div class="text-sm font-bold">Epe</div>
-                        <p class="text-[10px] text-[#d4af37]">Mainland East</p>
+                      <div class="p-4">
+                        <div class="text-base font-bold text-white group-hover:text-yellow-400 transition-colors">Lagos Mainland</div>
+                        <p class="text-xs text-[#d4af37] mt-1 font-medium">Mainland Audition Hub & Metropolitan District</p>
                       </div>
                     </label>
                   </div>
@@ -1146,11 +1026,11 @@
                     <p class="text-sm text-gray-300">
                       I confirm that all information provided is accurate and
                       true. I have read and accept the
-                      <a href="#" class="text-[#d4af37] hover:underline"
+                      <a href="terms.php" target="_blank" class="text-[#d4af37] hover:underline font-medium"
                         >Terms and Conditions</a
                       >
                       and
-                      <a href="#" class="text-[#d4af37] hover:underline"
+                      <a href="privacy.php" target="_blank" class="text-[#d4af37] hover:underline font-medium"
                         >Privacy Policy</a
                       >
                       of Colossus of Lagos.
@@ -1261,88 +1141,8 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-[#d4af37]/10 py-16 bg-[#070f1f]">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="grid md:grid-cols-4 gap-12 mb-12">
-          <div class="md:col-span-2">
-            <div class="flex items-center gap-3 mb-6">
-              <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos" class="h-12 w-auto">
-            </div>
-            <p class="text-gray-500 text-sm max-w-sm leading-relaxed mb-6">
-              An entrepreneurial reality and competition show developed in
-              partnership with Lagos State Government to identify, support, and
-              scale high-potential entrepreneurs driving jobs, innovation, and
-              economic growth.
-            </p>
-            <div class="flex items-center gap-4">
-              <a
-                href="#"
-                class="w-10 h-10 rounded-full bg-[#0a1628] border border-[#d4af37]/20 flex items-center justify-center text-gray-500 hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all"
-              >
-                <i data-lucide="instagram" class="w-4 h-4"></i>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 rounded-full bg-[#0a1628] border border-[#d4af37]/20 flex items-center justify-center text-gray-500 hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all"
-              >
-                <i data-lucide="twitter" class="w-4 h-4"></i>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 rounded-full bg-[#0a1628] border border-[#d4af37]/20 flex items-center justify-center text-gray-500 hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all"
-              >
-                <i data-lucide="facebook" class="w-4 h-4"></i>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 rounded-full bg-[#0a1628] border border-[#d4af37]/20 flex items-center justify-center text-gray-500 hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all"
-              >
-                <i data-lucide="youtube" class="w-4 h-4"></i>
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <h4
-              class="font-semibold mb-6 text-[#d4af37] text-sm tracking-wider uppercase"
-            >
-              Navigation
-            </h4>
-            <ul class="space-y-3 text-sm text-gray-500">
-              <li>
-                <a href="index.php" class="hover:text-white transition-colors">Home</a>
-              </li>
-              <li>
-                <a href="about.php" class="hover:text-white transition-colors">About</a>
-              </li>
-              <li>
-                <a href="eligibility.php" class="hover:text-white transition-colors">Eligibility</a>
-              </li>
-              <li>
-                <a href="faq.php" class="hover:text-white transition-colors">FAQ</a>
-              </li>
-              <li>
-                <a href="register.php" class="hover:text-white transition-colors">Register</a>
-              </li>
-            </ul>
-          </div>
-
-     
-        </div>
-
-        <div
-          class="border-t border-[#d4af37]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left"
-        >
-          <p class="text-sm text-gray-600">
-            © 2026 Colossus of Lagos. All rights reserved.
-          </p>
-          <p class="text-sm text-gray-600">
-            Produced by Bravopoints International Limited <span class="hidden md:inline mx-2">|</span> Design by <a href="https://linktr.ee/techiextract" target="_blank" class="hover:text-white transition-colors">techieXtract</a>
-          </p>
-        </div>
-      </div>
-    </footer>
+    <!-- Footer & Floating WhatsApp Widget -->
+    <?php include 'includes/footer.php'; ?>
 
     <script>
       lucide.createIcons();
@@ -1747,10 +1547,7 @@
 
         const centreLabels = {
           "lagos-island": "Lagos Island",
-          ikeja: "Ikeja",
-          ikorodu: "Ikorodu",
-          badagry: "Badagry",
-          epe: "Epe",
+          "lagos-mainland": "Lagos Mainland",
         };
 
         reviewContent.innerHTML = `
@@ -1951,10 +1748,5 @@
       if (e.key === 'Escape') toggleMenu(false);
     });
     </script>
-    <!-- Floating WhatsApp Widget (TechieXtract Scope) -->
-    <a href="https://wa.me/2348123456789?text=Hello%20Colossus%20of%20Lagos%20team,%20I%20have%20an%20enquiry" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform" title="Chat on WhatsApp">
-      <i data-lucide="message-circle" class="w-6 h-6"></i>
-      <span class="text-xs font-bold hidden sm:inline">WhatsApp Help Desk</span>
-    </a>
   </body>
 </html>

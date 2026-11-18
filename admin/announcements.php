@@ -7,6 +7,10 @@ if (!isset($_SESSION['admin_logged_in'])) {
     exit();
 }
 
+// Announcements disabled/removed
+header("Location: index.php");
+exit();
+
 $message = '';
 $error = '';
 

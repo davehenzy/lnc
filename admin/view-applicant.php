@@ -58,7 +58,6 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
     <style>
         .badge-gold { background: rgba(212, 175, 55, 0.15); color: #d4af37; border: 1px solid rgba(212, 175, 55, 0.3); }
         .status-badge-pending { background-color: rgba(255, 193, 7, 0.15); color: #b78103; border: 1px solid rgba(255, 193, 7, 0.3); }
-        .status-badge-shortlisted { background-color: rgba(40, 167, 69, 0.15); color: #28a745; border: 1px solid rgba(40, 167, 69, 0.3); }
         .status-badge-rejected { background-color: rgba(220, 53, 69, 0.15); color: #dc3545; border: 1px solid rgba(220, 53, 69, 0.3); }
         .logo-img { max-height: 42px; width: auto; object-fit: contain; }
         .doc-card {
@@ -135,12 +134,32 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
                         </a>
                     </li>
 
-                    <li class="side-nav-item">
-                        <a href="announcements.php" class="side-nav-link">
-                            <span class="menu-icon"><i class="ti ti-speakerphone"></i></span>
-                            <span class="menu-text"> Announcements </span>
-                        </a>
-                    </li>
+                    <?php if (is_super_admin()): ?>
+                        <li class="side-nav-title mt-2 text-warning fw-bold">
+                            <i class="ti ti-shield-lock me-1"></i> SUPER ADMIN
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="manage-admins.php" class="side-nav-link">
+                                <span class="menu-icon"><i class="ti ti-user-shield text-warning"></i></span>
+                                <span class="menu-text"> Manage Admins </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="settings.php" class="side-nav-link">
+                                <span class="menu-icon"><i class="ti ti-adjustments text-warning"></i></span>
+                                <span class="menu-text"> System Settings </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="audit-logs.php" class="side-nav-link">
+                                <span class="menu-icon"><i class="ti ti-history text-warning"></i></span>
+                                <span class="menu-text"> Security Audit Logs </span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
                     <li class="side-nav-title mt-2">Tools & Actions</li>
 
@@ -219,6 +238,12 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
                                 <a href="index.php" class="dropdown-item"><i class="ti ti-dashboard me-2"></i><span>Dashboard</span></a>
                                 <a href="applicants.php" class="dropdown-item"><i class="ti ti-users me-2"></i><span>Applicants Registry</span></a>
                                 <a href="enquiries.php" class="dropdown-item"><i class="ti ti-mail me-2"></i><span>Enquiries</span></a>
+                                <?php if (is_super_admin()): ?>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="manage-admins.php" class="dropdown-item"><i class="ti ti-user-shield me-2 text-warning"></i><span>Manage Admins</span></a>
+                                    <a href="settings.php" class="dropdown-item"><i class="ti ti-adjustments me-2 text-warning"></i><span>System Settings</span></a>
+                                    <a href="audit-logs.php" class="dropdown-item"><i class="ti ti-history me-2 text-warning"></i><span>Audit Trail</span></a>
+                                <?php endif; ?>
                                 <div class="dropdown-divider"></div>
                                 <a href="logout.php" class="dropdown-item text-danger"><i class="ti ti-logout me-2"></i><span>Logout</span></a>
                             </div>
@@ -294,8 +319,8 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
                                 <div class="mb-4">
                                     <?php
                                     $st = strtolower($applicant['status'] ?? 'pending');
-                                    if ($st === 'shortlisted') {
-                                        echo '<span class="badge status-badge-shortlisted px-3 py-1.5 fs-12 fw-bold text-uppercase"><i class="ti ti-check me-1"></i>Shortlisted Champion</span>';
+                                    if ($st === 'qualified' || $st === 'approved') {
+                                        echo '<span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-1.5 fs-12 fw-bold text-uppercase"><i class="ti ti-check me-1"></i>Verified & Approved</span>';
                                     } elseif ($st === 'rejected') {
                                         echo '<span class="badge status-badge-rejected px-3 py-1.5 fs-12 fw-bold text-uppercase"><i class="ti ti-x me-1"></i>Rejected</span>';
                                     } else {
@@ -310,7 +335,7 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
                                     <form action="" method="POST" class="d-flex flex-column gap-2">
                                         <select name="status" class="form-select form-select-sm">
                                             <option value="pending" <?php if($applicant['status'] == 'pending') echo 'selected'; ?>>Pending (Under Review)</option>
-                                            <option value="shortlisted" <?php if($applicant['status'] == 'shortlisted') echo 'selected'; ?>>Shortlisted (Qualified)</option>
+                                            <option value="qualified" <?php if($applicant['status'] == 'qualified' || $applicant['status'] == 'approved') echo 'selected'; ?>>Approved (Qualified)</option>
                                             <option value="rejected" <?php if($applicant['status'] == 'rejected') echo 'selected'; ?>>Rejected (Disqualified)</option>
                                         </select>
                                         <button type="submit" name="update_status" class="btn btn-sm btn-primary w-100 fw-bold">

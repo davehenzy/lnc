@@ -9,8 +9,8 @@ if (!isset($_SESSION['admin_logged_in'])) {
 
 // Fetch Stats
 $total_applicants = $pdo->query("SELECT COUNT(*) FROM applicants")->fetchColumn();
-$pending_applicants = $pdo->query("SELECT COUNT(*) FROM applicants WHERE status = 'pending'")->fetchColumn();
-$shortlisted_applicants = $pdo->query("SELECT COUNT(*) FROM applicants WHERE status = 'shortlisted'")->fetchColumn();
+$island_applicants = $pdo->query("SELECT COUNT(*) FROM applicants WHERE audition_location LIKE '%island%'")->fetchColumn();
+$mainland_applicants = $pdo->query("SELECT COUNT(*) FROM applicants WHERE audition_location LIKE '%mainland%' OR audition_location IN ('ikeja', 'ikorodu', 'badagry', 'epe')")->fetchColumn();
 $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = 'unread'")->fetchColumn();
 
 // Recent Applicants
@@ -55,9 +55,6 @@ $total_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries")->fetchColumn();
         .bg-gold { background-color: var(--colossus-gold) !important; color: #0a1628 !important; }
         .border-gold { border-color: var(--colossus-gold) !important; }
         .badge-gold { background: rgba(212, 175, 55, 0.15); color: #f5c518; border: 1px solid rgba(212, 175, 55, 0.3); }
-        .status-badge-pending { background-color: rgba(255, 193, 7, 0.15); color: #ffc107; border: 1px solid rgba(255, 193, 7, 0.3); }
-        .status-badge-shortlisted { background-color: rgba(40, 167, 69, 0.15); color: #28a745; border: 1px solid rgba(40, 167, 69, 0.3); }
-        .status-badge-rejected { background-color: rgba(220, 53, 69, 0.15); color: #dc3545; border: 1px solid rgba(220, 53, 69, 0.3); }
         .logo-img { max-height: 42px; width: auto; object-fit: contain; }
     </style>
 </head>
@@ -126,12 +123,32 @@ $total_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries")->fetchColumn();
                         </a>
                     </li>
 
-                    <li class="side-nav-item">
-                        <a href="announcements.php" class="side-nav-link">
-                            <span class="menu-icon"><i class="ti ti-speakerphone"></i></span>
-                            <span class="menu-text"> Announcements </span>
-                        </a>
-                    </li>
+                    <?php if (is_super_admin()): ?>
+                        <li class="side-nav-title mt-2 text-warning fw-bold">
+                            <i class="ti ti-shield-lock me-1"></i> SUPER ADMIN
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="manage-admins.php" class="side-nav-link">
+                                <span class="menu-icon"><i class="ti ti-user-shield text-warning"></i></span>
+                                <span class="menu-text"> Manage Admins </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="settings.php" class="side-nav-link">
+                                <span class="menu-icon"><i class="ti ti-adjustments text-warning"></i></span>
+                                <span class="menu-text"> System Settings </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="audit-logs.php" class="side-nav-link">
+                                <span class="menu-icon"><i class="ti ti-history text-warning"></i></span>
+                                <span class="menu-text"> Security Audit Logs </span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
                     <li class="side-nav-title mt-2">Tools & Actions</li>
 
@@ -210,14 +227,18 @@ $total_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries")->fetchColumn();
                                     AD
                                 </span>
                                 <div class="d-none d-lg-block text-start">
-                                    <span class="d-block fw-semibold fs-13 lh-1">Administrator</span>
-                                    <small class="text-muted fs-11">Colossus Command</small>
+                                    <span class="d-block fw-semibold fs-13 lh-1"><?php echo htmlspecialchars($_SESSION['admin_fullname'] ?? 'Administrator'); ?></span>
+                                    <?php if (is_super_admin()): ?>
+                                        <small class="text-warning fw-bold fs-11">Super Administrator</small>
+                                    <?php else: ?>
+                                        <small class="text-muted fs-11">Colossus Command</small>
+                                    <?php endif; ?>
                                 </div>
                                 <i class="ti ti-chevron-down fs-14 d-none d-sm-inline-block"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <div class="dropdown-header noti-title">
-                                    <h6 class="text-overflow m-0">Colossus Administrator</h6>
+                                    <h6 class="text-overflow m-0"><?php echo is_super_admin() ? 'Super Admin Command' : 'Colossus Administrator'; ?></h6>
                                 </div>
                                 <a href="applicants.php" class="dropdown-item">
                                     <i class="ti ti-users me-2"></i>
@@ -227,10 +248,12 @@ $total_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries")->fetchColumn();
                                     <i class="ti ti-mail me-2"></i>
                                     <span>Messages & Enquiries</span>
                                 </a>
-                                <a href="announcements.php" class="dropdown-item">
-                                    <i class="ti ti-speakerphone me-2"></i>
-                                    <span>Announcements</span>
-                                </a>
+                                <?php if (is_super_admin()): ?>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="manage-admins.php" class="dropdown-item"><i class="ti ti-user-shield me-2 text-warning"></i><span>Manage Admins</span></a>
+                                    <a href="settings.php" class="dropdown-item"><i class="ti ti-adjustments me-2 text-warning"></i><span>System Settings</span></a>
+                                    <a href="audit-logs.php" class="dropdown-item"><i class="ti ti-history me-2 text-warning"></i><span>Audit Trail</span></a>
+                                <?php endif; ?>
                                 <div class="dropdown-divider"></div>
                                 <a href="logout.php" class="dropdown-item text-danger">
                                     <i class="ti ti-logout me-2"></i>
@@ -300,47 +323,47 @@ $total_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries")->fetchColumn();
                         </div>
                     </div>
 
-                    <!-- Awaiting Review Card -->
+                    <!-- Lagos Island Hub Card -->
                     <div class="col">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <h5 class="text-muted fs-12 text-uppercase mb-0">Awaiting Review</h5>
+                                    <h5 class="text-muted fs-12 text-uppercase mb-0">Lagos Island</h5>
                                     <div class="avatar-sm flex-shrink-0">
                                         <span class="avatar-title bg-warning-subtle text-warning rounded-circle fs-20">
-                                            <iconify-icon icon="solar:clock-circle-bold-duotone"></iconify-icon>
+                                            <iconify-icon icon="solar:map-point-wave-bold-duotone"></iconify-icon>
                                         </span>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-baseline gap-2 my-2">
-                                    <h2 class="mb-0 fw-bold text-warning"><?php echo number_format($pending_applicants); ?></h2>
+                                    <h2 class="mb-0 fw-bold text-warning"><?php echo number_format($island_applicants); ?></h2>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between text-muted fs-12">
-                                    <span>Pending Crucible Verification</span>
-                                    <a href="applicants.php?status=pending" class="text-warning fw-semibold text-decoration-none">Review &rarr;</a>
+                                    <span>Island Audition Candidates</span>
+                                    <a href="applicants.php?location=Lagos+Island" class="text-warning fw-semibold text-decoration-none">Filter &rarr;</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Shortlisted Champions Card -->
+                    <!-- Lagos Mainland Hub Card -->
                     <div class="col">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <h5 class="text-muted fs-12 text-uppercase mb-0">Shortlisted</h5>
+                                    <h5 class="text-muted fs-12 text-uppercase mb-0">Lagos Mainland</h5>
                                     <div class="avatar-sm flex-shrink-0">
                                         <span class="avatar-title bg-success-subtle text-success rounded-circle fs-20">
-                                            <iconify-icon icon="solar:cup-star-bold-duotone"></iconify-icon>
+                                            <iconify-icon icon="solar:buildings-3-bold-duotone"></iconify-icon>
                                         </span>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-baseline gap-2 my-2">
-                                    <h2 class="mb-0 fw-bold text-success"><?php echo number_format($shortlisted_applicants); ?></h2>
+                                    <h2 class="mb-0 fw-bold text-success"><?php echo number_format($mainland_applicants); ?></h2>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between text-muted fs-12">
-                                    <span>Qualified Candidates</span>
-                                    <a href="applicants.php?status=shortlisted" class="text-success fw-semibold text-decoration-none">Inspect &rarr;</a>
+                                    <span>Mainland Audition Candidates</span>
+                                    <a href="applicants.php?location=Lagos+Mainland" class="text-success fw-semibold text-decoration-none">Filter &rarr;</a>
                                 </div>
                             </div>
                         </div>
@@ -396,14 +419,13 @@ $total_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries")->fetchColumn();
                                                 <th class="ps-3">Entity Name</th>
                                                 <th>Location</th>
                                                 <th>Timestamp</th>
-                                                <th>Status</th>
                                                 <th class="text-end pe-3">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php if (empty($recent_applicants)): ?>
                                                 <tr>
-                                                    <td colspan="5" class="text-center py-5 text-muted">
+                                                    <td colspan="4" class="text-center py-5 text-muted">
                                                         <div class="py-3">
                                                             <iconify-icon icon="solar:user-block-rounded-bold-duotone" class="fs-48 text-muted mb-2"></iconify-icon>
                                                             <h5 class="fw-semibold">No entities registered in the crucible yet.</h5>
@@ -438,18 +460,6 @@ $total_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries")->fetchColumn();
                                                         </td>
                                                         <td class="text-muted fs-12">
                                                             <i class="ti ti-clock me-1 fs-12"></i><?php echo date('M j, H:i', strtotime($applicant['created_at'])); ?>
-                                                        </td>
-                                                        <td>
-                                                            <?php
-                                                            $st = strtolower($applicant['status'] ?? 'pending');
-                                                            if ($st === 'shortlisted') {
-                                                                echo '<span class="badge status-badge-shortlisted px-2.5 py-1 fs-11 fw-semibold text-uppercase"><i class="ti ti-check me-1"></i>Shortlisted</span>';
-                                                            } elseif ($st === 'rejected') {
-                                                                echo '<span class="badge status-badge-rejected px-2.5 py-1 fs-11 fw-semibold text-uppercase"><i class="ti ti-x me-1"></i>Rejected</span>';
-                                                            } else {
-                                                                echo '<span class="badge status-badge-pending px-2.5 py-1 fs-11 fw-semibold text-uppercase"><i class="ti ti-clock me-1"></i>Pending</span>';
-                                                            }
-                                                            ?>
                                                         </td>
                                                         <td class="text-end pe-3">
                                                             <a href="view-applicant.php?id=<?php echo $applicant['id']; ?>" class="btn btn-sm btn-outline-primary d-inline-flex align-items-center gap-1">
@@ -502,14 +512,6 @@ $total_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries")->fetchColumn();
                                         <?php endif; ?>
                                     </a>
 
-                                    <a href="announcements.php" class="btn btn-outline-secondary text-start d-flex align-items-center justify-content-between p-2.5">
-                                        <span class="d-flex align-items-center gap-2">
-                                            <i class="ti ti-speakerphone fs-18 text-warning"></i>
-                                            <span class="fs-13 fw-semibold">Publish Announcement</span>
-                                        </span>
-                                        <i class="ti ti-chevron-right text-muted"></i>
-                                    </a>
-
                                     <a href="export-excel.php" class="btn btn-outline-secondary text-start d-flex align-items-center justify-content-between p-2.5">
                                         <span class="d-flex align-items-center gap-2">
                                             <i class="ti ti-file-spreadsheet fs-18 text-success"></i>
@@ -517,6 +519,24 @@ $total_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries")->fetchColumn();
                                         </span>
                                         <i class="ti ti-download text-muted"></i>
                                     </a>
+
+                                    <?php if (is_super_admin()): ?>
+                                        <a href="manage-admins.php" class="btn btn-outline-warning text-start d-flex align-items-center justify-content-between p-2.5">
+                                            <span class="d-flex align-items-center gap-2">
+                                                <i class="ti ti-user-shield fs-18 text-warning"></i>
+                                                <span class="fs-13 fw-bold text-dark">Manage Administrators</span>
+                                            </span>
+                                            <i class="ti ti-chevron-right text-warning"></i>
+                                        </a>
+
+                                        <a href="settings.php" class="btn btn-outline-warning text-start d-flex align-items-center justify-content-between p-2.5">
+                                            <span class="d-flex align-items-center gap-2">
+                                                <i class="ti ti-adjustments fs-18 text-warning"></i>
+                                                <span class="fs-13 fw-bold text-dark">Platform Settings</span>
+                                            </span>
+                                            <i class="ti ti-chevron-right text-warning"></i>
+                                        </a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>

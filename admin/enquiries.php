@@ -134,12 +134,32 @@ $total_applicants = $pdo->query("SELECT COUNT(*) FROM applicants")->fetchColumn(
                         </a>
                     </li>
 
-                    <li class="side-nav-item">
-                        <a href="announcements.php" class="side-nav-link">
-                            <span class="menu-icon"><i class="ti ti-speakerphone"></i></span>
-                            <span class="menu-text"> Announcements </span>
-                        </a>
-                    </li>
+                    <?php if (is_super_admin()): ?>
+                        <li class="side-nav-title mt-2 text-warning fw-bold">
+                            <i class="ti ti-shield-lock me-1"></i> SUPER ADMIN
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="manage-admins.php" class="side-nav-link">
+                                <span class="menu-icon"><i class="ti ti-user-shield text-warning"></i></span>
+                                <span class="menu-text"> Manage Admins </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="settings.php" class="side-nav-link">
+                                <span class="menu-icon"><i class="ti ti-adjustments text-warning"></i></span>
+                                <span class="menu-text"> System Settings </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="audit-logs.php" class="side-nav-link">
+                                <span class="menu-icon"><i class="ti ti-history text-warning"></i></span>
+                                <span class="menu-text"> Security Audit Logs </span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
                     <li class="side-nav-title mt-2">Tools & Actions</li>
 
@@ -217,7 +237,12 @@ $total_applicants = $pdo->query("SELECT COUNT(*) FROM applicants")->fetchColumn(
                                 </div>
                                 <a href="index.php" class="dropdown-item"><i class="ti ti-dashboard me-2"></i><span>Dashboard</span></a>
                                 <a href="applicants.php" class="dropdown-item"><i class="ti ti-users me-2"></i><span>Applicants Registry</span></a>
-                                <a href="announcements.php" class="dropdown-item"><i class="ti ti-speakerphone me-2"></i><span>Announcements</span></a>
+                                <?php if (is_super_admin()): ?>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="manage-admins.php" class="dropdown-item"><i class="ti ti-user-shield me-2 text-warning"></i><span>Manage Admins</span></a>
+                                    <a href="settings.php" class="dropdown-item"><i class="ti ti-adjustments me-2 text-warning"></i><span>System Settings</span></a>
+                                    <a href="audit-logs.php" class="dropdown-item"><i class="ti ti-history me-2 text-warning"></i><span>Audit Trail</span></a>
+                                <?php endif; ?>
                                 <div class="dropdown-divider"></div>
                                 <a href="logout.php" class="dropdown-item text-danger"><i class="ti ti-logout me-2"></i><span>Logout</span></a>
                             </div>

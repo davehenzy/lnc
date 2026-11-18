@@ -117,19 +117,121 @@ try {
         id INT AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(50) NOT NULL UNIQUE,
         password VARCHAR(255) NOT NULL,
+        full_name VARCHAR(255) DEFAULT 'System Administrator',
+        email VARCHAR(255) DEFAULT 'admin@colossusoflagos.com',
+        role VARCHAR(50) DEFAULT 'admin',
+        status VARCHAR(20) DEFAULT 'active',
+        last_login DATETIME NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )";
     $pdo->exec($sql_admin);
+
+    // Ensure enhanced columns exist in admins table
+    $admin_columns = [
+        'full_name' => "VARCHAR(255) DEFAULT 'System Administrator'",
+        'email' => "VARCHAR(255) DEFAULT 'admin@colossusoflagos.com'",
+        'role' => "VARCHAR(50) DEFAULT 'admin'",
+        'status' => "VARCHAR(20) DEFAULT 'active'",
+        'last_login' => "DATETIME NULL"
+    ];
+    foreach ($admin_columns as $col => $col_def) {
+        try {
+            $pdo->exec("ALTER TABLE admins ADD COLUMN $col $col_def");
+        } catch (PDOException $ex) {
+            // Column already exists
+        }
+    }
     
-    // Insert default admin if not exists (password: admin123)
+    // Insert or upgrade default super admin accounts
     $stmt = $pdo->prepare("SELECT COUNT(*) FROM admins WHERE username = 'admin'");
     $stmt->execute();
     if ($stmt->fetchColumn() == 0) {
         $hashed_password = password_hash('admin123', PASSWORD_DEFAULT);
-        $pdo->prepare("INSERT INTO admins (username, password) VALUES ('admin', ?)")->execute([$hashed_password]);
+        $pdo->prepare("INSERT INTO admins (username, password, full_name, email, role, status) VALUES ('admin', ?, 'Executive Super Admin', 'admin@colossusoflagos.com', 'super_admin', 'active')")->execute([$hashed_password]);
+    } else {
+        // Upgrade admin to super_admin
+        $pdo->exec("UPDATE admins SET role = 'super_admin' WHERE username = 'admin'");
+    }
+
+    $stmt_super = $pdo->prepare("SELECT COUNT(*) FROM admins WHERE username = 'superadmin'");
+    $stmt_super->execute();
+    if ($stmt_super->fetchColumn() == 0) {
+        $hashed_super_pass = password_hash('superadmin123', PASSWORD_DEFAULT);
+        $pdo->prepare("INSERT INTO admins (username, password, full_name, email, role, status) VALUES ('superadmin', ?, 'Principal Super Administrator', 'superadmin@colossusoflagos.com', 'super_admin', 'active')")->execute([$hashed_super_pass]);
+    }
+
+    // Create Audit Logs table
+    $sql_audit = "CREATE TABLE IF NOT EXISTS audit_logs (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        admin_id INT NULL,
+        admin_username VARCHAR(100) NULL,
+        action VARCHAR(100) NOT NULL,
+        details TEXT NULL,
+        ip_address VARCHAR(50) NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )";
+    $pdo->exec($sql_audit);
+
+    // Create System Settings table
+    $sql_settings = "CREATE TABLE IF NOT EXISTS system_settings (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        setting_key VARCHAR(100) UNIQUE NOT NULL,
+        setting_value TEXT NULL,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    )";
+    $pdo->exec($sql_settings);
+
+    // Seed default settings if empty
+    $default_settings = [
+        'registration_status' => 'open',
+        'competition_season' => 'Season 1 (2026)',
+        'grand_prize' => '₦30,000,000',
+        'bootcamp_slots' => '30',
+        'island_hub_name' => 'Lagos Island Audition Centre',
+        'mainland_hub_name' => 'Lagos Mainland Audition Centre',
+        'contact_email' => 'info@colossusoflagos.com',
+        'maintenance_mode' => '0'
+    ];
+    $setting_stmt = $pdo->prepare("INSERT IGNORE INTO system_settings (setting_key, setting_value) VALUES (?, ?)");
+    foreach ($default_settings as $key => $val) {
+        $setting_stmt->execute([$key, $val]);
     }
 
 } catch (PDOException $e) {
     die("Database error: " . $e->getMessage());
+}
+
+// Global Super Admin Helpers
+if (!function_exists('is_super_admin')) {
+    function is_super_admin() {
+        return isset($_SESSION['admin_role']) && $_SESSION['admin_role'] === 'super_admin';
+    }
+}
+
+if (!function_exists('require_super_admin')) {
+    function require_super_admin() {
+        if (!isset($_SESSION['admin_logged_in'])) {
+            header("Location: login.php");
+            exit();
+        }
+        if (!is_super_admin()) {
+            header("Location: index.php?error=unauthorized");
+            exit();
+        }
+    }
+}
+
+if (!function_exists('log_audit_action')) {
+    function log_audit_action($pdo, $action, $details = '') {
+        try {
+            $admin_id = $_SESSION['admin_id'] ?? null;
+            $admin_username = $_SESSION['admin_username'] ?? 'System';
+            $ip = $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1';
+            $stmt = $pdo->prepare("INSERT INTO audit_logs (admin_id, admin_username, action, details, ip_address) VALUES (?, ?, ?, ?, ?)");
+            $stmt->execute([$admin_id, $admin_username, $action, $details, $ip]);
+        } catch (Exception $e) {
+            // Silently continue if logging fails
+        }
+    }
 }
 ?>

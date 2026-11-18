@@ -9,7 +9,6 @@ if (!isset($_SESSION['admin_logged_in'])) {
 
 // Filters
 $location = $_GET['location'] ?? '';
-$status = $_GET['status'] ?? '';
 $search = $_GET['search'] ?? '';
 
 $query = "SELECT * FROM applicants WHERE 1=1";
@@ -18,10 +17,6 @@ $params = [];
 if ($location) {
     $query .= " AND audition_location = ?";
     $params[] = $location;
-}
-if ($status) {
-    $query .= " AND status = ?";
-    $params[] = $status;
 }
 if ($search) {
     $query .= " AND (full_name LIKE ? OR email LIKE ? OR phone LIKE ?)";
@@ -35,7 +30,7 @@ $stmt = $pdo->prepare($query);
 $stmt->execute($params);
 $applicants = $stmt->fetchAll();
 
-$locations = ['Ikeja', 'Badagry', 'Ikorodu', 'Lagos Island', 'Epe'];
+$locations = ['Lagos Island', 'Lagos Mainland'];
 $total_applicants = $pdo->query("SELECT COUNT(*) FROM applicants")->fetchColumn();
 $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = 'unread'")->fetchColumn();
 ?>
@@ -70,9 +65,6 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
     <!-- Custom Brand Touch -->
     <style>
         .badge-gold { background: rgba(212, 175, 55, 0.15); color: #d4af37; border: 1px solid rgba(212, 175, 55, 0.3); }
-        .status-badge-pending { background-color: rgba(255, 193, 7, 0.15); color: #b78103; border: 1px solid rgba(255, 193, 7, 0.3); }
-        .status-badge-shortlisted { background-color: rgba(40, 167, 69, 0.15); color: #28a745; border: 1px solid rgba(40, 167, 69, 0.3); }
-        .status-badge-rejected { background-color: rgba(220, 53, 69, 0.15); color: #dc3545; border: 1px solid rgba(220, 53, 69, 0.3); }
         .logo-img { max-height: 42px; width: auto; object-fit: contain; }
     </style>
 </head>
@@ -133,12 +125,32 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
                         </a>
                     </li>
 
-                    <li class="side-nav-item">
-                        <a href="announcements.php" class="side-nav-link">
-                            <span class="menu-icon"><i class="ti ti-speakerphone"></i></span>
-                            <span class="menu-text"> Announcements </span>
-                        </a>
-                    </li>
+                    <?php if (is_super_admin()): ?>
+                        <li class="side-nav-title mt-2 text-warning fw-bold">
+                            <i class="ti ti-shield-lock me-1"></i> SUPER ADMIN
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="manage-admins.php" class="side-nav-link">
+                                <span class="menu-icon"><i class="ti ti-user-shield text-warning"></i></span>
+                                <span class="menu-text"> Manage Admins </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="settings.php" class="side-nav-link">
+                                <span class="menu-icon"><i class="ti ti-adjustments text-warning"></i></span>
+                                <span class="menu-text"> System Settings </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="audit-logs.php" class="side-nav-link">
+                                <span class="menu-icon"><i class="ti ti-history text-warning"></i></span>
+                                <span class="menu-text"> Security Audit Logs </span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
                     <li class="side-nav-title mt-2">Tools & Actions</li>
 
@@ -216,7 +228,12 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
                                 </div>
                                 <a href="index.php" class="dropdown-item"><i class="ti ti-dashboard me-2"></i><span>Dashboard</span></a>
                                 <a href="enquiries.php" class="dropdown-item"><i class="ti ti-mail me-2"></i><span>Enquiries</span></a>
-                                <a href="announcements.php" class="dropdown-item"><i class="ti ti-speakerphone me-2"></i><span>Announcements</span></a>
+                                <?php if (is_super_admin()): ?>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="manage-admins.php" class="dropdown-item"><i class="ti ti-user-shield me-2 text-warning"></i><span>Manage Admins</span></a>
+                                    <a href="settings.php" class="dropdown-item"><i class="ti ti-adjustments me-2 text-warning"></i><span>System Settings</span></a>
+                                    <a href="audit-logs.php" class="dropdown-item"><i class="ti ti-history me-2 text-warning"></i><span>Audit Trail</span></a>
+                                <?php endif; ?>
                                 <div class="dropdown-divider"></div>
                                 <a href="logout.php" class="dropdown-item text-danger"><i class="ti ti-logout me-2"></i><span>Logout</span></a>
                             </div>
@@ -258,7 +275,7 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
                 <div class="card mb-4">
                     <div class="card-body p-3">
                         <form action="applicants.php" method="GET" class="row g-2 align-items-end">
-                            <div class="col-lg-5 col-md-4">
+                            <div class="col-lg-6 col-md-5">
                                 <label class="form-label fs-12 text-muted fw-bold text-uppercase mb-1">Search Registry</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light"><i class="ti ti-search text-muted"></i></span>
@@ -266,7 +283,7 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-3">
+                            <div class="col-lg-4 col-md-4">
                                 <label class="form-label fs-12 text-muted fw-bold text-uppercase mb-1">Audition Hub</label>
                                 <select name="location" class="form-select">
                                     <option value="">All Regions & Hubs</option>
@@ -276,17 +293,7 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
                                 </select>
                             </div>
 
-                            <div class="col-lg-2 col-md-3">
-                                <label class="form-label fs-12 text-muted fw-bold text-uppercase mb-1">Evaluation Status</label>
-                                <select name="status" class="form-select">
-                                    <option value="">All Statuses</option>
-                                    <option value="pending" <?php if($status == 'pending') echo 'selected'; ?>>Pending</option>
-                                    <option value="shortlisted" <?php if($status == 'shortlisted') echo 'selected'; ?>>Shortlisted</option>
-                                    <option value="rejected" <?php if($status == 'rejected') echo 'selected'; ?>>Rejected</option>
-                                </select>
-                            </div>
-
-                            <div class="col-lg-2 col-md-2 d-flex gap-2">
+                            <div class="col-lg-2 col-md-3 d-flex gap-2">
                                 <button type="submit" class="btn btn-primary w-100 fw-bold">
                                     <i class="ti ti-filter me-1"></i> Apply
                                 </button>
@@ -305,7 +312,7 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
                             <h4 class="card-title mb-0 fs-15 text-uppercase fw-bold">Candidate Profiles</h4>
                             <span class="badge bg-secondary-subtle text-secondary fs-11">Active Scan</span>
                         </div>
-                        <small class="text-muted fs-12">Click Inspect Protocol to view full credentials, documents, and submit status decisions.</small>
+                        <small class="text-muted fs-12">Click Inspect to view full credentials, documents, and business details.</small>
                     </div>
 
                     <div class="card-body p-0">
@@ -316,14 +323,13 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
                                         <th class="ps-3">Entity & Business</th>
                                         <th>Contact Intel</th>
                                         <th>Location Hub</th>
-                                        <th>Status</th>
                                         <th class="text-end pe-3">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php if (empty($applicants)): ?>
                                         <tr>
-                                            <td colspan="5" class="text-center py-5 text-muted">
+                                            <td colspan="4" class="text-center py-5 text-muted">
                                                 <div class="py-4">
                                                     <iconify-icon icon="solar:folder-error-bold-duotone" class="fs-48 text-muted mb-2"></iconify-icon>
                                                     <h5 class="fw-semibold">No records match your scan parameters.</h5>
@@ -373,18 +379,7 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
                                                         <i class="ti ti-map-pin me-1 text-warning"></i><?php echo htmlspecialchars($applicant['audition_location']); ?>
                                                     </span>
                                                 </td>
-                                                <td>
-                                                    <?php
-                                                    $st = strtolower($applicant['status'] ?? 'pending');
-                                                    if ($st === 'shortlisted') {
-                                                        echo '<span class="badge status-badge-shortlisted px-2.5 py-1 fs-11 fw-semibold text-uppercase"><i class="ti ti-check me-1"></i>Shortlisted</span>';
-                                                    } elseif ($st === 'rejected') {
-                                                        echo '<span class="badge status-badge-rejected px-2.5 py-1 fs-11 fw-semibold text-uppercase"><i class="ti ti-x me-1"></i>Rejected</span>';
-                                                    } else {
-                                                        echo '<span class="badge status-badge-pending px-2.5 py-1 fs-11 fw-semibold text-uppercase"><i class="ti ti-clock me-1"></i>Pending</span>';
-                                                    }
-                                                    ?>
-                                                </td>
+
                                                 <td class="text-end pe-3">
                                                     <a href="view-applicant.php?id=<?php echo $applicant['id']; ?>" class="btn btn-sm btn-outline-primary d-inline-flex align-items-center gap-1">
                                                         <span>INSPECT</span>
@@ -443,7 +438,7 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
                     <th style="border: 1px solid #ddd; padding: 8px;">LOCATION</th>
                     <th style="border: 1px solid #ddd; padding: 8px;">VITAL STATS</th>
                     <th style="border: 1px solid #ddd; padding: 8px;">ADDRESS / LASRRA</th>
-                    <th style="border: 1px solid #ddd; padding: 8px;">STATUS</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -467,7 +462,7 @@ $unread_enquiries = $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = '
                             <?php echo htmlspecialchars($row['address']); ?><br>
                             LASRRA: <?php echo htmlspecialchars($row['lasrra_number'] ?: 'N/A'); ?>
                         </td>
-                        <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;"><?php echo strtoupper($row['status']); ?></td>
+                        
                     </tr>
                 <?php endforeach; ?>
             </tbody>

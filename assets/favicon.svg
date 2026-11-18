@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4d03f"/>
+      <stop offset="50%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#aa7c11"/>
+    </linearGradient>
+    <linearGradient id="silverFace" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="45%" stop-color="#e2e8f0"/>
+      <stop offset="75%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Badge (Dark Navy & Gold Rim) -->
+  <circle cx="50" cy="50" r="48" fill="#070f1f" stroke="url(#goldRim)" stroke-width="3"/>
+  
+  <!-- Colossus of Lagos Geometric Lion Crest -->
+  <g transform="translate(50, 50) scale(1.4) translate(-182.02, -138.75)">
+    <!-- Silver Metallic Lion Face -->
+    <path fill="url(#silverFace)" d="M189.15,124.23l-3.71-.58-3.42,1.75-3.42-1.75-3.71.58-4.04,5.34.29,7.41,3.04,4.5.8,4.46,2.74,1.12,3.71-2.08-.33-1.92-2.42-1.54-.96-1.71,4.3.84,4.3-.84-.96,1.71-2.42,1.54-.33,1.92,3.71,2.08,2.74-1.12.8-4.46,3.04-4.5.29-7.41-4.04-5.34ZM177.47,138.75l.25-4.94-3.37-1.74-1-1,3.29-.55,2.54,2-1.71,6.23ZM189.69,132.07l-3.37,1.74.25,4.94-1.71-6.23,2.54-2,3.29.55-1,1ZM182.03,146.31h-.02l-4.79,1.79.3,1.63,4.5,2.34,4.5-2.34.3-1.63-4.79-1.79Z"/>
+    <!-- Mane Facets -->
+    <polygon fill="#b286bc" points="191.52 159.77 193.31 146.77 193.06 137.56 198.31 149.56 191.52 159.77"/>
+    <polygon fill="#b286bc" points="172.52 159.77 165.73 149.56 170.98 137.56 170.73 146.77 172.52 159.77"/>
+    <polygon fill="#6fc7ae" points="201.94 140.81 199.73 151.52 193.86 131.07 201.94 140.81"/>
+    <polygon fill="#6fc7ae" points="170.18 131.07 164.31 151.52 162.1 140.81 170.18 131.07"/>
+    <polygon fill="#fee900" points="195.06 115.36 185.65 123.11 189.02 115.07 195.06 115.36"/>
+    <polygon fill="#fee900" points="178.39 123.11 168.98 115.36 175.02 115.07 178.39 123.11"/>
+    <polygon fill="#f99d1c" points="204.52 142.27 193.86 129.57 202.23 132.19 204.52 142.27"/>
+    <polygon fill="#f99d1c" points="170.18 129.57 159.52 142.27 161.81 132.19 170.18 129.57"/>
+    <polygon fill="#ee3665" points="189.73 113.11 182.02 125.07 174.31 113.11 182.02 114.99 189.73 113.11"/>
+    <polygon fill="#ee3665" points="190.31 156.81 182.32 164.39 188.48 147.44 190.31 156.81"/>
+    <polygon fill="#ee3665" points="181.72 164.39 173.73 156.81 175.56 147.44 181.72 164.39"/>
+    <polygon fill="#5ecae7" points="174.64 123.82 159.52 132.52 164.6 120.03 170.48 117.57 174.64 123.82"/>
+    <polygon fill="#5ecae7" points="204.52 132.52 189.4 123.82 193.56 117.57 199.44 120.03 204.52 132.52"/>
+  </g>
+</svg>

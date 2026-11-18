@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Frequently Asked Questions | Colossus of Lagos</title>
   <meta name="description" content="Find comprehensive answers about Colossus of Lagos — Africa's premier entrepreneurship competition and festival in partnership with Lagos State Government. ₦30M Grand Prize, 40 × ₦1M grants, 1-month duration, auditions across 5 zones." />
-  <meta name="keywords" content="Colossus of Lagos FAQ, entrepreneurship TV show, Lagos State Government, business pitch questions, audition centres, ₦30M prize, Bravopoints" />
+  <meta name="keywords" content="Colossus of Lagos FAQ, entrepreneurship , Lagos State Government, business pitch questions, audition centres, ₦30M prize, Bravopoints" />
 
   <!-- OpenGraph & Twitter Cards -->
   <meta property="og:title" content="Colossus of Lagos FAQ | Everything You Need To Know" />
@@ -20,6 +20,13 @@
   <meta name="twitter:title" content="Colossus of Lagos FAQ | Everything You Need To Know" />
   <meta name="twitter:description" content="Answers on eligibility, auditions, 1-month timeline, and prizes." />
   <meta name="twitter:image" content="assets/slider/Artboard 1.png" />
+
+  <!-- Favicon & Brand Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link
@@ -241,58 +248,8 @@
 
 <body class="antialiased text-white bg-[#070f1f] overflow-x-hidden">
   
-  <!-- Navigation -->
-  <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-4 bg-[#070f1f]/90 backdrop-blur-md border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <a href="index.php" class="flex items-center">
-        <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo"
-          class="h-10 md:h-14 w-auto object-contain" />
-      </a>
-
-      <div class="hidden md:flex items-center gap-8">
-        <a href="index.php" class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors">Home</a>
-        <a href="about.php" class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors">About</a>
-        <a href="eligibility.php" class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors">Eligibility</a>
-        <a href="faq.php" class="text-sm font-semibold text-[#d4af37] transition-colors border-b-2 border-[#d4af37] pb-1">FAQ</a>
-      </div>
-
-      <div class="flex items-center gap-4">
-        <a href="register.php" class="hidden sm:inline-flex btn-gold px-6 py-2.5 rounded-full text-xs md:text-sm uppercase tracking-wider items-center gap-2">
-          <span>Register Now</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </a>
-        <button id="menu-btn" class="md:hidden text-white hover:text-[#d4af37] transition-colors">
-          <i data-lucide="menu" class="w-7 h-7"></i>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu"
-    class="fixed inset-0 z-[60] bg-[#070f1f]/98 backdrop-blur-2xl translate-x-full transition-transform duration-500 md:hidden">
-    <div class="flex flex-col h-full p-8">
-      <div class="flex items-center justify-between mb-12">
-        <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo" class="h-9 w-auto" />
-        <button id="close-menu" class="text-gray-400 hover:text-white">
-          <i data-lucide="x" class="w-8 h-8"></i>
-        </button>
-      </div>
-
-      <nav class="flex flex-col gap-6 text-xl font-bold">
-        <a href="index.php" class="text-gray-300 hover:text-[#d4af37]">Home</a>
-        <a href="about.php" class="text-gray-300 hover:text-[#d4af37]">About</a>
-        <a href="eligibility.php" class="text-gray-300 hover:text-[#d4af37]">Eligibility</a>
-        <a href="faq.php" class="text-[#d4af37]">FAQ</a>
-      </nav>
-
-      <div class="mt-auto pt-8 border-t border-white/10">
-        <a href="register.php" class="btn-gold w-full py-4 rounded-full text-center uppercase tracking-widest block font-bold">
-          Register Now
-        </a>
-      </div>
-    </div>
-  </div>
+  <!-- Navigation & Mobile Menu -->
+  <?php include 'includes/navbar.php'; ?>
 
   <!-- Hero Section -->
   <section class="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-[115px] md:pt-[135px] pb-16 bg-gradient-to-b from-[#0a1628] via-[#070f1f] to-[#070f1f]">
@@ -420,7 +377,7 @@
 
         <div class="faq-item rounded-2xl section-reveal" data-category="general">
           <button class="w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
-            <span class="faq-question font-semibold text-base sm:text-lg pr-4">How does Colossus of Lagos differ from traditional reality TV shows?</span>
+            <span class="faq-question font-semibold text-base sm:text-lg pr-4">How does Colossus of Lagos differ from traditional program?</span>
             <div class="w-8 h-8 rounded-full bg-yellow-400/10 flex items-center justify-center flex-shrink-0">
               <i data-lucide="plus" class="w-4 h-4 text-yellow-400 faq-icon"></i>
             </div>
@@ -791,117 +748,11 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="border-t border-[#d4af37]/10 py-16 bg-[#070f1f]">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-4 gap-12 mb-12">
-        <div class="md:col-span-2">
-          <div class="flex items-center gap-3 mb-6">
-            <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos" class="h-12 w-auto">
-          </div>
-          <p class="text-gray-400 text-sm max-w-sm leading-relaxed mb-6 font-light">
-            Africa's premier entrepreneurship competition and festival in strategic partnership with the Lagos State Government (Ministry of Wealth Creation and Employment) to empower high-growth youth enterprises.
-          </p>
-          <div class="flex items-center gap-4">
-            <a href="#"
-              class="w-10 h-10 rounded-full bg-[#0a1628] border border-[#d4af37]/20 flex items-center justify-center text-gray-400 hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all" aria-label="Instagram">
-              <i data-lucide="instagram" class="w-4 h-4"></i>
-            </a>
-            <a href="#"
-              class="w-10 h-10 rounded-full bg-[#0a1628] border border-[#d4af37]/20 flex items-center justify-center text-gray-400 hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all" aria-label="Twitter">
-              <i data-lucide="twitter" class="w-4 h-4"></i>
-            </a>
-            <a href="#"
-              class="w-10 h-10 rounded-full bg-[#0a1628] border border-[#d4af37]/20 flex items-center justify-center text-gray-400 hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all" aria-label="Facebook">
-              <i data-lucide="facebook" class="w-4 h-4"></i>
-            </a>
-            <a href="#"
-              class="w-10 h-10 rounded-full bg-[#0a1628] border border-[#d4af37]/20 flex items-center justify-center text-gray-400 hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all" aria-label="YouTube">
-              <i data-lucide="youtube" class="w-4 h-4"></i>
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="font-semibold mb-6 text-[#d4af37] text-sm tracking-wider uppercase">
-            Navigation
-          </h4>
-          <ul class="space-y-3 text-sm text-gray-400 font-light">
-            <li>
-              <a href="index.php" class="hover:text-white transition-colors">Home</a>
-            </li>
-            <li>
-              <a href="about.php" class="hover:text-white transition-colors">About</a>
-            </li>
-            <li>
-              <a href="eligibility.php" class="hover:text-white transition-colors">Eligibility</a>
-            </li>
-            <li>
-              <a href="faq.php" class="text-white font-medium">FAQ</a>
-            </li>
-            <li>
-              <a href="register.php" class="hover:text-white transition-colors">Register</a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="font-semibold mb-3 text-[#d4af37] text-xs tracking-wider uppercase">Official Partner</h4>
-          <p class="text-xs text-gray-400 leading-relaxed font-light mb-4">
-            Lagos State Government<br>
-            Ministry of Wealth Creation and Employment
-          </p>
-          <h4 class="font-semibold mb-2 text-[#d4af37] text-xs tracking-wider uppercase">Produced By</h4>
-          <p class="text-xs text-gray-400 leading-relaxed font-light mb-6">
-            Bravopoints International Limited
-          </p>
-          
-          <h4 class="font-semibold mb-2 text-[#d4af37] text-xs tracking-wider uppercase">Newsletter</h4>
-          <form id="newsletterForm" class="space-y-2">
-            <div id="newsletterAlert" class="hidden p-2 rounded-lg text-xs font-semibold"></div>
-            <div class="flex gap-2">
-              <input type="email" name="email" required placeholder="Enter email" class="px-3 py-2 rounded-lg bg-[#0a1628] border border-white/10 text-white text-xs flex-1 focus:outline-none focus:border-yellow-400" />
-              <button type="submit" class="btn-gold px-3 py-2 rounded-lg text-xs uppercase font-bold tracking-wider">
-                Join
-              </button>
-            </div>
-          </form>
-        </div>
-
-      </div>
-
-      <div
-        class="border-t border-[#d4af37]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-xs text-gray-500 font-light">
-        <p>© 2026 Colossus of Lagos. All rights reserved.</p>
-        <p>
-          Produced by Bravopoints International Limited <span class="hidden md:inline mx-2">|</span> Built by <a
-            href="https://techiextract.com" target="_blank" rel="noopener"
-            class="text-[#d4af37] hover:underline font-semibold">TechieXtract Limited</a>
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Floating WhatsApp Widget -->
-  <a href="https://wa.me/2348123456789?text=Hello%20Colossus%20of%20Lagos%20team,%20I%20have%20an%20enquiry%20regarding%20registration" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform" title="Chat on WhatsApp">
-    <i data-lucide="message-circle" class="w-5 h-5"></i>
-    <span class="text-xs font-bold hidden sm:inline">WhatsApp Help Desk</span>
-  </a>
+  <!-- Footer & Floating WhatsApp Widget -->
+  <?php include 'includes/footer.php'; ?>
 
   <!-- JavaScript Interactions -->
   <script>
-    lucide.createIcons();
-
-    // Navbar scroll effect
-    const navbar = document.getElementById("navbar");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 40) {
-        navbar.classList.add("nav-blur");
-      } else {
-        navbar.classList.remove("nav-blur");
-      }
-    });
-
     // Intersection Observer
     const observer = new IntersectionObserver(
       (entries) => {
@@ -999,65 +850,6 @@
       if (searchInput) searchInput.value = '';
       const allPill = document.querySelector(".category-pill");
       filterCategory('all', allPill);
-    }
-
-    // Mobile Menu
-    const menuBtn = document.getElementById('menu-btn');
-    const closeMenu = document.getElementById('close-menu');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
-
-    function toggleMenu(show) {
-      if (!mobileMenu) return;
-      if (show) {
-        mobileMenu.classList.remove('translate-x-full');
-        document.body.style.overflow = 'hidden';
-      } else {
-        mobileMenu.classList.add('translate-x-full');
-        document.body.style.overflow = '';
-      }
-    }
-
-    if (menuBtn) menuBtn.addEventListener('click', () => toggleMenu(true));
-    if (closeMenu) closeMenu.addEventListener('click', () => toggleMenu(false));
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => toggleMenu(false));
-    });
-
-    // Close on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') toggleMenu(false);
-    });
-
-    // Newsletter Submission AJAX
-    const newsletterForm = document.getElementById('newsletterForm');
-    const newsletterAlert = document.getElementById('newsletterAlert');
-    if (newsletterForm) {
-      newsletterForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(newsletterForm);
-        fetch('process-newsletter.php', {
-          method: 'POST',
-          body: formData
-        })
-        .then(res => res.json())
-        .then(data => {
-          newsletterAlert.classList.remove('hidden', 'bg-red-500/20', 'text-red-300', 'bg-green-500/20', 'text-green-300');
-          if (data.status === 'success') {
-            newsletterAlert.classList.add('bg-green-500/20', 'text-green-300');
-            newsletterAlert.textContent = data.message;
-            newsletterForm.reset();
-          } else {
-            newsletterAlert.classList.add('bg-red-500/20', 'text-red-300');
-            newsletterAlert.textContent = data.message || 'Error subscribing.';
-          }
-        })
-        .catch(err => {
-          newsletterAlert.classList.remove('hidden');
-          newsletterAlert.classList.add('bg-red-500/20', 'text-red-300');
-          newsletterAlert.textContent = 'Network error. Please try again.';
-        });
-      });
     }
   </script>
 </body>

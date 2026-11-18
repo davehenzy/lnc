@@ -17,10 +17,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $admin = $stmt->fetch();
 
     if ($admin && password_verify($password, $admin['password'])) {
-        $_SESSION['admin_logged_in'] = true;
-        $_SESSION['admin_id'] = $admin['id'];
-        header("Location: index.php");
-        exit();
+        if (isset($admin['status']) && $admin['status'] === 'inactive') {
+            $error = "This administrator account is suspended. Contact Super Admin.";
+        } else {
+            $_SESSION['admin_logged_in'] = true;
+            $_SESSION['admin_id'] = $admin['id'];
+            $_SESSION['admin_username'] = $admin['username'];
+            $_SESSION['admin_fullname'] = !empty($admin['full_name']) ? $admin['full_name'] : $admin['username'];
+            $_SESSION['admin_role'] = $admin['role'] ?? 'admin';
+
+            // Update last_login
+            $pdo->prepare("UPDATE admins SET last_login = NOW() WHERE id = ?")->execute([$admin['id']]);
+
+            // Record audit log
+            log_audit_action($pdo, 'Admin Login', "User '{$admin['username']}' ({$admin['role']}) authenticated successfully.");
+
+            header("Location: index.php");
+            exit();
+        }
     } else {
         $error = "Invalid credentials. ACCESS DENIED.";
     }

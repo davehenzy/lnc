@@ -5,6 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Council | Colossus of Lagos - Judges & Mentors</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap"
@@ -396,57 +401,8 @@
 </head>
 
 <body class="antialiased text-white bg-[#0a1628] overflow-x-hidden">
-  <!-- Navigation -->
-  <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 bg-[#0a1628] border-b border-white/5">
-    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <a href="index.php" class="flex items-center">
-        <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo"
-          class="h-10 md:h-16 w-auto object-contain" />
-      </a>
-
-      <div class="hidden md:flex items-center gap-8">
-        <a href="index.php" class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors">Home</a>
-        <a href="about.php" class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors">About</a>
-        <a href="eligibility.php" class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors">Eligibility</a>
-        <a href="faq.php" class="text-sm font-medium text-gray-400 hover:text-[#d4af37] transition-colors">FAQ</a>
-      </div>
-
-      <div class="flex items-center gap-4">
-        <a href="register.php" class="hidden md:inline-flex btn-gold px-6 py-2.5 rounded-full text-sm uppercase tracking-wider">
-          Register Now
-        </a>
-        <button id="menu-btn" class="md:hidden text-white hover:text-[#d4af37] transition-colors">
-          <i data-lucide="menu" class="w-8 h-8"></i>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu"
-    class="fixed inset-0 z-[60] bg-[#0a1628]/95 backdrop-blur-xl translate-x-full transition-transform duration-500 md:hidden">
-    <div class="flex flex-col h-full p-8">
-      <div class="flex items-center justify-between mb-12">
-        <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo" class="h-8 w-auto" />
-        <button id="close-menu" class="text-gray-400 hover:text-white">
-          <i data-lucide="x" class="w-8 h-8"></i>
-        </button>
-      </div>
-
-      <nav class="flex flex-col gap-6">
-        <a href="index.php" class="text-2xl font-bold text-gray-300 hover:text-[#d4af37]">Home</a>
-        <a href="about.php" class="text-2xl font-bold text-gray-300 hover:text-[#d4af37]">About</a>
-        <a href="eligibility.php" class="text-2xl font-bold text-gray-300 hover:text-[#d4af37]">Eligibility</a>
-        <a href="faq.php" class="text-2xl font-bold text-gray-300 hover:text-[#d4af37]">FAQ</a>
-      </nav>
-
-      <div class="mt-auto pt-8 border-t border-white/10">
-        <a href="register.php" class="btn-gold w-full py-4 rounded-full text-center uppercase tracking-widest block">
-          Register Now
-        </a>
-      </div>
-    </div>
-  </div>
+  <!-- Navigation & Mobile Menu -->
+  <?php include 'includes/navbar.php'; ?>
 
   <!-- Hero Section -->
   <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-[112px] md:pt-[130px]">
@@ -1361,77 +1317,8 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="border-t border-[#d4af37]/10 py-16 bg-[#070f1f]">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-4 gap-12 mb-12">
-        <div class="md:col-span-2">
-          <div class="flex items-center gap-3 mb-6">
-            <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos" class="h-12 w-auto">
-          </div>
-          <p class="text-gray-500 text-sm max-w-sm leading-relaxed mb-6">
-            An entrepreneurial reality and competition show developed in
-            partnership with Lagos State Government to identify, support, and
-            scale high-potential entrepreneurs driving jobs, innovation, and
-            economic growth.
-          </p>
-          <div class="flex items-center gap-4">
-            <a href="#"
-              class="w-10 h-10 rounded-full bg-[#0a1628] border border-[#d4af37]/20 flex items-center justify-center text-gray-500 hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all">
-              <i data-lucide="instagram" class="w-4 h-4"></i>
-            </a>
-            <a href="#"
-              class="w-10 h-10 rounded-full bg-[#0a1628] border border-[#d4af37]/20 flex items-center justify-center text-gray-500 hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all">
-              <i data-lucide="twitter" class="w-4 h-4"></i>
-            </a>
-            <a href="#"
-              class="w-10 h-10 rounded-full bg-[#0a1628] border border-[#d4af37]/20 flex items-center justify-center text-gray-500 hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all">
-              <i data-lucide="facebook" class="w-4 h-4"></i>
-            </a>
-            <a href="#"
-              class="w-10 h-10 rounded-full bg-[#0a1628] border border-[#d4af37]/20 flex items-center justify-center text-gray-500 hover:text-[#d4af37] hover:border-[#d4af37]/50 transition-all">
-              <i data-lucide="youtube" class="w-4 h-4"></i>
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="font-semibold mb-6 text-[#d4af37] text-sm tracking-wider uppercase">
-            Navigation
-          </h4>
-          <ul class="space-y-3 text-sm text-gray-500">
-            <li>
-              <a href="index.php" class="hover:text-white transition-colors">Home</a>
-            </li>
-            <li>
-              <a href="about.php" class="hover:text-white transition-colors">About</a>
-            </li>
-            <li>
-              <a href="eligibility.php" class="hover:text-white transition-colors">Eligibility</a>
-            </li>
-            <li>
-              <a href="faq.php" class="hover:text-white transition-colors">FAQ</a>
-            </li>
-            <li>
-              <a href="register.php" class="hover:text-white transition-colors">Register</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div
-        class="border-t border-[#d4af37]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-        <p class="text-sm text-gray-600">
-          © 2026 Colossus of Lagos. All rights reserved.
-        </p>
-        <p class="text-sm text-gray-600">
-          Produced by Bravopoints International Limited <span class="hidden md:inline mx-2">|</span> Design by <a
-            href="https://linktr.ee/techiextract" target="_blank"
-            class="hover:text-white transition-colors">techieXtract</a>
-        </p>
-      </div>
-    </div>
-  </footer>
+  <!-- Footer & Floating WhatsApp Widget -->
+  <?php include 'includes/footer.php'; ?>
 
   <!-- Judge Modal -->
   <div id="judgeModal" class="fixed inset-0 z-50 hidden">
@@ -1683,11 +1570,6 @@
       if (e.key === 'Escape') toggleMenu(false);
     });
   </script>
-  <!-- Floating WhatsApp Widget (TechieXtract Scope) -->
-  <a href="https://wa.me/2348123456789?text=Hello%20Colossus%20of%20Lagos%20team,%20I%20have%20an%20enquiry" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform" title="Chat on WhatsApp">
-    <i data-lucide="message-circle" class="w-6 h-6"></i>
-    <span class="text-xs font-bold hidden sm:inline">WhatsApp Help Desk</span>
-  </a>
 </body>
 
 </html>
