@@ -318,7 +318,7 @@
             Beyond the competition arena, experience the 1,000+ delegate Entrepreneurship Summit, exclusive Investors Evening, and cultural celebrations.
           </p>
         </div>
-        <a href="festival.php" class="btn-gold px-8 py-3.5 rounded-full text-xs uppercase tracking-wider font-bold inline-flex items-center gap-2 whitespace-nowrap shadow-xl shrink-0">
+        <a href="festival.php" class="btn-brand px-8 py-3.5 rounded-full text-xs uppercase tracking-wider font-bold inline-flex items-center gap-2 whitespace-nowrap shadow-xl shrink-0">
           <span>Discover The Festival</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
