@@ -8,14 +8,85 @@ $homePrefix = $isHome ? '' : 'index.php';
   .nav-blur {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   }
+
+  /* Multi-Color Brand Spectrum Text Gradient (Hex: #ff174f #f4cc12 #00c99a #ff8a00 #ad55d6 #008df0) */
+  .text-brand-gradient {
+    background: linear-gradient(135deg, #ff174f 0%, #f4cc12 20%, #00c99a 40%, #ff8a00 60%, #ad55d6 80%, #008df0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-brand-gradient-h {
+    background: linear-gradient(to right, #ff174f 0%, #f4cc12 20%, #00c99a 40%, #ff8a00 60%, #ad55d6 80%, #008df0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-spectrum-gradient {
+    background: linear-gradient(135deg, #ff174f 0%, #ff8a00 20%, #f4cc12 40%, #00c99a 60%, #008df0 80%, #ad55d6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-spectrum-gradient-h {
+    background: linear-gradient(to right, #ff174f 0%, #ff8a00 20%, #f4cc12 40%, #00c99a 60%, #008df0 80%, #ad55d6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, #ff174f 0%, #f4cc12 20%, #00c99a 40%, #ff8a00 60%, #ad55d6 80%, #008df0 100%);
+  }
+
+  .bg-spectrum-gradient {
+    background: linear-gradient(135deg, #ff174f 0%, #ff8a00 20%, #f4cc12 40%, #00c99a 60%, #008df0 80%, #ad55d6 100%);
+  }
+
+  /* Brand Spectrum Register Button (Hex: #ff174f #f4cc12 #00c99a #ff8a00 #ad55d6 #008df0 with Navy Blue text) */
+  .btn-brand,
+  .btn-register,
+  a.btn-gold[href*="register.php"],
+  a.btn-brand[href*="register.php"] {
+    background: linear-gradient(135deg, #ff174f 0%, #f4cc12 20%, #00c99a 40%, #ff8a00 60%, #ad55d6 80%, #008df0 100%) !important;
+    color: #070f1f !important;
+    font-weight: 800 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 20px rgba(255, 23, 79, 0.3), 0 2px 10px rgba(0, 201, 154, 0.25) !important;
+    text-shadow: none !important;
+  }
+
+  .btn-brand *,
+  .btn-register *,
+  a.btn-gold[href*="register.php"] *,
+  a.btn-brand[href*="register.php"] * {
+    color: #070f1f !important;
+    font-weight: 800 !important;
+  }
+
+  .btn-brand:hover,
+  .btn-register:hover,
+  a.btn-gold[href*="register.php"]:hover,
+  a.btn-brand[href*="register.php"]:hover {
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 8px 30px rgba(255, 23, 79, 0.5), 0 0 25px rgba(244, 204, 18, 0.45) !important;
+    color: #070f1f !important;
+  }
 </style>
 
 <!-- Navigation -->
-<nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-3.5 sm:py-5 md:py-6 bg-[#0a1628] border-b border-white/5">
+<nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-2 sm:py-2.5 md:py-3 bg-[#0a1628] border-b border-white/5">
   <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-    <a href="index.php" class="flex items-center">
+    <a href="index.php" class="flex items-center py-1">
       <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo"
-        class="h-9 sm:h-12 md:h-16 w-auto object-contain" />
+        class="h-12 sm:h-16 md:h-20 lg:h-24 w-auto object-contain transition-all duration-300 drop-shadow-md" />
     </a>
 
     <!-- Desktop Navigation Menu -->
@@ -83,7 +154,7 @@ $homePrefix = $isHome ? '' : 'index.php';
 
     <div class="flex items-center gap-4">
       <a href="register.php"
-        class="hidden sm:inline-flex btn-gold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider items-center gap-1.5 font-bold">
+        class="hidden sm:inline-flex btn-brand text-[#070f1f] px-6 py-2.5 rounded-full text-xs uppercase tracking-wider items-center gap-1.5 font-extrabold shadow-lg">
         <span>Register Now</span>
         <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
       </a>
@@ -100,7 +171,7 @@ $homePrefix = $isHome ? '' : 'index.php';
   class="fixed inset-0 z-[60] bg-[#0a1628]/98 backdrop-blur-xl translate-x-full transition-transform duration-500 lg:hidden">
   <div class="flex flex-col h-full p-6 sm:p-8 overflow-y-auto">
     <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
-      <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo" class="h-8 w-auto" />
+      <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos Logo" class="h-11 sm:h-14 w-auto object-contain" />
       <button id="close-menu" class="text-gray-400 hover:text-white" aria-label="Close Navigation Menu">
         <i data-lucide="x" class="w-7 h-7"></i>
       </button>
@@ -145,7 +216,7 @@ $homePrefix = $isHome ? '' : 'index.php';
     </nav>
 
     <div class="mt-auto pt-6 border-t border-white/10">
-      <a href="register.php" class="btn-gold w-full py-3.5 rounded-full text-center uppercase tracking-wider font-bold block text-sm">
+      <a href="register.php" class="btn-brand text-[#070f1f] w-full py-3.5 rounded-full text-center uppercase tracking-wider font-extrabold block text-sm shadow-xl">
         Register Now
       </a>
     </div>

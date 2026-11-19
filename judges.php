@@ -1304,7 +1304,7 @@
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <a href="register.php"
-          class="btn-gold px-10 py-5 rounded-full text-lg uppercase tracking-widest flex items-center gap-3">
+          class="btn-brand text-[#070f1f] px-10 py-5 rounded-full text-lg uppercase tracking-widest flex items-center gap-3 font-extrabold shadow-2xl">
           <span>Register Now</span>
           <i data-lucide="arrow-right" class="w-5 h-5"></i>
         </a>

@@ -31,6 +31,11 @@ CREATE TABLE `admins` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `full_name` varchar(255) DEFAULT 'System Administrator',
+  `email` varchar(255) DEFAULT 'admin@colossusoflagos.com',
+  `role` varchar(50) DEFAULT 'admin',
+  `status` varchar(20) DEFAULT 'active',
+  `last_login` datetime DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -38,8 +43,47 @@ CREATE TABLE `admins` (
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id`, `username`, `password`, `created_at`) VALUES
-(1, 'admin', '$2y$10$FJSc5vj5zhFLyuvl4MUBF.nKXk1kikkSMRt3hCLGQwIoVbGcahq7W', '2026-11-06 13:55:55');
+INSERT INTO `admins` (`id`, `username`, `password`, `full_name`, `email`, `role`, `status`, `created_at`) VALUES
+(1, 'admin', '$2y$10$FJSc5vj5zhFLyuvl4MUBF.nKXk1kikkSMRt3hCLGQwIoVbGcahq7W', 'Executive Super Admin', 'admin@colossusoflagos.com', 'super_admin', 'active', '2026-11-06 13:55:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `audit_logs`
+--
+
+CREATE TABLE `audit_logs` (
+  `id` int(11) NOT NULL,
+  `admin_id` int(11) DEFAULT NULL,
+  `admin_username` varchar(100) DEFAULT NULL,
+  `action` varchar(100) NOT NULL,
+  `details` text DEFAULT NULL,
+  `ip_address` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `system_settings`
+--
+
+CREATE TABLE `system_settings` (
+  `id` int(11) NOT NULL,
+  `setting_key` varchar(100) NOT NULL,
+  `setting_value` text DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `system_settings` (`setting_key`, `setting_value`) VALUES
+('registration_status', 'open'),
+('competition_season', 'Season 1 (2026)'),
+('grand_prize', '₦25,000,000'),
+('bootcamp_slots', '30'),
+('island_hub_name', 'Lagos Island Audition Centre'),
+('mainland_hub_name', 'Lagos Mainland Audition Centre'),
+('contact_email', 'info@colossusoflagos.com'),
+('maintenance_mode', '0');
 
 -- --------------------------------------------------------
 
@@ -174,6 +218,19 @@ ALTER TABLE `newsletter_subscribers`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `audit_logs`
+--
+ALTER TABLE `audit_logs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `system_settings`
+--
+ALTER TABLE `system_settings`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `setting_key` (`setting_key`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -182,6 +239,18 @@ ALTER TABLE `newsletter_subscribers`
 --
 ALTER TABLE `admins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `audit_logs`
+--
+ALTER TABLE `audit_logs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `system_settings`
+--
+ALTER TABLE `system_settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `announcements`

@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Competition | Colossus of Lagos - The Hustle. The Heat. The Rise.</title>
-  <meta name="description" content="Discover the 4 stages of the Colossus of Lagos Competition: Business Pitches, Top 100 Bootcamp, Grand Finale, and ₦60,000,000 in prizes." />
+  <meta name="description" content="Discover the 4 stages of Colossus of Lagos Competition: Business Pitches, Top 100 Bootcamp, Grand Finale, and ₦60,000,000 in prizes." />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
@@ -116,7 +116,7 @@
       </p>
 
       <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="register.php" class="btn-gold px-8 py-3.5 rounded-full text-xs uppercase tracking-wider font-bold inline-flex items-center gap-2 shadow-xl">
+        <a href="register.php" class="btn-brand text-[#070f1f] px-8 py-3.5 rounded-full text-xs uppercase tracking-wider font-extrabold inline-flex items-center gap-2 shadow-xl">
           <span>Enter Competition</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
@@ -144,7 +144,7 @@
               </span>
               <h2 class="font-display text-xl sm:text-3xl font-bold text-white">The Competitive Arena of Enterprise</h2>
             </div>
-            <a href="register.php" class="btn-gold px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 self-start sm:self-auto shadow-lg">
+            <a href="register.php" class="btn-brand text-[#070f1f] px-6 py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider inline-flex items-center gap-2 self-start sm:self-auto shadow-lg">
               <span>Register Now</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
@@ -274,7 +274,7 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-[#070f1f]/80 via-transparent to-transparent pointer-events-none"></div>
                 <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] text-white font-medium bg-yellow-400/20 backdrop-blur-md px-3 py-1.5 rounded-lg border border-yellow-400/40">
                   <span class="text-yellow-300 font-bold">Grand Prize Award</span>
-                  <span class="text-white font-bold">₦25,000,000</span>
+                  <span class="text-white font-bold">₦30,000,000</span>
                 </div>
               </div>
             </div>
@@ -292,7 +292,7 @@
                 <div class="p-5 rounded-2xl bg-yellow-400/10 border border-yellow-400/40 text-center flex flex-col justify-between">
                   <div>
                     <span class="text-[10px] font-bold text-yellow-400 uppercase tracking-widest block mb-1">Grand Champion</span>
-                    <div class="font-display text-2xl sm:text-3xl font-extrabold text-yellow-400">₦25,000,000</div>
+                    <div class="font-display text-2xl sm:text-3xl font-extrabold text-yellow-400">₦30,000,000</div>
                   </div>
                   <span class="text-[11px] text-gray-300 font-light mt-2">Equity-free cash award for overall winner</span>
                 </div>

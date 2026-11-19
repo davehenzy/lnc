@@ -5,12 +5,17 @@ define('DB_PASS', '');
 define('DB_NAME', 'lncc_db');
 
 try {
-    $pdo = new PDO("mysql:host=" . DB_HOST, DB_USER, DB_PASS);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    // Create database if not exists
-    $pdo->exec("CREATE DATABASE IF NOT EXISTS " . DB_NAME);
-    $pdo->exec("USE " . DB_NAME);
+    // Attempt direct connection to database first (standard for live cPanel/production hosting)
+    try {
+        $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4", DB_USER, DB_PASS);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        // Fallback for local XAMPP setup where database might not exist yet
+        $pdo = new PDO("mysql:host=" . DB_HOST, DB_USER, DB_PASS);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->exec("CREATE DATABASE IF NOT EXISTS " . DB_NAME);
+        $pdo->exec("USE " . DB_NAME);
+    }
     
     // Create applicants table
     $sql = "CREATE TABLE IF NOT EXISTS applicants (

@@ -396,7 +396,7 @@
           <span>1-Month Timeline</span>
         </a>
         <a href="register.php"
-          class="btn-gold px-8 py-3.5 rounded-full text-xs md:text-sm uppercase tracking-widest flex items-center gap-2">
+          class="btn-brand text-[#070f1f] px-8 py-3.5 rounded-full text-xs md:text-sm uppercase tracking-widest flex items-center gap-2 font-extrabold shadow-xl">
           <span>Apply in 2-Week Window</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
@@ -422,10 +422,10 @@
 
         <div class="rounded-2xl border border-yellow-400/50 bg-[#070f1f]/90 backdrop-blur-md p-4 sm:p-5 lg:px-4 lg:py-5 xl:px-5 hover:border-yellow-400 hover-lift flex flex-col justify-between min-w-0 shadow-lg shadow-black/40 transition-all">
           <div class="min-w-0 mb-2">
-            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Summit Delegates</div>
+            <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Summit entrepreneurs</div>
             <div class="text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl font-bold text-yellow-400 tracking-tight leading-tight whitespace-nowrap tabular-nums">1,000+</div>
           </div>
-          <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">Delegates attending the Entrepreneurship Convention</p>
+          <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">entrepreneurs attending the Entrepreneurship Convention</p>
         </div>
 
         <div class="rounded-2xl border border-yellow-400/50 bg-[#070f1f]/90 backdrop-blur-md p-4 sm:p-5 lg:px-4 lg:py-5 xl:px-5 hover:border-yellow-400 hover-lift flex flex-col justify-between min-w-0 shadow-lg shadow-black/40 transition-all">
@@ -538,7 +538,7 @@
               <span class="text-xs text-yellow-400 font-semibold">Week 4</span>
             </div>
             <h4 class="font-bold text-white text-base mb-2">Entrepreneurship Convention</h4>
-            <p class="text-xs text-gray-400 leading-relaxed font-light">1,000+ delegates gather for summit keynotes, masterclasses, executive panels, and business exhibition in Lagos.</p>
+            <p class="text-xs text-gray-400 leading-relaxed font-light">1,000+ entrepreneurs gather for summit keynotes, masterclasses, executive panels, and business exhibition in Lagos.</p>
             <div class="mt-4 pt-3 border-t border-white/5 text-[11px] text-gray-400 flex items-center gap-1.5">
               <i data-lucide="users" class="w-3.5 h-3.5 text-yellow-400"></i>
               <span>High-profile public & corporate leaders</span>
@@ -1194,7 +1194,7 @@
                   <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-[#d4af37] -translate-x-[9px]"></div>
                   <div class="text-xs font-semibold text-[#d4af37] mb-0.5">Stage 3</div>
                   <h4 class="font-bold text-white text-sm mb-0.5">Entrepreneurship Convention</h4>
-                  <p class="text-xs text-gray-400">Join 1,000+ delegates and corporate mentors for summit sessions and capacity building.</p>
+                  <p class="text-xs text-gray-400">Join 1,000+ entrepreneurs and corporate mentors for summit sessions and capacity building.</p>
                 </div>
 
                 <div class="relative pl-8 pb-5 border-l-2 border-[#d4af37]/30">
@@ -1392,7 +1392,7 @@
         journey.
       </p>
       <a href="register.php"
-        class="btn-gold px-10 py-5 rounded-full text-lg uppercase tracking-widest inline-flex items-center gap-3">
+        class="btn-brand text-[#070f1f] px-10 py-5 rounded-full text-lg uppercase tracking-widest inline-flex items-center gap-3 font-extrabold shadow-2xl">
         <span>Start Registration</span>
         <i data-lucide="arrow-right" class="w-5 h-5"></i>
       </a>

@@ -12,7 +12,7 @@ $homePrefix = $isHome ? '' : 'index.php';
           <img src="assets/logos/new/col-logo.png" alt="Colossus of Lagos" class="h-12 w-auto">
         </div>
         <p class="text-gray-500 text-sm max-w-sm leading-relaxed mb-6">
-          An entrepreneurial reality and competition show developed in
+          An entrepreneurial Festival program in
           partnership with Lagos State Government to identify, support, and
           scale high-potential entrepreneurs driving jobs, innovation, and
           economic growth.
@@ -96,12 +96,6 @@ $homePrefix = $isHome ? '' : 'index.php';
     </div>
   </div>
 </footer>
-
-<!-- Floating WhatsApp Widget -->
-<a href="https://wa.me/2348123456789?text=Hello%20Colossus%20of%20Lagos%20team,%20I%20have%20an%20enquiry" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-2xl hover:scale-105 transition-transform" title="Chat on WhatsApp">
-  <i data-lucide="message-circle" class="w-6 h-6"></i>
-  <span class="text-xs font-bold hidden sm:inline">WhatsApp Help Desk</span>
-</a>
 
 <script>
   (function() {

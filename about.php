@@ -244,7 +244,7 @@
           </p>
 
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-            <a href="register.php" class="btn-gold px-8 py-3.5 rounded-full text-xs md:text-sm uppercase tracking-widest flex items-center gap-2">
+            <a href="register.php" class="btn-brand text-[#070f1f] px-8 py-3.5 rounded-full text-xs md:text-sm uppercase tracking-widest font-extrabold flex items-center gap-2 shadow-xl">
               <span>Apply Now</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
@@ -706,7 +706,7 @@
                 Over 500 distinguished guests in attendance — including the Governor of Lagos State, ministers, commissioners, corporate CEOs, and media icons — featuring red-carpet activation, live performances, and the crowning of the champion.
               </p>
             </div>
-            <a href="register.php" class="btn-gold px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-bold whitespace-nowrap self-start lg:self-center">
+            <a href="register.php" class="btn-brand text-[#070f1f] px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-extrabold whitespace-nowrap self-start lg:self-center shadow-lg">
               Register To Compete
             </a>
           </div>
@@ -1011,7 +1011,7 @@
       </p>
 
       <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="register.php" class="btn-gold px-10 py-4 rounded-full text-sm uppercase tracking-widest font-extrabold flex items-center gap-2">
+        <a href="register.php" class="btn-brand text-[#070f1f] px-10 py-4 rounded-full text-sm uppercase tracking-widest font-extrabold flex items-center gap-2 shadow-2xl">
           <span>Apply For Current Season</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>

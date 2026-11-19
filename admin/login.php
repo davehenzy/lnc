@@ -9,34 +9,48 @@ if (isset($_SESSION['admin_logged_in'])) {
 
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
+    $username = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
 
-    $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = ?");
-    $stmt->execute([$username]);
-    $admin = $stmt->fetch();
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = ?");
+        $stmt->execute([$username]);
+        $admin = $stmt->fetch();
 
-    if ($admin && password_verify($password, $admin['password'])) {
-        if (isset($admin['status']) && $admin['status'] === 'inactive') {
-            $error = "This administrator account is suspended. Contact Super Admin.";
+        if ($admin && password_verify($password, $admin['password'])) {
+            if (isset($admin['status']) && $admin['status'] === 'inactive') {
+                $error = "This administrator account is suspended. Contact Super Admin.";
+            } else {
+                $_SESSION['admin_logged_in'] = true;
+                $_SESSION['admin_id'] = $admin['id'];
+                $_SESSION['admin_username'] = $admin['username'];
+                $_SESSION['admin_fullname'] = !empty($admin['full_name']) ? $admin['full_name'] : $admin['username'];
+                $_SESSION['admin_role'] = $admin['role'] ?? 'admin';
+
+                // Update last_login safely
+                try {
+                    $pdo->prepare("UPDATE admins SET last_login = NOW() WHERE id = ?")->execute([$admin['id']]);
+                } catch (Exception $e) {
+                    // Ignore if column doesn't exist yet
+                }
+
+                // Record audit log safely
+                if (function_exists('log_audit_action')) {
+                    try {
+                        log_audit_action($pdo, 'Admin Login', "User '{$admin['username']}' ({$_SESSION['admin_role']}) authenticated successfully.");
+                    } catch (Exception $e) {
+                        // Ignore
+                    }
+                }
+
+                header("Location: index.php");
+                exit();
+            }
         } else {
-            $_SESSION['admin_logged_in'] = true;
-            $_SESSION['admin_id'] = $admin['id'];
-            $_SESSION['admin_username'] = $admin['username'];
-            $_SESSION['admin_fullname'] = !empty($admin['full_name']) ? $admin['full_name'] : $admin['username'];
-            $_SESSION['admin_role'] = $admin['role'] ?? 'admin';
-
-            // Update last_login
-            $pdo->prepare("UPDATE admins SET last_login = NOW() WHERE id = ?")->execute([$admin['id']]);
-
-            // Record audit log
-            log_audit_action($pdo, 'Admin Login', "User '{$admin['username']}' ({$admin['role']}) authenticated successfully.");
-
-            header("Location: index.php");
-            exit();
+            $error = "Invalid credentials. ACCESS DENIED.";
         }
-    } else {
-        $error = "Invalid credentials. ACCESS DENIED.";
+    } catch (Exception $e) {
+        $error = "Authentication system error: " . $e->getMessage();
     }
 }
 ?>

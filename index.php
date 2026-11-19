@@ -145,6 +145,83 @@ require_once 'config.php';
       background-clip: text;
     }
 
+    /* Brand Hex Spectrum Text Gradient: #ff174f #f4cc12 #00c99a #ff8a00 #ad55d6 #008df0 */
+    .text-brand-gradient {
+      background: linear-gradient(135deg,
+          #ff174f 0%,
+          #f4cc12 20%,
+          #00c99a 40%,
+          #ff8a00 60%,
+          #ad55d6 80%,
+          #008df0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .text-brand-gradient-h {
+      background: linear-gradient(to right,
+          #ff174f 0%,
+          #f4cc12 20%,
+          #00c99a 40%,
+          #ff8a00 60%,
+          #ad55d6 80%,
+          #008df0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .text-spectrum-gradient {
+      background: linear-gradient(135deg,
+          #ff174f 0%,
+          #ff8a00 20%,
+          #f4cc12 40%,
+          #00c99a 60%,
+          #008df0 80%,
+          #ad55d6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .text-spectrum-gradient-h {
+      background: linear-gradient(to right,
+          #ff174f 0%,
+          #ff8a00 20%,
+          #f4cc12 40%,
+          #00c99a 60%,
+          #008df0 80%,
+          #ad55d6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .bg-brand-gradient {
+      background: linear-gradient(135deg,
+          #ff174f 0%,
+          #f4cc12 20%,
+          #00c99a 40%,
+          #ff8a00 60%,
+          #ad55d6 80%,
+          #008df0 100%);
+    }
+
+    .bg-spectrum-gradient {
+      background: linear-gradient(135deg,
+          #ff174f 0%,
+          #ff8a00 20%,
+          #f4cc12 40%,
+          #00c99a 60%,
+          #008df0 80%,
+          #ad55d6 100%);
+    }
+
     .glass-panel {
       background: rgba(15, 29, 50, 0.7);
       backdrop-filter: blur(12px);
@@ -291,7 +368,7 @@ require_once 'config.php';
   <?php include 'includes/navbar.php'; ?>
 
   <!-- Hero Section with Interactive Slider & Visual Experience -->
-  <section class="relative w-full pt-[68px] sm:pt-[76px] md:pt-[88px] overflow-hidden bg-[#0a1628]">
+  <section class="relative w-full pt-[72px] sm:pt-[84px] md:pt-[100px] lg:pt-[112px] overflow-hidden bg-[#0a1628]">
     <!-- Top Interactive Slider (Balanced on Mobile, Tablet & Desktop) -->
     <div id="hero-slider-wrap" class="relative group shadow-2xl shadow-black/80 select-none">
       <div class="absolute inset-0 z-0 bg-[#0a1628] overflow-hidden">
@@ -341,16 +418,19 @@ require_once 'config.php';
           <p class="text-[11px] sm:text-xs text-gray-300 font-light leading-snug mt-2">Thousands of hopeful entrepreneurs</p>
         </div>
 
-        <!-- 2nd Box: Summit Delegates -->
+        <!-- 2nd Box: Summit entrepreneurs -->
         <div class="rounded-2xl border border-yellow-400/50 bg-[#070f1f]/90 backdrop-blur-md p-3.5 sm:p-4 lg:p-4 hover:border-yellow-400 hover-lift flex flex-col justify-between min-w-0 shadow-lg shadow-black/40 transition-all">
           <div>
             <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1.5 flex items-center justify-between">
-              <span class="truncate">Summit Delegates</span>
+              <span class="truncate">Summit entrepreneurs</span>
               <i data-lucide="users" class="w-3.5 h-3.5 text-yellow-400 shrink-0"></i>
             </div>
-            <div class="text-base sm:text-lg md:text-xl lg:text-2xl font-black text-yellow-400 tracking-tight leading-tight whitespace-nowrap tabular-nums">1,000+</div>
+            <div class="text-base sm:text-lg md:text-xl lg:text-2xl font-black text-yellow-400 tracking-tight leading-tight whitespace-nowrap tabular-nums">1,000
+
+
+            </div>
           </div>
-          <p class="text-[11px] sm:text-xs text-gray-300 font-light leading-snug mt-2">Delegates attending Entrepreneurship Summit</p>
+          <p class="text-[11px] sm:text-xs text-gray-300 font-light leading-snug mt-2">entrepreneurs attending Entrepreneurship Summit</p>
         </div>
 
         <!-- 3rd Box: Bootcamp -->
@@ -420,7 +500,7 @@ require_once 'config.php';
       </div>
 
       <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight max-w-3xl">
-        Accelerating Enterprise, Innovation & <span class="text-gold-gradient">Sustainable Job Creation</span>
+        Accelerating Enterprise, Innovation & <span class="text-brand-gradient">Sustainable Job Creation</span>
       </h2>
 
       <div class="space-y-4 text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed font-light max-w-3xl">
@@ -466,12 +546,12 @@ require_once 'config.php';
           </div>
           <div class="lg:col-span-4 flex flex-col gap-4">
             <div class="p-6 rounded-2xl bg-white/5 border border-white/10 text-center">
-              <span class="text-3xl sm:text-4xl font-display font-extrabold text-yellow-400 block mb-1">₦60,000,000</span>
+              <span class="text-3xl sm:text-4xl font-display font-extrabold text-brand-gradient block mb-1">₦60,000,000</span>
               <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Total Prize & Grant Pool</span>
             </div>
             <div class="p-6 rounded-2xl bg-white/5 border border-white/10 text-center">
-              <span class="text-3xl sm:text-4xl font-display font-extrabold text-white block mb-1">1,000+</span>
-              <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Delegates & Participants</span>
+              <span class="text-3xl sm:text-4xl font-display font-extrabold text-white block mb-1">1,000</span>
+              <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">entrepreneurs & Participants</span>
             </div>
           </div>
         </div>
@@ -571,7 +651,7 @@ require_once 'config.php';
             <span class="text-yellow-400 text-xs font-semibold tracking-widest uppercase">Value For Brands</span>
           </div>
           <h2 class="font-display text-3xl sm:text-5xl font-bold mb-6 leading-tight">
-            Where Corporate Brands Meet <span class="text-gold-gradient">Entrepreneurial Ambition</span>
+            Where Corporate Brands Meet Entrepreneurial<span class="text-brand-gradient"> Ambition</span>
           </h2>
           <div class="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed font-light">
             <p>
@@ -705,7 +785,7 @@ require_once 'config.php';
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="register.php" class="btn-gold px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest inline-flex items-center gap-3 shadow-xl shadow-yellow-400/20 hover:scale-105 transition-all w-full sm:w-auto justify-center">
+        <a href="register.php" class="btn-brand text-[#070f1f] px-10 py-4 rounded-full text-sm font-extrabold uppercase tracking-widest inline-flex items-center gap-3 shadow-xl hover:scale-105 transition-all w-full sm:w-auto justify-center">
           <span>Register Now</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>

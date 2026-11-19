@@ -274,7 +274,7 @@
       </h1>
 
       <p class="max-w-2xl mx-auto text-base sm:text-lg text-gray-300 font-light leading-relaxed mb-8">
-        Everything you need to know about the Colossus of Lagos — 1-month festival duration, 2-week registration, audition mechanics across 5 zones, and ₦70M+ in non-dilutive prizes.
+        Everything you need to know about Colossus of Lagos — 1-month festival duration, 2-week registration, audition mechanics across 5 zones, and ₦70M+ in non-dilutive prizes.
       </p>
 
       <!-- Instant Live Search -->
@@ -309,7 +309,7 @@
 
       <div class="rounded-2xl border border-yellow-400/50 bg-[#070f1f]/90 backdrop-blur-md p-4 sm:p-5 lg:px-4 lg:py-5 xl:px-5 hover:border-yellow-400 hover-lift flex flex-col justify-between min-w-0 shadow-lg shadow-black/40 transition-all">
         <div class="min-w-0 mb-2">
-          <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Summit Delegates</div>
+          <div class="text-[10px] sm:text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1 truncate">Summit entrepreneurs</div>
           <div class="text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl font-bold text-yellow-400 tracking-tight leading-tight whitespace-nowrap tabular-nums">1,000+</div>
         </div>
         <p class="text-[11px] sm:text-xs text-gray-400 font-light leading-snug">Entrepreneurs & ecosystem partners</p>
@@ -730,7 +730,7 @@
         </div>
         <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mb-3">Still Have an Unanswered Question?</h3>
         <p class="text-gray-300 text-sm max-w-xl mx-auto font-light leading-relaxed mb-6">
-          Our dedicated team at the Colossus of Lagos Secretariat is available to assist you with registration inquiries, venue directions, and eligibility verification.
+          Our dedicated team at Colossus of Lagos Secretariat is available to assist you with registration inquiries, venue directions, and eligibility verification.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="https://wa.me/2348123456789?text=Hello%20Colossus%20of%20Lagos%20team,%20I%20have%20an%20enquiry%20regarding%20registration" target="_blank" rel="noopener"
@@ -738,7 +738,7 @@
             <i data-lucide="message-circle" class="w-5 h-5"></i>
             <span>Chat on WhatsApp</span>
           </a>
-          <a href="register.php" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 btn-gold px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider shadow-xl">
+          <a href="register.php" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 btn-brand text-[#070f1f] px-7 py-3.5 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider shadow-xl">
             <span>Apply For Season I</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>

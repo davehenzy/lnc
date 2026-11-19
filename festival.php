@@ -112,11 +112,11 @@
       </p>
 
       <p class="text-gray-300 text-sm sm:text-base leading-relaxed font-light mb-8 max-w-3xl mx-auto">
-        The Colossus of Lagos Festival brings together 1,000+ delegates, ambitious entrepreneurs, venture capitalists, industry titans, and policymakers for meaningful conversations, valuable connections, high-stakes deal rooms, and unforgettable cultural celebrations.
+        Colossus of Lagos Festival brings together 1,000 entrepreneurs, ambitious entrepreneurs, venture capitalists, industry titans, and policymakers for meaningful conversations, valuable connections, high-stakes deal rooms, and unforgettable cultural celebrations.
       </p>
 
       <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="register.php" class="btn-gold px-8 py-3.5 rounded-full text-xs uppercase tracking-wider font-bold inline-flex items-center gap-2 shadow-xl">
+        <a href="register.php" class="btn-brand text-[#070f1f] px-8 py-3.5 rounded-full text-xs uppercase tracking-wider font-extrabold inline-flex items-center gap-2 shadow-xl">
           <span>Register as Delegate</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
@@ -140,10 +140,10 @@
           <div class="h-px w-10 bg-yellow-400"></div>
         </div>
         <h2 class="font-display text-3xl sm:text-5xl font-bold mb-6">
-          Four Pillars of <span class="text-gold-gradient">Impact & Inspiration</span>
+          Four Pillars of Impact &<span class="text-brand-gradient"> Inspiration</span>
         </h2>
         <p class="text-gray-300 text-sm sm:text-base leading-relaxed font-light">
-          Each pillar of the Colossus of Lagos Festival is crafted to equip, network, and elevate the entrepreneurial community across Africa's commercial capital.
+          Each pillar of Colossus of Lagos Festival is crafted to equip, network, and elevate the entrepreneurial community across Africa's commercial capital.
         </p>
       </div>
 
@@ -156,7 +156,7 @@
               <img src="assets/sections/Entrepreneurship Summit.png" alt="Entrepreneurship Summit Panel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-[#070f1f]/80 via-transparent to-transparent pointer-events-none"></div>
               <div class="absolute top-3 right-3">
-                <span class="text-[10px] font-bold text-yellow-400 uppercase tracking-widest bg-[#070f1f]/80 backdrop-blur-md px-3 py-1 rounded-full border border-yellow-400/30">1,000 Delegates</span>
+                <span class="text-[10px] font-bold text-yellow-400 uppercase tracking-widest bg-[#070f1f]/80 backdrop-blur-md px-3 py-1 rounded-full border border-yellow-400/30">1,000 entrepreneurs</span>
               </div>
             </div>
             <div class="flex items-center gap-3 mb-3">
